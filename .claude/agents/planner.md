@@ -1,5 +1,5 @@
 ---
-name: planner
+name: 計画係
 description: 計画・設計担当。曖昧な依頼や複数ステップの作業を、着手前に要件の整理・選択肢の比較・実行可能な手順の計画に落とし込む。「計画して」「設計して」「どう進める？」「段取りを考えて」と言われたとき、または実装前に使う。コードは書き換えない。
 tools: Read, Grep, Glob, Bash, WebFetch, WebSearch, Skill
 ---

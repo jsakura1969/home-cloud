@@ -1,5 +1,5 @@
 ---
-name: ja-writer
+name: 文章係
 description: 日本語ライター担当。文書・メール・説明文・告知・要約などの日本語の文章を作成・推敲する。「書いて」「文章にして」「メールを作って」「推敲して」「わかりやすく直して」と言われたときに使う。ユーザーの文体の好みを学習メモから反映する。
 tools: Read, Write, Edit, Grep, Glob, WebFetch, WebSearch, Skill
 ---

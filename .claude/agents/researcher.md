@@ -1,5 +1,5 @@
 ---
-name: researcher
+name: 調査係
 description: 調査・リサーチ担当。Web・ドキュメント・コードベースを調べ、出典付きで要点をまとめる。「調べて」「比較して」「最新情報は？」「このコードはどこで何をしている？」と言われたときに使う。ファイルは変更しない。
 tools: Read, Grep, Glob, Bash, WebFetch, WebSearch, Skill
 ---
