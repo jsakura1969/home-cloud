@@ -25,7 +25,7 @@ npm ci
 - Clinical Trials（`mcp__Clinical_Trials__*`）
 - Arca FDA, Trials & PubMed（`mcp__Arca_FDA_Trials_PubMed__*`）
 
-許可の設定はリポジトリの `.claude/settings.json`（`permissions.allow`）に書いてある。ここに挙げていない医療系リサーチ MCP を新しく接続した場合は、この一覧と `.claude/settings.json` の両方に追加する。
+同じ許可はリポジトリ直下の `CLAUDE.md` にも書いてある。許可の設定はリポジトリの `.claude/settings.json`（`permissions.allow`）に書いてある。ここに挙げていない医療系リサーチ MCP を新しく接続した場合は、この一覧と `.claude/settings.json` の両方に追加する。
 
 - 優先順位は、大規模RCT・メタ解析・Cochrane・GBD などの疾病負荷推計・FDA 添付文書。症例報告や小規模研究は使わない。
 - 使う論文・文書ごとに、**MCP が返した抄録（または該当箇所）をそのまま** `daily/<DATE>/sources/` に保存する。要約や書き換えはしない。
