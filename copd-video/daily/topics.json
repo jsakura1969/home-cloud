@@ -1,0 +1,217 @@
+{
+  "series": "呼吸器エビデンス・ショート",
+  "note": "毎日のセッションは status が todo の先頭から1件選ぶ。hint は根拠集めの出発点（必ず MCP で確認し直すこと）。",
+  "topics": [
+    {
+      "id": "copd-burden",
+      "title": "COPDはどれくらい多い？",
+      "status": "done",
+      "number": 1,
+      "date": "2026-11-18",
+      "video": "out/copd-v1.mp4"
+    },
+    {
+      "id": "copd-smoking",
+      "title": "禁煙は治療の土台",
+      "status": "done",
+      "number": 2,
+      "date": "2026-11-18",
+      "video": "out/copd-v2.mp4"
+    },
+    {
+      "id": "copd-triple",
+      "title": "吸入薬：2剤から3剤へ",
+      "status": "done",
+      "number": 3,
+      "date": "2026-11-18",
+      "video": "out/copd-v3.mp4"
+    },
+    {
+      "id": "copd-biologics",
+      "title": "COPDの新しい治療：生物学的製剤",
+      "status": "done",
+      "number": 4,
+      "date": "2026-11-18",
+      "video": "out/copd-v4.mp4"
+    },
+    {
+      "id": "copd-nonpharm",
+      "title": "COPD 薬以外の治療",
+      "status": "done",
+      "number": 5,
+      "date": "2026-11-18",
+      "video": "out/copd-v5.mp4"
+    },
+    {
+      "id": "asthma-burden",
+      "title": "喘息はどれくらい多い？",
+      "status": "done",
+      "hint": "GBD の喘息有病率・死亡、喘息死の多くは予防可能という報告",
+      "date": "2026-11-18",
+      "number": 6,
+      "video": "daily/2026-11-18/short.mp4"
+    },
+    {
+      "id": "asthma-ics",
+      "title": "喘息の基本は吸入ステロイド",
+      "status": "todo",
+      "hint": "ICS と喘息死・入院の減少、SABA 単独のリスク"
+    },
+    {
+      "id": "asthma-mart",
+      "title": "発作止めも兼ねる吸入薬（MART/AIR）",
+      "status": "todo",
+      "hint": "SYGMA・Novel START などの ICS-formoterol 頓用の RCT"
+    },
+    {
+      "id": "inhaler-technique",
+      "title": "吸入薬は「使い方」で効きが変わる",
+      "status": "todo",
+      "hint": "吸入手技エラーの頻度と喘息・COPDのコントロール悪化のメタ解析"
+    },
+    {
+      "id": "asthma-biologics",
+      "title": "重症喘息の生物学的製剤",
+      "status": "todo",
+      "hint": "メポリズマブ・ベンラリズマブ・デュピルマブ・テゼペルマブの増悪減少 RCT、FDA 添付文書"
+    },
+    {
+      "id": "cap-burden",
+      "title": "肺炎は高齢者の大きな敵",
+      "status": "todo",
+      "hint": "市中肺炎の入院・死亡の疫学（GBD・大規模コホート）"
+    },
+    {
+      "id": "pneumococcal-vaccine",
+      "title": "肺炎球菌ワクチン",
+      "status": "todo",
+      "hint": "CAPiTA 試験（PCV13 の高齢者RCT）、PPSV23 のメタ解析、新しい結合型ワクチンの FDA 承認"
+    },
+    {
+      "id": "influenza-vaccine",
+      "title": "インフルエンザワクチンと肺の病気",
+      "status": "todo",
+      "hint": "高齢者・心肺疾患でのワクチン効果のRCT/メタ解析"
+    },
+    {
+      "id": "rsv-vaccine",
+      "title": "大人のRSウイルスとワクチン",
+      "status": "todo",
+      "hint": "RSVPreF3（AReSVi-006）・RSVpreF（RENOIR）の第3相、FDA 承認"
+    },
+    {
+      "id": "cap-steroids",
+      "title": "重症肺炎とステロイド",
+      "status": "todo",
+      "hint": "CAPE COD 試験（重症市中肺炎のヒドロコルチゾン）"
+    },
+    {
+      "id": "tb-basics",
+      "title": "結核は今も身近な感染症",
+      "status": "todo",
+      "hint": "WHO Global TB Report の患者数（PubMed の要約論文で確認）、短期レジメンの RCT"
+    },
+    {
+      "id": "ipf-basics",
+      "title": "特発性肺線維症（IPF）とは",
+      "status": "todo",
+      "hint": "IPF の疫学・予後のレビュー"
+    },
+    {
+      "id": "ipf-antifibrotic",
+      "title": "IPFの抗線維化薬",
+      "status": "todo",
+      "hint": "INPULSIS（ニンテダニブ）・ASCEND/CAPACITY（ピルフェニドン）の FVC 低下抑制"
+    },
+    {
+      "id": "ppf",
+      "title": "IPF以外でも進む肺線維症",
+      "status": "todo",
+      "hint": "INBUILD 試験（進行性線維化を伴う間質性肺疾患）"
+    },
+    {
+      "id": "osa-burden",
+      "title": "睡眠時無呼吸症候群はどれくらい多い？",
+      "status": "todo",
+      "hint": "Benjafield 2019 の世界推計（約10億人）"
+    },
+    {
+      "id": "osa-cpap",
+      "title": "CPAPで何が良くなる？",
+      "status": "todo",
+      "hint": "眠気・QOL の改善、SAVE 試験（心血管イベントは減らず）を正確に"
+    },
+    {
+      "id": "osa-tirzepatide",
+      "title": "睡眠時無呼吸と体重減少の薬",
+      "status": "todo",
+      "hint": "SURMOUNT-OSA（チルゼパチド）の AHI 減少、FDA 承認"
+    },
+    {
+      "id": "lung-cancer-screening",
+      "title": "肺がん検診（低線量CT）",
+      "status": "todo",
+      "hint": "NLST・NELSON の肺がん死亡減少"
+    },
+    {
+      "id": "smoking-cessation-drugs",
+      "title": "禁煙補助薬はどれが効く？",
+      "status": "todo",
+      "hint": "EAGLES 試験、バレニクリン・NRT の Cochrane レビュー"
+    },
+    {
+      "id": "e-cigarettes",
+      "title": "電子たばこは禁煙に役立つ？",
+      "status": "todo",
+      "hint": "Cochrane の電子たばこ禁煙レビュー、Hajek 2019 NEJM。安全性の不確実性も明記"
+    },
+    {
+      "id": "bronchiectasis",
+      "title": "気管支拡張症と新しい薬",
+      "status": "todo",
+      "hint": "ASPEN 試験（ブレンソカチブ）の増悪減少、FDA 承認の有無を確認"
+    },
+    {
+      "id": "pulmonary-embolism",
+      "title": "肺塞栓症（エコノミークラス症候群）",
+      "status": "todo",
+      "hint": "DOAC と従来治療の比較 RCT/メタ解析、長時間移動との関連"
+    },
+    {
+      "id": "pulmonary-hypertension",
+      "title": "肺高血圧症の新しい治療",
+      "status": "todo",
+      "hint": "STELLAR 試験（ソタテルセプト）、FDA 承認"
+    },
+    {
+      "id": "sarcoidosis",
+      "title": "サルコイドーシスとは",
+      "status": "todo",
+      "hint": "疫学レビュー、ステロイド治療のエビデンス"
+    },
+    {
+      "id": "long-covid-lung",
+      "title": "コロナ後の息切れ",
+      "status": "todo",
+      "hint": "COVID 後の呼吸器症状の頻度（メタ解析）、呼吸リハビリの RCT"
+    },
+    {
+      "id": "home-oxygen",
+      "title": "在宅酸素療法を正しく知る",
+      "status": "todo",
+      "hint": "NOTT・MRC・LOTT、安全面（火気）"
+    },
+    {
+      "id": "pulmonary-rehab",
+      "title": "呼吸リハビリのすすめ",
+      "status": "todo",
+      "hint": "Cochrane 呼吸リハ、増悪後早期リハビリのメタ解析"
+    },
+    {
+      "id": "air-pollution-lung",
+      "title": "大気汚染と肺の健康",
+      "status": "todo",
+      "hint": "PM2.5 と呼吸器死亡の大規模コホート・GBD"
+    }
+  ]
+}

@@ -39,6 +39,44 @@ npm run render         # out/copd-v1.mp4〜v5.mp4 を書き出し
 - HyperFrames はプロジェクトごとに `index.html` を1つ想定しているため、`build/render.mjs` が動画ごとに `.build/<id>/` を作って書き出します。
 - HyperFrames 0.9.13 と GSAP 3.15.0 は、バージョンを固定しています。GSAP は `assets/gsap.min.js` として同梱しています。
 
+## 毎日の自動作成と YouTube 公開
+1. **毎日 12時ごろ（日本時間）**：Claude のスケジュールタスクが新しいセッションを起動する。セッションは [daily/RUNBOOK.md](daily/RUNBOOK.md) に従って作業する。
+   - [daily/topics.json](daily/topics.json) から次のテーマを選ぶ
+   - PubMed・Clinical Trials・Arca で根拠を集める
+   - `node build/daily.mjs <日付>` で動画を作る
+2. **自動チェック（関門）**：1つでも失敗した日は `ready.json` ができず、公開されない。チェック内容：
+   - 画面の数字がすべて保存した抄録の引用で裏付けられていること
+   - 出典があること
+   - 文字のはみ出しがないこと
+   - 音声の長さ・音量
+   - 説明欄の免責文とクレジット
+3. **GitHub Actions**（[.github/workflows/youtube-upload.yml](../.github/workflows/youtube-upload.yml)）：`ready.json` のプッシュで YouTube に**公開**アップロードする。動画URLを `daily/<日付>/youtube.json` に記録する。
+
+### 初期設定（最初に一度だけ）
+1. [Google Cloud Console](https://console.cloud.google.com/) でプロジェクトを作り、**YouTube Data API v3** を有効にする。
+2. 「OAuth 同意画面」を設定する。
+   - 種類は「外部」
+   - スコープに `.../auth/youtube.upload` を追加する
+   - **公開ステータスを「本番環境」にする**（「テスト」のままだと、トークンが7日で切れる）
+   - 未審査のため、許可のときに警告が出るが、自分のアカウントなら続行してよい
+3. 「認証情報」で **OAuth クライアント ID（種類：デスクトップ アプリ）** を作り、クライアントIDとシークレットを控える。
+4. 自分のパソコンで次を実行し、表示された URL を、動画を上げるチャンネルの Google アカウントで許可する：
+   ```bash
+   YT_CLIENT_ID=… YT_CLIENT_SECRET=… node copd-video/scripts/youtube-auth.mjs
+   ```
+5. GitHub のリポジトリ設定 → Secrets and variables → Actions に、次の3つを登録する：
+   - `YT_CLIENT_ID`
+   - `YT_CLIENT_SECRET`
+   - `YT_REFRESH_TOKEN`（手順4で表示された値）
+6. Actions の「YouTube upload」を手動実行（Run workflow）する。最初は `dry_run` をオンにして送信内容を確かめ、次にオフで実行して1本目を公開する。
+
+### 注意（自動公開について）
+- **非公開に固定される場合がある**：Google の監査を受けていない API プロジェクトからの動画は、「非公開」に固定されることがある。2026年時点では扱いがはっきりしない。
+  - 固定された場合は、Actions のログに警告が出る。`youtube.json` の `privacyStatus` にも記録される
+  - そのときは、YouTube Studio で手動で公開に切り替えるか、Google に [監査を申請](https://support.google.com/youtube/contact/yt_api_form) する
+- **医療情報**：自動チェックで数値と出典の整合は確かめるが、解釈の誤りまでは防げない。公開された動画はときどき見直すこと。
+- **止め方**：Claude のスケジュールタスクを停止する。アップロードだけ止めたい場合は、GitHub の Actions で「YouTube upload」ワークフローを無効にする。
+
 ## 注意
 - 医療情報の一般的な解説です。個別の治療判断は主治医と相談してください。
 - 動画4の承認情報は米国FDAのものです。日本での承認状況は確認していません。

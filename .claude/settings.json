@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__PubMed",
+      "mcp__Clinical_Trials",
+      "mcp__Arca_FDA_Trials_PubMed"
+    ]
+  }
+}

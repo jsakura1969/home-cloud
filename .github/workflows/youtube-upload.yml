@@ -1,0 +1,60 @@
+# チェックに合格した毎日の動画（copd-video/daily/<date>/ready.json）を YouTube に公開アップロードする。
+# 必要な Secrets: YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN（copd-video/README.md 参照）
+name: YouTube upload
+
+on:
+  push:
+    branches: [claude/elegant-bohr-9674ux]
+    paths: ["copd-video/daily/**/ready.json"]
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "特定の日付だけ上げる（YYYY-MM-DD、空欄なら未アップロード分すべて）"
+        required: false
+      dry_run:
+        description: "送信内容の表示だけ（アップロードしない）"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: youtube-upload
+  cancel-in-progress: false
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Upload to YouTube
+        working-directory: copd-video
+        env:
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+        run: |
+          ARGS=()
+          if [ "${{ inputs.dry_run }}" = "true" ]; then ARGS+=(--dry-run); fi
+          if [ -n "${{ inputs.date }}" ]; then ARGS+=(--date "${{ inputs.date }}"); fi
+          node scripts/youtube-upload.mjs "${ARGS[@]}"
+
+      - name: Commit youtube.json
+        if: ${{ always() && inputs.dry_run != true }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add copd-video/daily/*/youtube.json 2>/dev/null || true
+          if git diff --cached --quiet; then echo "no new uploads to record"; exit 0; fi
+          git commit -m "Record YouTube upload [skip ci]"
+          for i in 1 2 3 4; do
+            git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}" && exit 0
+            sleep $((i * 5))
+          done
+          exit 1

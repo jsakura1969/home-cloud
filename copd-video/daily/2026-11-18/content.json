@@ -1,0 +1,56 @@
+{
+  "date": "2026-11-18",
+  "topicId": "asthma-burden",
+  "theme": "喘息はどれくらい多い？",
+  "scenes": [
+    { "type": "hook", "kicker": "身近な呼吸器の病気", "title": "喘息は<br>子どもの病気？", "sub": "大人にも多く、<br>今も命に関わる病気" },
+    {
+      "type": "stat", "label": "世界の喘息の患者数（2021年）", "count": 2.6, "decimals": 1, "unit": "億人",
+      "sub": "2050年には約2.75億人と予測",
+      "src": "GBD 2021 Asthma Collaborators. Lancet Respir Med 2025｜PMID 40147466"
+    },
+    {
+      "type": "stat", "label": "英国の喘息死の全国調査", "big": "3分の2",
+      "sub": "防げた可能性のある要因があった",
+      "note": "45%は最後の発作で医療につながらなかった",
+      "src": "Levy ML. Breathe 2015（UK National Review of Asthma Deaths）｜PMID 26306100"
+    },
+    {
+      "type": "stat", "label": "低用量の吸入ステロイド", "count": 21, "unit": "%減",
+      "sub": "使った吸入器が1本増えるごとに<br>喘息死の割合が低下",
+      "note": "カナダの住民データによる観察研究",
+      "src": "Suissa S, et al. NEJM 2000｜PMID 10922423"
+    },
+    {
+      "type": "close", "kicker": "まとめ", "lines": ["治療の中心は", "毎日の予防吸入"],
+      "take": "息苦しさが続くなら<br>主治医に相談を",
+      "src": "GBD 2021｜PMID 40147466 ／ Suissa S, et al. NEJM 2000｜PMID 10922423"
+    }
+  ],
+  "narration": [
+    "喘息は、子どもだけの病気ではありません。",
+    "世界の患者数は約二億六千万人。今後も増えると予測されています。",
+    "イギリスの調査では、喘息死の三分の二に、防げた可能性のある要因がありました。",
+    "吸入ステロイドを多く使う人ほど、喘息死が少なかったと報告されています。",
+    "治療の中心は毎日の予防吸入。気になる症状は主治医に相談を。"
+  ],
+  "claims": [
+    { "scene": 1, "value": "2021", "source": "PMID 40147466", "quote": "In 2021, there were an estimated 260 million (95% UI 227-298) individuals with asthma" },
+    { "scene": 1, "value": "2.6", "from": "260 million", "derivation": "260 million = 2.6億", "source": "PMID 40147466", "quote": "In 2021, there were an estimated 260 million (95% UI 227-298) individuals with asthma" },
+    { "scene": 1, "value": "2050", "source": "PMID 40147466", "quote": "we expect 275 million (224-330) asthma cases and 148 million (140-158) atopic dermatitis cases in 2050" },
+    { "scene": 1, "value": "2.75", "from": "275 million", "derivation": "275 million = 2.75億", "source": "PMID 40147466", "quote": "we expect 275 million (224-330) asthma cases and 148 million (140-158) atopic dermatitis cases in 2050" },
+    { "scene": 2, "value": "3", "from": "two-thirds", "derivation": "two-thirds = 3分の2", "source": "PMID 26306100", "quote": "major preventable factors were identified in two-thirds of asthma deaths" },
+    { "scene": 2, "value": "2", "from": "two-thirds", "derivation": "two-thirds = 3分の2", "source": "PMID 26306100", "quote": "major preventable factors were identified in two-thirds of asthma deaths" },
+    { "scene": 2, "value": "45", "source": "PMID 26306100", "quote": "45% of people who died from asthma did not call for or receive medical assistance in their final fatal attack" },
+    { "scene": 3, "value": "21", "source": "PMID 10922423", "quote": "the rate of death from asthma decreased by 21 percent with each additional canister of inhaled corticosteroids used in the previous year" }
+  ],
+  "plainNumbers": [
+    { "scene": 3, "value": "1", "reason": "「吸入器1本ずつ」＝原文の each additional canister（数値データではなく単位）" }
+  ],
+  "youtube": {
+    "title": "喘息は世界で2億6千万人｜防げる喘息死【30秒エビデンス】",
+    "summary": "喘息は子どもだけの病気ではありません。世界の患者数は約2億6千万人（2021年、GBD 2021）。英国の全国調査では、喘息死の3分の2に防げた可能性のある要因がありました。また、低用量の吸入ステロイドの使用が多いほど喘息死が少なかったと報告されています（観察研究）。",
+    "tags": ["喘息", "吸入ステロイド", "呼吸器内科", "喘息発作"],
+    "hashtags": ["#喘息"]
+  }
+}

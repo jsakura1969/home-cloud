@@ -1,14 +1,7 @@
 // COPD エビデンス・ショートの台本（テロップ・数値・出典・ナレーション）。
 // 内容は ../evidence.md のエビデンス表に対応（各シーンの src が出典）。
 
-// 5シーン構成: 導入 / 根拠1 / 根拠2 / 根拠3 / まとめ
-export const SLOTS = [
-  [0, 4],
-  [4, 11],
-  [11, 18],
-  [18, 24.5],
-  [24.5, 30],
-];
+export { SLOTS } from "./template.mjs";
 
 // ---------------------------------------------------------------- content
 export const VIDEOS = [
@@ -222,4 +215,4 @@ export const NARRATION = {
   ],
 };
 
-export const VOICE = { engine: "VOICEVOX", speaker: "四国めたん（ノーマル）", styleId: 2, credit: "VOICEVOX:四国めたん" };
+export { VOICE } from "./voice-lib.mjs";
