@@ -20,7 +20,7 @@ for (const id of list) {
   symlinkSync("../../assets", join(dir, "assets"));
   const args =
     mode === "snap"
-      ? ["snapshot", ".", "--at", "0.3,2.5,7,14,21.5,28.5", "--no-end", "-o", join(ROOT, ".build", `snap-${id}`)]
+      ? ["snapshot", ".", "--at", process.env.SNAP_AT ?? "0.3,2.5,7,14,21.5,28.5", "--no-end", "-o", join(ROOT, ".build", `snap-${id}`)]
       : ["render", ".", "-q", "delivery", "-f", "30", "-o", join(ROOT, "out", `copd-${id}.mp4`)];
   if (mode !== "snap") mkdirSync(join(ROOT, "out"), { recursive: true });
   console.log(`== ${mode} ${id}`);

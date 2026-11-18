@@ -1,7 +1,7 @@
 // COPD エビデンス・ショート（30秒×5本）の HyperFrames コンポジションを生成する。
 // 内容は ../evidence.md のエビデンス表に対応（各シーンの src が出典）。
 // 使い方: node build/generate.mjs  → v1.html … v5.html（プロジェクト直下。HyperFrames は ../ の参照を許さないため）
-import { writeFileSync } from "node:fs";
+import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -9,192 +9,20 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const W = 1080;
 const H = 1920;
 const DURATION = 30;
-// 5シーン構成: 導入 / 根拠1 / 根拠2 / 根拠3 / まとめ
-const SLOTS = [
-  [0, 4],
-  [4, 11],
-  [11, 18],
-  [18, 24.5],
-  [24.5, 30],
-];
+import { SLOTS, VIDEOS, VOICE } from "./content.mjs";
 
-// ---------------------------------------------------------------- content
-const VIDEOS = [
-  {
-    id: "v1",
-    theme: "COPDはどれくらい多い？",
-    scenes: [
-      { type: "hook", kicker: "慢性閉塞性肺疾患", title: "COPDって<br>知ってる？", sub: "たばこ・大気汚染で肺が傷み、<br>息が吐き出しにくくなる病気" },
-      {
-        type: "stat", label: "世界の患者数（2021年）", count: 2.13, decimals: 2, unit: "億人",
-        sub: "2億1,340万人が COPD を抱えている",
-        src: "Cao Z, et al. BMJ Public Health 2026（GBD 2021）｜PMID 41561564",
-      },
-      {
-        type: "stat", label: "COPDによる死亡（1年間）", count: 370, unit: "万人",
-        sub: "世界の死因 <b>第3位</b>",
-        src: "Cao Z, et al. BMJ Public Health 2026｜PMID 41561564 ／ Chen S, et al. Lancet Glob Health 2023｜PMID 37474226",
-      },
-      {
-        type: "icons", label: "40歳以上では", big: "約8人に1人", total: 8, hit: 1,
-        note: "肺機能検査（FEV1/FVC＜0.7）で12.6%。診断基準により約7〜13%",
-        src: "Al Wachami N, et al. BMC Public Health 2024（メタ解析 42研究）｜PMID 38273271",
-      },
-      {
-        type: "close", kicker: "最大のリスク因子", lines: ["大気の微粒子（PM）", "そして喫煙"],
-        take: "息切れ・せき・たんが続くなら<br>早めに受診を",
-        src: "Cao Z, et al. BMJ Public Health 2026（PM は DALYs の41.7%）｜PMID 41561564",
-      },
-    ],
-  },
-  {
-    id: "v2",
-    theme: "禁煙は治療の土台",
-    scenes: [
-      { type: "hook", kicker: "COPDの治療", title: "まず最初に<br>やることは？", sub: "答えは、薬より先に「禁煙」" },
-      {
-        type: "stat", label: "Lung Health Study（RCT）", count: 5887, unit: "人",
-        sub: "軽い気流閉塞のある喫煙者を<br>禁煙支援 vs 通常ケアに割り付け",
-        src: "Anthonisen NR, et al. Ann Intern Med 2005｜PMID 15710956",
-      },
-      {
-        type: "compare", label: "14.5年後の全死亡（1000人年あたり）",
-        bars: [
-          { name: "通常ケア", value: 10.38, tone: "muted" },
-          { name: "禁煙支援", value: 8.83, tone: "accent" },
-        ],
-        caption: "禁煙支援を受けた群で<b>死亡が少なかった</b>（HR 1.18、95%CI 1.02–1.37）",
-        src: "Anthonisen NR, et al. Ann Intern Med 2005｜PMID 15710956",
-      },
-      {
-        type: "stat", label: "32.5年後も", big: "呼吸器死亡↓",
-        sub: "肺がん以外の呼吸器疾患による死亡を<br>減らす効果が続いていた（HR 1.21）",
-        note: "※全死亡の差は32.5年時点では有意でなくなった",
-        src: "Zhang J, et al. Am J Epidemiol 2026｜PMID 41164942",
-      },
-      {
-        type: "close", kicker: "まとめ", lines: ["禁煙支援は", "COPD治療の土台"],
-        take: "成功したのが一部の人でも<br>集団の死亡を減らした",
-        src: "Anthonisen NR, et al. Ann Intern Med 2005｜PMID 15710956",
-      },
-    ],
-  },
-  {
-    id: "v3",
-    theme: "吸入薬：2剤から3剤へ",
-    scenes: [
-      { type: "hook", kicker: "増悪をくり返す人の吸入薬", title: "2剤か、<br>3剤か", sub: "吸入ステロイド ＋ 気管支拡張薬2種" },
-      {
-        type: "compare", label: "IMPACT試験：増悪（回/年）",
-        bars: [
-          { name: "2剤 UMEC/VI", value: 1.21, tone: "muted" },
-          { name: "3剤", value: 0.91, tone: "accent" },
-        ],
-        caption: "3剤で増悪が<b>25%減</b>（10,355人）",
-        src: "Lipson DA, et al. NEJM 2018｜PMID 29668352｜NCT02164513",
-      },
-      {
-        type: "compare", label: "ETHOS試験：増悪（回/年）",
-        bars: [
-          { name: "2剤 GFF", value: 1.42, tone: "muted" },
-          { name: "3剤 BGF320", value: 1.08, tone: "accent" },
-        ],
-        caption: "別の3剤でも<b>24%減</b>（8,509人）",
-        src: "Rabe KF, et al. NEJM 2020｜PMID 32579807｜NCT02465567",
-      },
-      {
-        type: "duo", label: "死亡リスクの低下も報告",
-        cards: [
-          { name: "IMPACT", value: "HR 0.72", sub: "vs UMEC/VI" },
-          { name: "ETHOS", value: "HR 0.51", sub: "vs GFF" },
-        ],
-        note: "※どちらも追加データを集めた二次解析の結果",
-        src: "Lipson DA, et al. AJRCCM 2020｜PMID 32162970 ／ Martinez FJ, et al. AJRCCM 2021｜PMID 33252985",
-      },
-      {
-        type: "close", kicker: "注意点", lines: ["ICSを含む薬では", "肺炎が増える"], tone: "warn",
-        take: "対象は「増悪歴のある人」<br>使い分けは主治医と相談を",
-        src: "IMPACT: 肺炎 HR 1.53｜PMID 29668352 ／ ETHOS: 3.5–4.5% vs 2.3%｜PMID 32579807",
-      },
-    ],
-  },
-  {
-    id: "v4",
-    theme: "新しい治療：生物学的製剤",
-    scenes: [
-      { type: "hook", kicker: "3剤を使っても増悪する人へ", title: "注射で<br>炎症を抑える", sub: "COPDにも「生物学的製剤」の時代" },
-      {
-        type: "stat", label: "対象になる目印", big: "好酸球 ≥300",
-        sub: "血液中の好酸球（/μL）が多い<br>＝ 2型炎症のタイプ",
-        src: "BOREAS/NOTUS・MATINEE の登録基準｜PMID 39900091, 40305712",
-      },
-      {
-        type: "compare", label: "中等度〜重度の増悪（回/年）",
-        bars: [
-          { name: "プラセボ", value: 1.156, tone: "muted" },
-          { name: "デュピルマブ", value: 0.794, tone: "accent" },
-          { name: "プラセボ", value: 1.01, tone: "muted" },
-          { name: "メポリズマブ", value: 0.8, tone: "accent2" },
-        ],
-        caption: "デュピルマブ <b>約31%減</b>（1,874人）／ メポリズマブ <b>21%減</b>（804人）",
-        src: "Bhatt SP, et al. Lancet Respir Med 2025｜PMID 39900091 ／ Sciurba FC, et al. NEJM 2025｜PMID 40305712",
-      },
-      {
-        type: "duo", label: "米国FDAで COPD の適応",
-        cards: [
-          { name: "Dupixent", value: "注射", sub: "デュピルマブ" },
-          { name: "Nucala", value: "注射", sub: "メポリズマブ" },
-          { name: "Ohtuvayre", value: "吸入", sub: "エンシフェントリン（2024）" },
-        ],
-        note: "※米国の承認情報。日本の承認状況は別途確認を",
-        src: "FDA label BLA 761055 ／ DailyMed Nucala ／ FDA NDA 217389",
-      },
-      {
-        type: "close", kicker: "まとめ", lines: ["タイプを見分けて", "治療を上乗せ"],
-        take: "重い増悪の年間回数では<br>デュピルマブに有意差なし",
-        src: "Bhatt SP, et al. Lancet Respir Med 2025（重度増悪 RR 0.674, p=0.073）｜PMID 39900091",
-      },
-    ],
-  },
-  {
-    id: "v5",
-    theme: "薬以外の治療",
-    scenes: [
-      { type: "hook", kicker: "COPDの治療", title: "薬だけじゃ<br>ない", sub: "リハビリ・ワクチン・酸素" },
-      {
-        type: "stat", label: "呼吸リハビリで6分間の歩行距離が", count: 44, unit: "m 伸びた", prefix: "+",
-        sub: "息切れ・疲れ・生活の質も改善<br>（65件のRCT、3,822人）",
-        src: "McCarthy B, et al. Cochrane 2015｜PMID 25705944",
-      },
-      {
-        type: "stat", label: "インフルエンザワクチン（不活化）", big: "増悪が減る",
-        sub: "1人あたりの増悪回数 −0.37",
-        note: "※試験数が少なく、エビデンスの質は低い",
-        src: "Kopsaftis Z, et al. Cochrane 2018｜PMID 29943802",
-      },
-      {
-        type: "duo", label: "在宅酸素は、効く人が限られる",
-        cards: [
-          { name: "重い低酸素", value: "生存↑", sub: "夜間だけの群は死亡1.94倍（NOTT）", tone: "accent" },
-          { name: "中等度の低酸素", value: "差なし", sub: "SpO2 89–93%で死亡・入院 HR 0.94（LOTT）", tone: "muted" },
-        ],
-        src: "NOTT Group. Ann Intern Med 1980｜PMID 6776858 ／ LOTT Group. NEJM 2016｜PMID 27783918",
-      },
-      {
-        type: "close", kicker: "まとめ", lines: ["動く・防ぐ・補う", "薬と組み合わせて"],
-        take: "COPDは<br>治療で向き合える病気",
-        src: "このシリーズの出典一覧は evidence.md（PMID・DOI付き）",
-      },
-    ],
-  },
-];
+// 音声（build/voice.mjs と build/bgm.py の出力）。無ければ無音のまま生成する。
+const VOICE_MANIFEST = join(ROOT, "assets", "voice", "manifest.json");
+const voiceClips = existsSync(VOICE_MANIFEST) ? JSON.parse(readFileSync(VOICE_MANIFEST, "utf8")).clips : {};
+const HAS_BGM = existsSync(join(ROOT, "assets", "bgm", "ambient.wav"));
+const BGM_VOLUME = 0.15; // ナレーション（−16 LUFS）より約16dB下
 
 // ---------------------------------------------------------------- helpers
 const esc = (s) => String(s).replace(/&(?!\w+;)/g, "&amp;");
 const fmt = (n, d = 0) =>
   n.toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d });
 
-function sceneBody(s, i) {
+function sceneBody(s, i, vid) {
   const src = s.src ? `<div class="src a">出典：${esc(s.src)}</div>` : "";
   switch (s.type) {
     case "hook":
@@ -267,7 +95,7 @@ function sceneBody(s, i) {
         <h2 class="close-lines">${s.lines.map((l) => `<span class="a">${l}</span>`).join("")}</h2>
         <div class="rule a ${s.tone === "warn" ? "warn-bg" : ""}"></div>
         <p class="take a">${s.take}</p>
-        ${src}`;
+        ${s.src ? `<div class="src a">出典：${esc(s.src)}${voiceClips[vid]?.length ? `<br>音声：${VOICE.credit}　BGM：オリジナル` : ""}</div>` : ""}`;
     default:
       throw new Error(`unknown scene type ${s.type} (scene ${i})`);
   }
@@ -378,6 +206,19 @@ html, body { width: ${W}px; height: ${H}px; overflow: hidden; background: var(--
 
 const LUNG_SVG = `<svg class="lung" viewBox="0 0 200 200" aria-hidden="true"><path d="M100 20v60M100 80c-10 10-22 12-30 26M100 80c10 10 22 12 30 26"/><path d="M70 60c-30 10-50 50-50 95 0 20 12 30 30 25 20-5 28-20 28-40V70c0-6-3-12-8-10z"/><path d="M130 60c30 10 50 50 50 95 0 20-12 30-30 25-20-5-28-20-28-40V70c0-6 3-12 8-10z"/></svg>`;
 
+function audioTags(id) {
+  const vo = (voiceClips[id] ?? [])
+    .map(
+      (c, k) =>
+        `\n    <audio id="vo-s${k}" src="assets/voice/${c.file}" data-start="${c.start}" data-duration="${c.duration}" data-volume="1" data-track-index="3"></audio>`,
+    )
+    .join("");
+  const bgm = HAS_BGM
+    ? `\n    <audio id="bgm" src="assets/bgm/ambient.wav" data-start="0" data-duration="${DURATION}" data-volume="${BGM_VOLUME}" data-fade-in="1" data-fade-out="2" data-track-index="4"></audio>`
+    : "";
+  return vo + bgm;
+}
+
 function buildVideo(v, index) {
   const compId = `copd-${v.id}`;
   const dots = VIDEOS.map((_, k) => `<i class="${k === index ? "on" : ""}"></i>`).join("");
@@ -385,7 +226,7 @@ function buildVideo(v, index) {
     .map((s, i) => {
       const [start, end] = SLOTS[i];
       return `
-    <section id="s${i}" class="scene clip scene-${s.type}" data-start="${start}" data-duration="${end - start}" data-track-index="1">${sceneBody(s, i)}
+    <section id="s${i}" class="scene clip scene-${s.type}" data-start="${start}" data-duration="${end - start}" data-track-index="1">${sceneBody(s, i, v.id)}
     </section>`;
     })
     .join("");
@@ -408,7 +249,7 @@ function buildVideo(v, index) {
     </div>
     <div id="theme" class="theme clip" data-start="0" data-duration="${DURATION}" data-track-index="0">${v.theme}</div>
     ${scenes}
-    <div id="progress" class="progress clip" data-start="0" data-duration="${DURATION}" data-track-index="2"><div class="progress-fill"></div></div>
+    <div id="progress" class="progress clip" data-start="0" data-duration="${DURATION}" data-track-index="2"><div class="progress-fill"></div></div>${audioTags(v.id)}
   </div>
   <script>
     (function () {

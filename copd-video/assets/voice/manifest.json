@@ -1,0 +1,221 @@
+{
+  "voice": {
+    "engine": "VOICEVOX",
+    "speaker": "四国めたん（ノーマル）",
+    "styleId": 2,
+    "credit": "VOICEVOX:四国めたん"
+  },
+  "lead": 0.3,
+  "clips": {
+    "v1": [
+      {
+        "file": "v1-s0.wav",
+        "text": "シーオーピーディー、知ってる？",
+        "start": 0.3,
+        "duration": 2.101,
+        "speed": 1.05,
+        "limit": 3.4
+      },
+      {
+        "file": "v1-s1.wav",
+        "text": "世界の患者数は、およそ二億一千三百万人。",
+        "start": 4.3,
+        "duration": 3.669,
+        "speed": 1.05,
+        "limit": 6.4
+      },
+      {
+        "file": "v1-s2.wav",
+        "text": "亡くなる人は年に三百七十万人。世界の死因、第三位です。",
+        "start": 11.3,
+        "duration": 5.141,
+        "speed": 1.05,
+        "limit": 6.4
+      },
+      {
+        "file": "v1-s3.wav",
+        "text": "四十歳以上では、およそ八人に一人という推計です。",
+        "start": 18.3,
+        "duration": 3.957,
+        "speed": 1.05,
+        "limit": 5.9
+      },
+      {
+        "file": "v1-s4.wav",
+        "text": "主なリスクは大気汚染と喫煙。せきが続いたら受診を。",
+        "start": 24.8,
+        "duration": 4.192,
+        "speed": 1.05,
+        "limit": 4.9
+      }
+    ],
+    "v2": [
+      {
+        "file": "v2-s0.wav",
+        "text": "治療で、まずやることは？",
+        "start": 0.3,
+        "duration": 1.995,
+        "speed": 1.05,
+        "limit": 3.4
+      },
+      {
+        "file": "v2-s1.wav",
+        "text": "約六千人の喫煙者で、禁煙支援の効果を調べた試験があります。",
+        "start": 4.3,
+        "duration": 4.885,
+        "speed": 1.05,
+        "limit": 6.4
+      },
+      {
+        "file": "v2-s2.wav",
+        "text": "十四年半後、禁煙支援を受けた人たちは、死亡が少なくなっていました。",
+        "start": 11.3,
+        "duration": 5.205,
+        "speed": 1.05,
+        "limit": 6.4
+      },
+      {
+        "file": "v2-s3.wav",
+        "text": "三十二年半後も、呼吸器の病気による死亡を減らす効果が続いていました。",
+        "start": 18.3,
+        "duration": 5.109,
+        "speed": 1.05,
+        "limit": 5.9
+      },
+      {
+        "file": "v2-s4.wav",
+        "text": "禁煙支援は、シーオーピーディー治療の土台です。",
+        "start": 24.8,
+        "duration": 3.307,
+        "speed": 1.05,
+        "limit": 4.9
+      }
+    ],
+    "v3": [
+      {
+        "file": "v3-s0.wav",
+        "text": "吸入薬は、二剤か、三剤か。",
+        "start": 0.3,
+        "duration": 2.901,
+        "speed": 1.05,
+        "limit": 3.4
+      },
+      {
+        "file": "v3-s1.wav",
+        "text": "インパクト試験では、三剤で増悪が二十五パーセント減りました。",
+        "start": 4.3,
+        "duration": 4.299,
+        "speed": 1.05,
+        "limit": 6.4
+      },
+      {
+        "file": "v3-s2.wav",
+        "text": "イーソス試験でも、別の三剤で二十四パーセント減りました。",
+        "start": 11.3,
+        "duration": 4.149,
+        "speed": 1.05,
+        "limit": 6.4
+      },
+      {
+        "file": "v3-s3.wav",
+        "text": "死亡リスクの低下も報告されていますが、二次解析の結果です。",
+        "start": 18.3,
+        "duration": 4.256,
+        "speed": 1.05,
+        "limit": 5.9
+      },
+      {
+        "file": "v3-s4.wav",
+        "text": "吸入ステロイドで肺炎が増えるため、主治医と相談を。",
+        "start": 24.8,
+        "duration": 3.776,
+        "speed": 1.05,
+        "limit": 4.9
+      }
+    ],
+    "v4": [
+      {
+        "file": "v4-s0.wav",
+        "text": "三剤でも増悪する人には、注射の治療も。",
+        "start": 0.3,
+        "duration": 3.307,
+        "speed": 1.05,
+        "limit": 3.4
+      },
+      {
+        "file": "v4-s1.wav",
+        "text": "目印は、血液中の好酸球が多いタイプです。",
+        "start": 4.3,
+        "duration": 3.563,
+        "speed": 1.05,
+        "limit": 6.4
+      },
+      {
+        "file": "v4-s2.wav",
+        "text": "デュピルマブで約三割、メポリズマブで約二割、増悪が減りました。",
+        "start": 11.3,
+        "duration": 5.067,
+        "speed": 1.05,
+        "limit": 6.4
+      },
+      {
+        "file": "v4-s3.wav",
+        "text": "アメリカでは、シーオーピーディーへの使用が承認されています。",
+        "start": 18.3,
+        "duration": 3.904,
+        "speed": 1.05,
+        "limit": 5.9
+      },
+      {
+        "file": "v4-s4.wav",
+        "text": "タイプを見分けて、治療を上乗せします。",
+        "start": 24.8,
+        "duration": 2.709,
+        "speed": 1.05,
+        "limit": 4.9
+      }
+    ],
+    "v5": [
+      {
+        "file": "v5-s0.wav",
+        "text": "治療は、薬だけじゃありません。",
+        "start": 0.3,
+        "duration": 2.069,
+        "speed": 1.05,
+        "limit": 3.4
+      },
+      {
+        "file": "v5-s1.wav",
+        "text": "呼吸リハビリで、六分間に歩ける距離が四十四メートル伸びました。",
+        "start": 4.3,
+        "duration": 4.779,
+        "speed": 1.05,
+        "limit": 6.4
+      },
+      {
+        "file": "v5-s2.wav",
+        "text": "インフルエンザワクチンで、増悪が減ることも分かっています。",
+        "start": 11.3,
+        "duration": 3.915,
+        "speed": 1.05,
+        "limit": 6.4
+      },
+      {
+        "file": "v5-s3.wav",
+        "text": "在宅酸素が効くのは、重い低酸素の人。中等度では差がありませんでした。",
+        "start": 18.3,
+        "duration": 5.333,
+        "speed": 1.05,
+        "limit": 5.9
+      },
+      {
+        "file": "v5-s4.wav",
+        "text": "薬と組み合わせて、シーオーピーディーと向き合いましょう。",
+        "start": 24.8,
+        "duration": 3.467,
+        "speed": 1.05,
+        "limit": 4.9
+      }
+    ]
+  }
+}
