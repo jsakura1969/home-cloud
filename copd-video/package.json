@@ -1,0 +1,16 @@
+{
+  "name": "copd-evidence-shorts",
+  "version": "1.0.0",
+  "description": "COPD解説ショート動画（30秒×5本、HyperFrames）",
+  "scripts": {
+    "build": "node build/generate.mjs",
+    "check": "for f in v?.html; do npx hyperframes lint $f || exit 1; done",
+    "render": "node build/render.mjs"
+  },
+  "dependencies": {
+    "gsap": "3.15.0",
+    "hyperframes": "0.9.13"
+  },
+  "private": true,
+  "type": "module"
+}

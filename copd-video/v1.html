@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="ja" data-resolution="portrait">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1080, height=1920" />
+  <title>COPD エビデンス・ショート 1/5 COPDはどれくらい多い？</title>
+  <script src="assets/gsap.min.js"></script>
+  <style>
+@font-face { font-family: "Noto Sans JP"; font-weight: 400; src: url("assets/fonts/NotoSansJP-Regular.ttf") format("truetype"); }
+@font-face { font-family: "Noto Sans JP"; font-weight: 700; src: url("assets/fonts/NotoSansJP-Bold.ttf") format("truetype"); }
+@font-face { font-family: "Noto Sans JP"; font-weight: 900; src: url("assets/fonts/NotoSansJP-Black.ttf") format("truetype"); }
+:root {
+  --ground: #0a1b2e;
+  --ground-2: #10294a;
+  --ink: #f3f6fa;
+  --ink-2: #b6c3d4;
+  --ink-3: #8193ab;
+  --accent: #3ed6c3;
+  --accent-2: #8fb8ff;
+  --muted: #4b5f7a;
+  --warn: #ff8a6b;
+  --font: "Noto Sans JP", sans-serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--ground); }
+#root {
+  position: relative; width: 100%; height: 100%; overflow: hidden;
+  font-family: var(--font); color: var(--ink);
+  background: radial-gradient(1200px 900px at 85% 8%, #17406b 0%, rgba(23,64,107,0) 60%),
+              radial-gradient(900px 900px at 0% 100%, #0f3a4a 0%, rgba(15,58,74,0) 60%),
+              var(--ground);
+}
+.lung {
+  position: absolute; right: -160px; top: 300px; width: 760px; height: 760px; opacity: 0.07;
+  fill: none; stroke: var(--accent); stroke-width: 10;
+}
+.header {
+  position: absolute; left: 88px; right: 88px; top: 96px;
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 30px; font-weight: 700; letter-spacing: 0.08em; color: var(--ink-2);
+}
+.header .series b { color: var(--accent); font-weight: 900; }
+.dots { display: flex; gap: 14px; }
+.dots i { width: 18px; height: 18px; border-radius: 50%; background: var(--muted); display: block; }
+.dots i.on { background: var(--accent); }
+.theme {
+  position: absolute; left: 88px; right: 88px; top: 160px;
+  font-size: 40px; font-weight: 900; color: var(--ink); letter-spacing: 0.02em;
+}
+.progress { position: absolute; left: 0; bottom: 0; height: 12px; width: 100%; background: rgba(255,255,255,0.08); }
+.progress-fill { height: 100%; width: 100%; background: var(--accent); transform-origin: 0 50%; transform: scaleX(0); }
+.scene {
+  position: absolute; left: 88px; right: 88px; top: 300px; bottom: 120px;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.kicker { font-size: 44px; font-weight: 700; color: var(--accent); letter-spacing: 0.06em; }
+.kicker.warn { color: var(--warn); }
+.hook-title { margin-top: 28px; font-size: 128px; line-height: 1.18; font-weight: 900; letter-spacing: -0.01em; }
+.rule { margin: 56px 0 48px; width: 160px; height: 10px; border-radius: 5px; background: var(--accent); transform-origin: 0 50%; }
+.rule.warn-bg { background: var(--warn); }
+.hook-sub { font-size: 50px; line-height: 1.6; color: var(--ink-2); font-weight: 700; }
+.label { font-size: 48px; font-weight: 700; color: var(--ink-2); line-height: 1.45; }
+.big { margin: 36px 0 28px; font-weight: 900; line-height: 1.05; display: flex; align-items: baseline; flex-wrap: wrap; }
+.big .num { font-size: 230px; color: var(--accent); letter-spacing: -0.03em; font-variant-numeric: tabular-nums; }
+.big .pre { font-size: 160px; color: var(--accent); }
+.big .unit { font-size: 92px; margin-left: 16px; }
+.big-text { font-size: 132px; color: var(--accent); letter-spacing: -0.01em; }
+.sub { font-size: 50px; line-height: 1.6; font-weight: 700; }
+.sub b, .take b { color: var(--accent); font-weight: 900; }
+.note { margin-top: 28px; font-size: 38px; line-height: 1.55; color: var(--ink-2); font-weight: 400; }
+.src {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  font-size: 27px; line-height: 1.5; color: var(--ink-3); font-weight: 400;
+  border-top: 2px solid rgba(255,255,255,0.12); padding-top: 22px;
+}
+.bars { margin: 56px 0 48px; display: flex; flex-direction: column; gap: 40px; }
+.bars-4 { gap: 26px; }
+.bar-row { display: grid; grid-template-columns: 1fr; gap: 14px; position: relative; }
+.bar-name { font-size: 40px; font-weight: 700; color: var(--ink-2); }
+.bar-track { height: 92px; background: rgba(255,255,255,0.06); border-radius: 14px; overflow: hidden; margin-right: 210px; }
+.bars-4 .bar-track { height: 64px; }
+.bar-fill { height: 100%; border-radius: 14px; transform-origin: 0 50%; transform: scaleX(0); }
+.bar-val { position: absolute; right: 0; bottom: 4px; font-size: 76px; font-weight: 900; font-variant-numeric: tabular-nums; }
+.bars-4 .bar-val { font-size: 58px; bottom: 0; }
+.tone-accent { background: var(--accent); }
+.tone-accent2 { background: var(--accent-2); }
+.tone-muted { background: var(--muted); }
+.tone-text-accent { color: var(--accent); }
+.tone-text-accent2 { color: var(--accent-2); }
+.tone-text-muted { color: var(--ink-2); }
+.people { margin: 40px 0 8px; display: flex; gap: 22px; }
+.person { width: 92px; height: 184px; fill: var(--muted); }
+.person.on { fill: var(--accent); }
+.cards { margin: 52px 0 12px; display: grid; gap: 28px; }
+.cards-2 { grid-template-columns: 1fr 1fr; }
+.cards-3 { grid-template-columns: 1fr; gap: 22px; }
+.card { border-radius: 28px; padding: 40px 36px; background: rgba(255,255,255,0.06); border: 3px solid var(--accent); }
+.cards-3 .card { display: grid; grid-template-columns: 300px 1fr; grid-template-rows: auto auto; column-gap: 24px; padding: 30px 36px; align-items: baseline; }
+.cards-3 .card .card-name { grid-row: 1 / span 2; font-size: 46px; color: var(--ink); align-self: center; }
+.cards-3 .card .card-value { font-size: 56px; margin: 0; }
+.cards-3 .card .card-sub { margin: 0; }
+.tone-card-muted { border-color: var(--muted); }
+.tone-card-muted .card-value { color: var(--ink-2); }
+.card-name { font-size: 38px; font-weight: 700; color: var(--ink-2); line-height: 1.4; }
+.card-value { margin: 18px 0 14px; font-size: 88px; font-weight: 900; color: var(--accent); line-height: 1.1; }
+.card-sub { font-size: 34px; line-height: 1.5; color: var(--ink-2); }
+.close-lines { margin-top: 30px; font-size: 96px; line-height: 1.3; font-weight: 900; display: flex; flex-direction: column; }
+.take { font-size: 54px; line-height: 1.6; font-weight: 700; color: var(--ink); }
+</style>
+</head>
+<body>
+  <div id="root" data-composition-id="copd-v1" data-start="0" data-duration="30" data-width="1080" data-height="1920">
+    <svg class="lung" viewBox="0 0 200 200" aria-hidden="true"><path d="M100 20v60M100 80c-10 10-22 12-30 26M100 80c10 10 22 12 30 26"/><path d="M70 60c-30 10-50 50-50 95 0 20 12 30 30 25 20-5 28-20 28-40V70c0-6-3-12-8-10z"/><path d="M130 60c30 10 50 50 50 95 0 20-12 30-30 25-20-5-28-20-28-40V70c0-6 3-12 8-10z"/></svg>
+    <div id="header" class="header clip" data-start="0" data-duration="30" data-track-index="0">
+      <div class="series"><b>COPD</b> エビデンス・ショート 1/5</div>
+      <div class="dots"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></div>
+    </div>
+    <div id="theme" class="theme clip" data-start="0" data-duration="30" data-track-index="0">COPDはどれくらい多い？</div>
+    
+    <section id="s0" class="scene clip scene-hook" data-start="0" data-duration="4" data-track-index="1">
+        <div class="kicker a">慢性閉塞性肺疾患</div>
+        <h1 class="hook-title a">COPDって<br>知ってる？</h1>
+        <div class="rule a"></div>
+        <p class="hook-sub a">たばこ・大気汚染で肺が傷み、<br>息が吐き出しにくくなる病気</p>
+    </section>
+    <section id="s1" class="scene clip scene-stat" data-start="4" data-duration="7" data-track-index="1">
+        <div class="label a">世界の患者数（2021年）</div>
+        <div class="big a"><span class="pre"></span><span class="num" data-count="2.13" data-decimals="2">0.00</span><span class="unit">億人</span></div>
+        <p class="sub a">2億1,340万人が COPD を抱えている</p>
+        
+        <div class="src a">出典：Cao Z, et al. BMJ Public Health 2026（GBD 2021）｜PMID 41561564</div>
+    </section>
+    <section id="s2" class="scene clip scene-stat" data-start="11" data-duration="7" data-track-index="1">
+        <div class="label a">COPDによる死亡（1年間）</div>
+        <div class="big a"><span class="pre"></span><span class="num" data-count="370" data-decimals="0">0</span><span class="unit">万人</span></div>
+        <p class="sub a">世界の死因 <b>第3位</b></p>
+        
+        <div class="src a">出典：Cao Z, et al. BMJ Public Health 2026｜PMID 41561564 ／ Chen S, et al. Lancet Glob Health 2023｜PMID 37474226</div>
+    </section>
+    <section id="s3" class="scene clip scene-icons" data-start="18" data-duration="6.5" data-track-index="1">
+        <div class="label a">40歳以上では</div>
+        <div class="big big-text a">約8人に1人</div>
+        <div class="people a"><svg class="person " viewBox="0 0 60 120" aria-hidden="true"><circle cx="30" cy="20" r="16"/><path d="M8 116V62a22 22 0 0 1 44 0v54z"/></svg><svg class="person " viewBox="0 0 60 120" aria-hidden="true"><circle cx="30" cy="20" r="16"/><path d="M8 116V62a22 22 0 0 1 44 0v54z"/></svg><svg class="person " viewBox="0 0 60 120" aria-hidden="true"><circle cx="30" cy="20" r="16"/><path d="M8 116V62a22 22 0 0 1 44 0v54z"/></svg><svg class="person " viewBox="0 0 60 120" aria-hidden="true"><circle cx="30" cy="20" r="16"/><path d="M8 116V62a22 22 0 0 1 44 0v54z"/></svg><svg class="person " viewBox="0 0 60 120" aria-hidden="true"><circle cx="30" cy="20" r="16"/><path d="M8 116V62a22 22 0 0 1 44 0v54z"/></svg><svg class="person " viewBox="0 0 60 120" aria-hidden="true"><circle cx="30" cy="20" r="16"/><path d="M8 116V62a22 22 0 0 1 44 0v54z"/></svg><svg class="person " viewBox="0 0 60 120" aria-hidden="true"><circle cx="30" cy="20" r="16"/><path d="M8 116V62a22 22 0 0 1 44 0v54z"/></svg><svg class="person on" viewBox="0 0 60 120" aria-hidden="true"><circle cx="30" cy="20" r="16"/><path d="M8 116V62a22 22 0 0 1 44 0v54z"/></svg></div>
+        <p class="note a">肺機能検査（FEV1/FVC＜0.7）で12.6%。診断基準により約7〜13%</p>
+        <div class="src a">出典：Al Wachami N, et al. BMC Public Health 2024（メタ解析 42研究）｜PMID 38273271</div>
+    </section>
+    <section id="s4" class="scene clip scene-close" data-start="24.5" data-duration="5.5" data-track-index="1">
+        <div class="kicker a ">最大のリスク因子</div>
+        <h2 class="close-lines"><span class="a">大気の微粒子（PM）</span><span class="a">そして喫煙</span></h2>
+        <div class="rule a "></div>
+        <p class="take a">息切れ・せき・たんが続くなら<br>早めに受診を</p>
+        <div class="src a">出典：Cao Z, et al. BMJ Public Health 2026（PM は DALYs の41.7%）｜PMID 41561564</div>
+    </section>
+    <div id="progress" class="progress clip" data-start="0" data-duration="30" data-track-index="2"><div class="progress-fill"></div></div>
+  </div>
+  <script>
+    (function () {
+      var SLOTS = [[0,4],[4,11],[11,18],[18,24.5],[24.5,30]];
+      var tl = gsap.timeline({ paused: true });
+      tl.fromTo(".header, .theme", { opacity: 0, y: -24 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 0);
+      tl.fromTo(".progress-fill", { scaleX: 0 }, { scaleX: 1, duration: 30, ease: "none" }, 0);
+      tl.fromTo(".lung", { rotation: -4, scale: 0.96 }, { rotation: 4, scale: 1.04, duration: 30, ease: "sine.inOut" }, 0);
+
+      SLOTS.forEach(function (slot, i) {
+        var start = slot[0], end = slot[1];
+        var scene = document.getElementById("s" + i);
+        var items = scene.querySelectorAll(".a");
+        tl.fromTo(items, { opacity: 0, y: 46 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out", stagger: 0.16 }, start + 0.1);
+
+        scene.querySelectorAll(".rule").forEach(function (el) {
+          tl.fromTo(el, { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power2.out" }, start + 0.5);
+        });
+        scene.querySelectorAll(".bar-fill").forEach(function (el, k) {
+          tl.fromTo(el, { scaleX: 0 }, { scaleX: 1, duration: 1.1, ease: "power2.out" }, start + 0.7 + k * 0.35);
+        });
+        scene.querySelectorAll(".person").forEach(function (el, k) {
+          tl.fromTo(el, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.35, ease: "back.out(2)" }, start + 0.8 + k * 0.12);
+        });
+        scene.querySelectorAll(".person.on").forEach(function (el) {
+          tl.fromTo(el, { scale: 1 }, { scale: 1.18, duration: 0.4, yoyo: true, repeat: 1, ease: "power1.inOut", transformOrigin: "50% 100%" }, start + 2.2);
+        });
+        scene.querySelectorAll(".num").forEach(function (el) {
+          var target = parseFloat(el.getAttribute("data-count"));
+          var dec = parseInt(el.getAttribute("data-decimals"), 10) || 0;
+          var o = { v: 0 };
+          tl.fromTo(o, { v: 0 }, {
+            v: target, duration: 1.6, ease: "power2.out",
+            onUpdate: function () {
+              el.textContent = o.v.toLocaleString("en-US", { minimumFractionDigits: dec, maximumFractionDigits: dec });
+            }
+          }, start + 0.5);
+        });
+        if (i < SLOTS.length - 1) {
+          tl.to(items, { opacity: 0, y: -30, duration: 0.35, ease: "power2.in" }, end - 0.4);
+        }
+      });
+
+      window.__timelines = window.__timelines || {};
+      window.__timelines["copd-v1"] = tl;
+      tl.seek(0);
+    })();
+  </script>
+</body>
+</html>
