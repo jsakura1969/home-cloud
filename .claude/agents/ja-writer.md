@@ -20,3 +20,4 @@ tools: Read, Write, Edit, Grep, Glob, WebFetch, WebSearch, Skill
 
 ## 学習メモ（ユーザーからのフィードバック）
 <!-- teach-agent スキルが追記する。ここに書かれたルールは上の指示より優先する。 -->
+- [2026-11-18] 文章は原則として敬体（です・ます調）で書く
