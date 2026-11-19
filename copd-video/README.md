@@ -40,7 +40,7 @@ npm run render         # out/copd-v1.mp4〜v5.mp4 を書き出し
 - HyperFrames 0.9.13 と GSAP 3.15.0 は、バージョンを固定しています。GSAP は `assets/gsap.min.js` として同梱しています。
 
 ## 毎日の自動作成と YouTube 公開
-1. **毎日 12時ごろ（日本時間）**：Claude のスケジュールタスクが新しいセッションを起動する。セッションは [daily/RUNBOOK.md](daily/RUNBOOK.md) に従って作業する。
+1. **毎日 23時ごろ（日本時間）**：Claude のスケジュールタスクが新しいセッションを起動する。セッションは [daily/RUNBOOK.md](daily/RUNBOOK.md) に従って作業する。
    - [daily/topics.json](daily/topics.json) から次のテーマを選ぶ
    - PubMed・Clinical Trials・Arca で根拠を集める
    - `node build/daily.mjs <日付>` で動画を作る
@@ -50,7 +50,9 @@ npm run render         # out/copd-v1.mp4〜v5.mp4 を書き出し
    - 文字のはみ出しがないこと
    - 音声の長さ・音量
    - 説明欄の免責文とクレジット
-3. **GitHub Actions**（[.github/workflows/youtube-upload.yml](../.github/workflows/youtube-upload.yml)）：`ready.json` のプッシュで YouTube に**公開**アップロードする。動画URLを `daily/<日付>/youtube.json` に記録する。
+3. **GitHub Actions**（[.github/workflows/youtube-upload.yml](../.github/workflows/youtube-upload.yml)）：YouTube に公開アップロードし、動画URLを `daily/<日付>/youtube.json` に記録する。**現在は投稿しない方針のため、手動実行（Run workflow）のときだけ動く**（プッシュでは動かない）。自動公開に戻す方法はワークフローのコメントに記載。
+
+毎日の作成は、Claude のスケジュールタスクで **毎日 22:36（日本時間）** に実行される（23時前に少しずらしている）。
 
 ### 初期設定（最初に一度だけ）
 1. [Google Cloud Console](https://console.cloud.google.com/) でプロジェクトを作り、**YouTube Data API v3** を有効にする。

@@ -1,11 +1,13 @@
 # チェックに合格した毎日の動画（copd-video/daily/<date>/ready.json）を YouTube に公開アップロードする。
 # 必要な Secrets: YT_CLIENT_ID, YT_CLIENT_SECRET, YT_REFRESH_TOKEN（copd-video/README.md 参照）
+# 現在は投稿しない方針のため、手動実行（Run workflow）のときだけ動く。
+# 毎日の自動公開に戻すときは、下の on: に次の push トリガーを足す:
+#   push:
+#     branches: [claude/elegant-bohr-9674ux]
+#     paths: ["copd-video/daily/**/ready.json"]
 name: YouTube upload
 
 on:
-  push:
-    branches: [claude/elegant-bohr-9674ux]
-    paths: ["copd-video/daily/**/ready.json"]
   workflow_dispatch:
     inputs:
       date:

@@ -2,7 +2,7 @@
 
 毎日のスケジュールタスクで起動したセッションは、この手順に従う。
 目的は、呼吸器の話題を1つ選び、論文・臨床試験・FDA の根拠にもとづいて30秒の縦型動画を作ること。
-チェックに合格したらプッシュし、GitHub Actions が YouTube に**即時公開**する。
+チェックに合格したらコミットしてプッシュする。**現在は投稿しない方針**で、YouTube 等へのアップロードは自動では行われない（GitHub Actions は手動実行のときだけ動く）。
 確認する人はいないので、**根拠のない数字・言い過ぎは絶対に入れない**。
 
 ## 0. 準備（作業ディレクトリ: `copd-video/`）
@@ -124,8 +124,8 @@ git add daily/<DATE> daily/topics.json
 git commit -m "Daily short <DATE>: <テーマ>"
 git push origin HEAD:claude/elegant-bohr-9674ux
 ```
-- `ready.json` を含むプッシュで、GitHub Actions（`.github/workflows/youtube-upload.yml`）が YouTube にアップロードする。
-- アップロードが成功すると、Actions が `daily/<DATE>/youtube.json` をコミットする。
+- 現在は投稿しない方針のため、プッシュしても YouTube にはアップロードされない。`.github/workflows/youtube-upload.yml` は手動実行（Run workflow）のときだけ動く。**投稿の操作はしないこと。**
+- 将来、投稿を再開した場合は、アップロード成功時に Actions が `daily/<DATE>/youtube.json` をコミットする。
 - プッシュが拒否された場合（Actions の書き戻しとの競合）は、`git pull --rebase` してからプッシュし直す。
 
 ## 6. 報告
