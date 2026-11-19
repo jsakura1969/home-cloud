@@ -70,3 +70,41 @@
 7. 内閣府世論調査（令和5年）の未受診理由の割合・年代別
 8. 日本の高齢者に限った受診促進介入研究
 9. 乳がん無料クーポンの対象年齢と高齢者への効果
+
+---
+
+# 調査結果 第2報：広島市・安佐地区の地域データ
+※すべて WebSearch の検索要約で確認した段階。広島市・広島県の PDF 本文は未読。スライド使用前に一次資料で確認が必要。
+
+## A1. 広島市の乳がん検診制度
+- 40歳以上女性、2年度に1回、マンモグラフィ。職域等で機会のない人が対象。受診券は年度末に奇数年齢の人へ送付、受診時に必要。https://www.city.hiroshima.lg.jp/site/faq/2819.html ／ https://www.city.hiroshima.lg.jp/site/kenshin/354713.html
+- **70歳以上は証明書提示で自己負担なし**。ほか後期高齢者医療被保険者、生活保護世帯、市民税非課税世帯も免除。令和8年度「元気じゃ健診」チラシ https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/039/754/tirashipdf.pdf 、安佐南区広報 https://www.city.hiroshima.lg.jp/www/koho/shimintoshiseir080801/shimintoshisei/ward/asm/guide/guide01.html
+- 一般の自己負担額「1,500〜1,600円」（年度混在、令和8年度は未確認）
+- 個別検診と集団検診あり。安佐南区の実施施設（県 乳がん医療ネットワーク一覧 2024年1月）：野村病院、こころ・やのファミリークリニック https://www.pref.hiroshima.lg.jp/site/gan-net/iryou-network-nyu-kenshin.html 。広島共立病院はマンモ対応不明。安佐北区の実施機関・集団検診日程は未確認
+- 無料クーポン：令和8年度は4月1日時点40歳女性のみ（8月7日発送予定）。高齢者向けなし。https://www.city.hiroshima.lg.jp/site/kenshin/2886.html
+- 受診券送付以外の個別勧奨・再勧奨の対象年齢：未確認（市健康推進課に要問い合わせ）
+
+## A2. 受診率
+- 広島県 42.6%（2022年国民生活基礎調査を県算出、40–69歳、過去2年）、全国47.4%。2019年43.9%から低下。「5がんすべてで全国平均を下回る」「認知度8割超でも受診行動につながらない」。https://www.pref.hiroshima.lg.jp/uploaded/attachment/539947.pdf 、https://www.pref.hiroshima.lg.jp/uploaded/attachment/432750.pdf
+- 広島市 区別：**安佐北区31.1%（市内最低）**、**安佐南区42.2%（市内最高）**、中37.1、東34.9、南37.3、西39.2、安芸36.3、佐伯37.3%。https://www.city.hiroshima.lg.jp/_res/projects/default_project/_page_/001/049/007/109826.pdf
+  - 注意：年度記載なし。表の対象者数・受診者数から計算すると安佐南約21%、安佐北約15%で不一致。平成24–28年度の資料群にあり古い可能性大
+- 広島市の年代別（70歳以上）・最新区別受診率：未確認（e-Stat 地域保健・健康増進事業報告で確認可能性）
+
+## A3. 罹患・死亡・高齢化
+- 広島県 2023年がん罹患 全部位22,837人（女性9,898人）。女性乳がんは年齢調整罹患率が2003–2019で増加、2014年診断5年相対生存率88.6%。https://www.pref.hiroshima.lg.jp/site/gan-net/shiru-shiru2.html 、https://www.pref.hiroshima.lg.jp/site/gan-net/ganwoshiru-genjou.html 。乳がん罹患数・年齢別は未確認
+- 乳がん死亡率（10万対、2019）広島県9.7、全国10.6（検索要約）
+- 広島県高齢化率30.1%（2025年1月1日）https://www.pref.hiroshima.lg.jp/soshiki/64/koureikaritsu.html
+- **安佐北区 高齢化率35.9%（市内最高、65歳以上48,777人／135,989人）**、安佐南区22.1%（市内最低）、全市26.6%。広島市「百歳以上高齢者の状況」令和7年度版 https://www.city.hiroshima.lg.jp/living/fukushi-kaigo/1014902/1025759/1029763/1030677.html （基準日要確認、別ページで36.1%）
+- 使える対比：安佐北区は高齢化率が市内最高、乳がん検診受診率は市内最低（年度要確認）
+
+## A4. 県・市・医師会の取り組み
+- 広島県：令和3年度〜受診行動につながる個別受診勧奨を重点、市町の受診券作成支援、「Team がん対策ひろしま」職域連携、協会けんぽ広島支部と受診勧奨協定。https://www.kyoukaikenpo.or.jp/shibu/hiroshima/health_guidance/012/index.html
+- 安佐医師会のかかりつけ医勧奨事業：未確認。関連：安佐市民病院 乳がん術後地域連携パス（2012）https://www.asa-hosp.city.hiroshima.jp/assets/page/cli_can_pas_cp0626.pdf
+- 厚労省 受診率向上ハンドブック：かかりつけ医からの勧奨で受診が増えた事例（乳がん限定ではない）https://www.mhlw.go.jp/file/06-Seisakujouhou-10900000-Kenkoukyoku/handbook_tanP_180113.pdf
+
+## 地域データで要確認
+1. 区別受診率表の年度と算出方法、最新・70歳以上の受診率
+2. 令和8年度の自己負担額、免除条件、個別勧奨の有無、安佐北区の実施機関、集団検診申込
+3. 安佐北区高齢化率の基準日
+4. 広島県の乳がん罹患・死亡（年齢別）
+5. 安佐医師会・広島県医師会のかかりつけ医勧奨事業（医師会へ直接確認を推奨）
