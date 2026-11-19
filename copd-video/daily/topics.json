@@ -55,109 +55,109 @@
       "id": "asthma-ics",
       "title": "喘息の基本は吸入ステロイド",
       "status": "todo",
-      "hint": "ICS と喘息死・入院の減少、SABA 単独のリスク"
+      "hint": "ICS と喘息死・入院の減少、SABA 単独のリスク 【日本：承認済み】ICS（ブデソニド・フルチカゾン・シクレソニド等）は国内で喘息治療薬として承認・汎用。登場させる製品は作成時に PMDA 添付文書で確認（2026-11 確認）"
     },
     {
       "id": "asthma-mart",
-      "title": "発作止めも兼ねる吸入薬（MART/AIR）",
+      "title": "発作止めも兼ねる吸入薬（MART）",
       "status": "todo",
-      "hint": "SYGMA・Novel START などの ICS-formoterol 頓用の RCT。※日本で承認されているか必ず確認し、未承認なら扱わない（中心の治療が未承認ならテーマごと skipped）"
+      "hint": "SYGMA・Novel START などの ICS-formoterol 頓用の RCT。※日本で承認されているか必ず確認し、未承認なら扱わない（中心の治療が未承認ならテーマごと skipped） 【日本：一部未承認】ブデソニド/ホルモテロール（シムビコート）の維持療法＋頓用（SMART/MART）は2012年に承認済み（PMDA 再審査報告書 https://www.pmda.go.jp/drugs_reexam/2018/P20180416003/670227000_22100AMX02249_A100_1.pdf ）。ただし維持療法なしの頓用単独（AIR：SYGMA・Novel START の使い方）は国内で承認を確認できず → AIR／頓用単独は扱わない。MART の RCT（SMILE・COSMOS 等）と国内の用法（発作時1吸入、1回の発作で最大6吸入、維持＋頓用の1日上限）に絞る。タイトルの「AIR」も使わない"
     },
     {
       "id": "inhaler-technique",
       "title": "吸入薬は「使い方」で効きが変わる",
       "status": "todo",
-      "hint": "吸入手技エラーの頻度と喘息・COPDのコントロール悪化のメタ解析"
+      "hint": "吸入手技エラーの頻度と喘息・COPDのコントロール悪化のメタ解析 【日本：該当製品なし】特定の未承認製品は不要。例示する吸入器は国内販売品に限る"
     },
     {
       "id": "asthma-biologics",
       "title": "重症喘息の生物学的製剤",
       "status": "todo",
-      "hint": "メポリズマブ・ベンラリズマブ・デュピルマブ・テゼペルマブの増悪減少 RCT、FDA 添付文書。※日本で承認されているか必ず確認し、未承認なら扱わない（中心の治療が未承認ならテーマごと skipped）"
+      "hint": "メポリズマブ・ベンラリズマブ・デュピルマブ・テゼペルマブの増悪減少 RCT、FDA 添付文書。※日本で承認されているか必ず確認し、未承認なら扱わない（中心の治療が未承認ならテーマごと skipped） 【日本：すべて承認済み】メポリズマブ（ヌーカラ、2016年 https://www.pmda.go.jp/drugs/2016/P20160419002/340278000_22800AMX00404_A100_1.pdf ）、ベンラリズマブ（ファセンラ、2018年発売）、デュピルマブ（デュピクセント、喘息は2019年3月 https://www.pmda.go.jp/drugs/2019/P20190314001/780069000_23000AMX00015_A100_2.pdf ）、テゼペルマブ（テゼスパイア、2022年9月 https://www.pmda.go.jp/drugs/2022/P20220929001/670227000_30400AMX00402_A100_1.pdf ）。FDA 添付文書ではなく国内添付文書を根拠にする"
     },
     {
       "id": "cap-burden",
       "title": "肺炎は高齢者の大きな敵",
       "status": "todo",
-      "hint": "市中肺炎の入院・死亡の疫学（GBD・大規模コホート）"
+      "hint": "市中肺炎の入院・死亡の疫学（GBD・大規模コホート） 【日本：治療の紹介なし】疫学のみ"
     },
     {
       "id": "pneumococcal-vaccine",
       "title": "肺炎球菌ワクチン",
       "status": "todo",
-      "hint": "CAPiTA 試験（PCV13 の高齢者RCT）、PPSV23 のメタ解析、新しい結合型ワクチンの FDA 承認。※日本で承認されているか必ず確認し、未承認なら扱わない（中心の治療が未承認ならテーマごと skipped）"
+      "hint": "CAPiTA 試験（PCV13 の高齢者RCT）、PPSV23 のメタ解析、新しい結合型ワクチンの FDA 承認。※日本で承認されているか必ず確認し、未承認なら扱わない（中心の治療が未承認ならテーマごと skipped） 【日本：一部未承認・販売終了あり】PCV20（プレベナー20）は高齢者で2024年8月承認、2026年4月から65歳の定期接種が PPSV23 から PCV20 に切替（厚労省 https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/kekkaku-kansenshou/yobou-sesshu/vaccine/pneumococcus-senior ）。PCV15（バクニュバンス、2022年9月承認）、PCV21（キャップバックス、2025年8月承認・任意接種 https://www.msdconnect.jp/capvaxive-approval-announcement ）、PPSV23（ニューモバックスNP）も国内承認。PCV13（プレベナー13）は2024年9月末で販売終了 → 現在使える選択肢として出さない（CAPiTA は背景の根拠にとどめる）。「FDA 承認」ではなく国内承認・定期接種の情報を使う"
     },
     {
       "id": "influenza-vaccine",
       "title": "インフルエンザワクチンと肺の病気",
       "status": "todo",
-      "hint": "高齢者・心肺疾患でのワクチン効果のRCT/メタ解析"
+      "hint": "高齢者・心肺疾患でのワクチン効果のRCT/メタ解析 【日本：承認済み】インフルエンザ HA ワクチンは国内承認・高齢者は定期接種。高用量ワクチン等の特定製品を出す場合は国内承認を別途確認"
     },
     {
       "id": "rsv-vaccine",
       "title": "大人のRSウイルスとワクチン",
       "status": "todo",
-      "hint": "RSVPreF3（AReSVi-006）・RSVpreF（RENOIR）の第3相、FDA 承認。※日本で承認されているか必ず確認し、未承認なら扱わない（中心の治療が未承認ならテーマごと skipped）"
+      "hint": "RSVPreF3（AReSVi-006）・RSVpreF（RENOIR）の第3相、FDA 承認。※日本で承認されているか必ず確認し、未承認なら扱わない（中心の治療が未承認ならテーマごと skipped） 【日本：承認済み】RSVPreF3（アレックスビー）は2023年9月に60歳以上で承認、2024年に重症化リスクの高い50〜59歳へ拡大（https://nk.jiho.jp/article/184117 ）。RSVpreF（アブリスボ）は2024年3月に60歳以上の効能追加承認（https://www.pmda.go.jp/drugs/2024/P20240325002/672212000_30600AMX00014_A100_2.pdf ）。高齢者は定期接種ではなく任意接種（2026-11時点、定期接種化は未確認）。mRNA RSV ワクチン（mRESVIA）は国内承認未確認 → 扱わない"
     },
     {
       "id": "cap-steroids",
       "title": "重症肺炎とステロイド",
       "status": "todo",
-      "hint": "CAPE COD 試験（重症市中肺炎のヒドロコルチゾン）。※日本で承認されているか必ず確認し、未承認なら扱わない（中心の治療が未承認ならテーマごと skipped）"
+      "hint": "CAPE COD 試験（重症市中肺炎のヒドロコルチゾン）。※日本で承認されているか必ず確認し、未承認なら扱わない（中心の治療が未承認ならテーマごと skipped） 【日本：未確認（適応）】ヒドロコルチゾン注（ソル・コーテフ等）自体は国内で流通。副腎皮質ステロイドの添付文書には「重症感染症（化学療法と併用する）」の効能があるが、ソル・コーテフ個別の記載と重症市中肺炎での用法は未確認 → 作成時に PMDA 添付文書で要確認。REMAP-CAP（2025年）は有意な利益を示せなかった点も併記"
     },
     {
       "id": "tb-basics",
       "title": "結核は今も身近な感染症",
       "status": "todo",
-      "hint": "WHO Global TB Report の患者数（PubMed の要約論文で確認）、短期レジメンの RCT"
+      "hint": "WHO Global TB Report の患者数（PubMed の要約論文で確認）、短期レジメンの RCT 【日本：一部未承認】標準の6か月治療（INH・RFP・PZA・EB）は国内で使用可。リファペンチンを使う4か月レジメン（Study 31/A5349）や3HP は国内承認を確認できず（厚労省 未承認薬・適応外薬検討会議資料 https://www.mhlw.go.jp/content/11120000/001509462.pdf で言及）、プレトマニド（BPaL/BPaLM）は国内未承認で開発要望段階（https://www.mhlw.go.jp/content/11120000/001509459.pdf ）→ これらの短期レジメンは扱わない。疫学と国内標準治療に絞る"
     },
     {
       "id": "ipf-basics",
       "title": "特発性肺線維症（IPF）とは",
       "status": "todo",
-      "hint": "IPF の疫学・予後のレビュー"
+      "hint": "IPF の疫学・予後のレビュー 【日本：治療の紹介なし】疫学・予後のみ（治療に触れる場合は ipf-antifibrotic と同じ国内承認薬に限る）"
     },
     {
       "id": "ipf-antifibrotic",
       "title": "IPFの抗線維化薬",
       "status": "todo",
-      "hint": "INPULSIS（ニンテダニブ）・ASCEND/CAPACITY（ピルフェニドン）の FVC 低下抑制"
+      "hint": "INPULSIS（ニンテダニブ）・ASCEND/CAPACITY（ピルフェニドン）の FVC 低下抑制 【日本：承認済み】ピルフェニドン（ピレスパ）は2008年10月に IPF で世界初承認（https://www.pmda.go.jp/drugs_reexam/2019/P20191218001/34001800_22000AMX02373_A100_1.pdf ）、ニンテダニブ（オフェブ）も IPF で承認済み"
     },
     {
       "id": "ppf",
       "title": "IPF以外でも進む肺線維症",
       "status": "todo",
-      "hint": "INBUILD 試験（進行性線維化を伴う間質性肺疾患）。※日本で承認されているか必ず確認し、未承認なら扱わない（中心の治療が未承認ならテーマごと skipped）"
+      "hint": "INBUILD 試験（進行性線維化を伴う間質性肺疾患）。※日本で承認されているか必ず確認し、未承認なら扱わない（中心の治療が未承認ならテーマごと skipped） 【日本：承認済み】ニンテダニブ（オフェブ）は INBUILD に基づき2020年5月29日に「進行性線維化を伴う間質性肺疾患」で承認（PMDA 審査報告書 https://www.pmda.go.jp/drugs/2020/P20200601001/530353000_22700AMX00693_A100_1.pdf ）"
     },
     {
       "id": "osa-burden",
       "title": "睡眠時無呼吸症候群はどれくらい多い？",
       "status": "todo",
-      "hint": "Benjafield 2019 の世界推計（約10億人）"
+      "hint": "Benjafield 2019 の世界推計（約10億人） 【日本：治療の紹介なし】疫学のみ"
     },
     {
       "id": "osa-cpap",
       "title": "CPAPで何が良くなる？",
       "status": "todo",
-      "hint": "眠気・QOL の改善、SAVE 試験（心血管イベントは減らず）を正確に"
+      "hint": "眠気・QOL の改善、SAVE 試験（心血管イベントは減らず）を正確に 【日本：承認済み】CPAP は国内で保険診療として使用可（適用条件は作成時に確認）"
     },
     {
       "id": "osa-tirzepatide",
       "title": "睡眠時無呼吸と体重減少の薬",
       "status": "todo",
-      "hint": "SURMOUNT-OSA（チルゼパチド）の AHI 減少、FDA 承認。※日本で承認されているか必ず確認し、未承認なら扱わない（中心の治療が未承認ならテーマごと skipped）"
+      "hint": "SURMOUNT-OSA（チルゼパチド）の AHI 減少、FDA 承認。※日本で承認されているか必ず確認し、未承認なら扱わない（中心の治療が未承認ならテーマごと skipped） 【日本：承認済み】チルゼパチド（ゼップバウンド）は2026年5月18日に「中等症以上の閉塞性睡眠時無呼吸症候群（BMI 27以上に限る）」の効能追加承認（4月24日 医薬品第一部会了承、横浜市 薬務通知 https://www.city.yokohama.lg.jp/kenko-iryo-fukushi/kenko-iryo/iryo/anzenshien/tsuchi-renraku/yakumu-jouhou/yakumu-tsuuchi2026.files/20260518_02.pdf ）。最適使用推進ガイドラインの対象条件（BMI 27以上、維持量15mg）を正確に。「FDA 承認」ではなく国内承認を使う"
     },
     {
       "id": "lung-cancer-screening",
       "title": "肺がん検診（低線量CT）",
       "status": "todo",
-      "hint": "NLST・NELSON の肺がん死亡減少"
+      "hint": "NLST・NELSON の肺がん死亡減少 【日本：注意（制度の違い）】国内の住民検診（対策型）は現状、胸部X線（＋重喫煙者に喀痰細胞診）が中心で、低線量CTは全国の対策型検診には未導入。2025年度版の国立がん研究センター肺がん検診ガイドラインで、重喫煙者（喫煙指数600以上、禁煙15年以内含む、50〜74歳、年1回）への低線量CTが推奨グレードA（対策型・任意型）とされた一方、重喫煙者以外はグレードIで対策型では実施しない（https://www.ncc.go.jp/jp/information/pr_release/2025/0425/index.html ）。対策型導入は今後のモデル事業段階（未確認）。「誰でもCT検診を」と誤解させない"
     },
     {
       "id": "smoking-cessation-drugs",
       "title": "禁煙補助薬はどれが効く？",
       "status": "todo",
-      "hint": "EAGLES 試験、バレニクリン・NRT の Cochrane レビュー。※日本で承認されているか必ず確認し、未承認なら扱わない（中心の治療が未承認ならテーマごと skipped）"
+      "hint": "EAGLES 試験、バレニクリン・NRT の Cochrane レビュー。※日本で承認されているか必ず確認し、未承認なら扱わない（中心の治療が未承認ならテーマごと skipped） 【日本：一部未承認・供給注意】バレニクリン（チャンピックス）は2021年6月から出荷停止、2025年10月に通常出荷再開（ファイザー案内、日経「チャンピックス供給再開、4年以上ぶり」https://nk.jiho.jp/article/p-1226589628990 ）。禁煙外来の約半数が休止・閉鎖していた時期もあり、処方可否は医療機関に確認と添える。ニコチンパッチ（医療用ニコチネルTTS、OTC パッチ）・ニコチンガム（OTC）は国内で使用可。EAGLES のブプロピオンは国内で禁煙補助薬として承認されていない（出典未取得）→ 扱わない。電子たばこも扱わない"
     },
     {
       "id": "e-cigarettes",
@@ -170,49 +170,49 @@
       "id": "bronchiectasis",
       "title": "気管支拡張症と新しい薬",
       "status": "todo",
-      "hint": "ASPEN 試験（ブレンソカチブ）の増悪減少、FDA 承認の有無を確認。※日本で承認されているか必ず確認し、未承認なら扱わない（中心の治療が未承認ならテーマごと skipped）"
+      "hint": "ASPEN 試験（ブレンソカチブ）の増悪減少、FDA 承認の有無を確認。※日本で承認されているか必ず確認し、未承認なら扱わない（中心の治療が未承認ならテーマごと skipped） 【日本：承認済み】ブレンソカチブ（ブリンスプリ錠25mg）は2026年8月に「非嚢胞性線維症気管支拡張症」で承認（7月27日 医薬品第二部会、PMDA https://www.pmda.go.jp/drugs/2026/P20260831001/150949000_30800AMX00304_A100_1.pdf 、https://nk.jiho.jp/article/303701 ）、2026年10月発売、成人と12歳以上に1日1回25mg。「FDA 承認」ではなく国内承認を使う"
     },
     {
       "id": "pulmonary-embolism",
       "title": "肺塞栓症（エコノミークラス症候群）",
       "status": "todo",
-      "hint": "DOAC と従来治療の比較 RCT/メタ解析、長時間移動との関連"
+      "hint": "DOAC と従来治療の比較 RCT/メタ解析、長時間移動との関連 【日本：承認済み（一部注意）】エドキサバン・リバーロキサバン・アピキサバンは深部静脈血栓症・肺血栓塞栓症の治療と再発抑制で国内承認（作成時に各添付文書で確認）。ダビガトランの VTE 適応は国内で確認できず → ダビガトランの VTE 試験（RE-COVER 等）は扱わない"
     },
     {
       "id": "pulmonary-hypertension",
       "title": "肺高血圧症の新しい治療",
       "status": "todo",
-      "hint": "STELLAR 試験（ソタテルセプト）、FDA 承認。※日本で承認されているか必ず確認し、未承認なら扱わない（中心の治療が未承認ならテーマごと skipped）"
+      "hint": "STELLAR 試験（ソタテルセプト）、FDA 承認。※日本で承認されているか必ず確認し、未承認なら扱わない（中心の治療が未承認ならテーマごと skipped） 【日本：承認済み】ソタテルセプト（エアウィン皮下注用）は2025年6月に肺動脈性肺高血圧症で承認（PMDA 審査報告書 https://www.pmda.go.jp/drugs/2025/P20250623003/170050000_30700AMX00111_A100_1.pdf ）。「FDA 承認」ではなく国内承認を使う"
     },
     {
       "id": "sarcoidosis",
       "title": "サルコイドーシスとは",
       "status": "todo",
-      "hint": "疫学レビュー、ステロイド治療のエビデンス"
+      "hint": "疫学レビュー、ステロイド治療のエビデンス 【日本：承認済み】ステロイド（プレドニゾロン等）は国内で使用可。その他の薬を出す場合はサルコイドーシスへの国内適応を個別確認"
     },
     {
       "id": "long-covid-lung",
       "title": "コロナ後の息切れ",
       "status": "todo",
-      "hint": "COVID 後の呼吸器症状の頻度（メタ解析）、呼吸リハビリの RCT"
+      "hint": "COVID 後の呼吸器症状の頻度（メタ解析）、呼吸リハビリの RCT 【日本：承認済み】呼吸リハビリは国内で実施可。未承認の薬は扱わない"
     },
     {
       "id": "home-oxygen",
       "title": "在宅酸素療法を正しく知る",
       "status": "todo",
-      "hint": "NOTT・MRC・LOTT、安全面（火気）"
+      "hint": "NOTT・MRC・LOTT、安全面（火気） 【日本：承認済み】在宅酸素療法は国内で保険適用（適用基準は作成時に確認）"
     },
     {
       "id": "pulmonary-rehab",
       "title": "呼吸リハビリのすすめ",
       "status": "todo",
-      "hint": "Cochrane 呼吸リハ、増悪後早期リハビリのメタ解析"
+      "hint": "Cochrane 呼吸リハ、増悪後早期リハビリのメタ解析 【日本：承認済み】呼吸リハビリテーションは国内で保険診療として実施可"
     },
     {
       "id": "air-pollution-lung",
       "title": "大気汚染と肺の健康",
       "status": "todo",
-      "hint": "PM2.5 と呼吸器死亡の大規模コホート・GBD"
+      "hint": "PM2.5 と呼吸器死亡の大規模コホート・GBD 【日本：治療の紹介なし】疫学のみ"
     }
   ]
 }
