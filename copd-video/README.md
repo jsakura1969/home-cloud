@@ -1,14 +1,14 @@
 # COPD エビデンス・ショート（30秒 × 5本）
 
 HyperFrames（HTML → MP4）で作った、COPD解説の縦型ショート動画です。
-各シーンの数値と出典は [evidence.md](evidence.md)（PubMed / ClinicalTrials.gov / FDA から MCP 経由で取得）に対応しています。
+各シーンの数値と出典は [evidence.md](evidence.md)（PubMed / ClinicalTrials.gov から MCP 経由で取得。国内承認情報は製薬会社の発表資料）に対応しています。
 
 | # | ファイル | テーマ | 主な出典 |
 |---|---|---|---|
 | 1 | [out/copd-v1.mp4](out/copd-v1.mp4) | COPDはどれくらい多い？ | GBD 2021（PMID 41561564）、メタ解析（PMID 38273271） |
 | 2 | [out/copd-v2.mp4](out/copd-v2.mp4) | 禁煙は治療の土台 | Lung Health Study（PMID 15710956, 41164942） |
 | 3 | [out/copd-v3.mp4](out/copd-v3.mp4) | 吸入薬：2剤から3剤へ | IMPACT（PMID 29668352）、ETHOS（PMID 32579807） |
-| 4 | [out/copd-v4.mp4](out/copd-v4.mp4) | 新しい治療：生物学的製剤 | BOREAS/NOTUS（PMID 39900091）、MATINEE（PMID 40305712）、FDA 添付文書 |
+| 4 | [out/copd-v4.mp4](out/copd-v4.mp4) | 新しい治療：生物学的製剤 | BOREAS/NOTUS（PMID 39900091）、日本での承認（サノフィ発表 2025年3月） |
 | 5 | [out/copd-v5.mp4](out/copd-v5.mp4) | 薬以外の治療 | Cochrane（PMID 25705944, 29943802）、NOTT、LOTT |
 
 仕様: 1080×1920（9:16）、30fps、30.0秒、H.264 ＋ AAC（48kHz ステレオ）、全体の音量は約 −13.5 LUFS。
@@ -79,8 +79,8 @@ npm run render         # out/copd-v1.mp4〜v5.mp4 を書き出し
 
 ## 注意
 - 医療情報の一般的な解説です。個別の治療判断は主治医と相談してください。
-- 動画4の承認情報は米国FDAのものです。日本での承認状況は確認していません。
-- 数値は論文の抄録と FDA 添付文書から転記しました。公開前に、主な数値は原文で再確認してください。
+- 日本で未承認の薬は扱わない方針です。動画4は日本で承認済みのデュピルマブのみを扱います。
+- 数値は論文の抄録と製薬会社の発表資料から転記しました。公開前に、主な数値は原文で再確認してください。
 
 ## ライセンス
 - 音声: VOICEVOX:四国めたん（[VOICEVOX 利用規約](https://voicevox.hiroshiba.jp/term/)、キャラクターの規約に従う）

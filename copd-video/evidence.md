@@ -2,7 +2,7 @@
 
 取得日: 2026-11-18
 取得元MCP: PubMed / Arca FDA, Trials & PubMed / Clinical Trials（ClinicalTrials.gov）
-※ 数値はすべて各論文の抄録、または FDA 添付文書から転記。動画で使う前に、重要な数値は原文で再確認すること。
+※ 数値はすべて各論文の抄録、または製薬会社の発表資料（国内承認情報）から転記。動画で使う前に、重要な数値は原文で再確認すること。
 
 凡例（エビデンスの種類）: SR/MA = システマティックレビュー/メタ解析、RCT = ランダム化比較試験、Obs = 観察研究/疾病負荷推計、Reg = 規制当局文書
 
@@ -41,18 +41,15 @@
 
 > 注意: 死亡低下（3-2, 3-4）はどちらも二次解析。字幕では「死亡リスク低下も報告」程度の強さに留める。対象は「増悪歴のある患者」と明記する。
 
-## Scene 4. 新しい治療（生物学的製剤・新規吸入薬）
+## Scene 4. 新しい治療（生物学的製剤）
 
 | # | 動画で言うこと | 数値 | 種類 | 出典 |
 |---|---|---|---|---|
-| 4-1 | デュピルマブ（IL-4/13 を抑える）は好酸球が多い患者で増悪を約31%減らす | 年間増悪率 0.794 vs 1.156（IRR 0.687）。重度増悪の年率は有意差なし | RCT 統合解析 (BOREAS+NOTUS, n=1,874) | Bhatt SP, et al. *Lancet Respir Med* 2025. PMID [39900091](https://pubmed.ncbi.nlm.nih.gov/39900091/) / [DOI](https://doi.org/10.1016/s2213-2600(24)00409-0) / NCT03930732, NCT04456673 |
-| 4-2 | FDA 承認: Dupixent はコントロール不十分な好酸球性 COPD への上乗せ維持療法 | 適応文言 | Reg | [FDA label 761055 s075](https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/761055s075lbl.pdf) |
-| 4-3 | メポリズマブ（IL-5 を抑える）も増悪を21%減らす（MATINEE） | 0.80 vs 1.01/年（RR 0.79）。QOL では有意差なし | RCT (n=804) | Sciurba FC, et al. *NEJM* 2025. PMID [40305712](https://pubmed.ncbi.nlm.nih.gov/40305712/) / [DOI](https://doi.org/10.1056/nejmoa2413181) / NCT04133909 |
-| 4-4 | FDA 承認: Nucala も好酸球性 COPD への上乗せ維持療法 | 適応文言 | Reg | [DailyMed Nucala](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=fefb887c-e4ac-431e-8893-e9d1a5a63fea) |
-| 4-5 | エンシフェントリン（PDE3/4 阻害、ネブライザー）で呼吸機能が改善 | FEV1 AUC +87 mL / +94 mL。増悪 RR 0.64 / 0.57 | RCT ×2 (ENHANCE-1/2, n≈1,549) | Anzueto A, et al. *AJRCCM* 2023. PMID [37364283](https://pubmed.ncbi.nlm.nih.gov/37364283/) / [DOI](https://doi.org/10.1164/rccm.202306-0944oc) |
-| 4-6 | FDA 承認: Ohtuvayre（2024）、COPD の維持療法 | 適応文言 | Reg | [FDA 承認文書 NDA 217389](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/217389Orig1s000Approv.pdf) |
+| 4-1 | デュピルマブ（IL-4/13 を抑える）は好酸球が多い患者で増悪を約31%減らす | 中等度・重度の年間増悪率 0.794 vs 1.156（IRR 0.687）。対象は血中好酸球 ≥300/μL | RCT 統合解析 (BOREAS+NOTUS, n=1,874) | Bhatt SP, et al. *Lancet Respir Med* 2025. PMID [39900091](https://pubmed.ncbi.nlm.nih.gov/39900091/) / [DOI](https://doi.org/10.1016/s2213-2600(24)00409-0) / NCT03930732, NCT04456673 |
+| 4-2 | 日本でも COPD で使える（2025年承認、既存治療で効果不十分な患者に限る） | 承認日 2025-03-27。効能「慢性閉塞性肺疾患（既存治療で効果不十分な患者に限る）」。300mg を2週ごとに皮下注射 | Reg（国内承認） | サノフィ株式会社 プレスリリース 2025-03-27 [PDF](https://www.sanofi.co.jp/assets/dot-jp/pressreleases/2025/250327.pdf) |
+| 4-3 | ただし重度増悪（入院など）の減少は有意差なし | 重度増悪の年率 RR 0.674（p=0.073） | RCT 統合解析 (BOREAS+NOTUS) | PMID [39900091](https://pubmed.ncbi.nlm.nih.gov/39900091/) |
 
-> 注意: 生物学的製剤の対象は「3剤併用でも増悪する」「血中好酸球 ≥300/μL」の患者に限られる。全患者向けの治療に見えないよう、対象条件を画面に出す。日本での承認状況は別途 PMDA で確認が必要（今回は未確認）。
+> 注意: 本プロジェクトは「日本で未承認の薬は取り扱わない」方針のため、米国などで COPD に承認されているが日本では未承認のメポリズマブ（Nucala）とエンシフェントリン（Ohtuvayre）は意図的に外している。デュピルマブの対象は「3剤併用でも増悪する」「血中好酸球 ≥300/μL」の患者に限られる。全患者向けの治療に見えないよう、対象条件を画面に出す。
 
 ## Scene 5. 薬以外の治療
 
@@ -69,10 +66,10 @@
 
 ## 今回取れていないもの（別の手段で補う）
 - **GOLD 2026 レポート**（診断基準・治療アルゴリズム）: 今回のMCPには収録されていない → goldcopd.org で直接確認
-- **日本の状況**（JRS ガイドライン、国内患者数、PMDA 承認）: 今回のMCPは海外DB中心のため未取得
+- **日本の状況**（JRS ガイドライン、国内患者数）: 今回のMCPは海外DB中心のため未取得。国内承認は、デュピルマブの COPD 承認（2025年3月）のみサノフィの発表資料で確認済み
 - 肺炎球菌・RSV ワクチン、急性増悪時の治療: 必要なら追加で検索
 
 ## 情報源について
 - 論文の情報: PubMed（Arca 経由を含む）。各行に DOI を記載。
-- 規制情報: FDA Drugs@FDA / DailyMed（Arca 経由）。
+- 規制情報: 国内承認はサノフィ株式会社のプレスリリース（2025-03-27）。
 - 試験登録: ClinicalTrials.gov（NCT02164513 を Clinical Trials MCP で照合済み: 第3相、完了、10,355例、GSK）。
