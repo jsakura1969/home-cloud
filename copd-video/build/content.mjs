@@ -111,28 +111,24 @@ export const VIDEOS = [
       {
         type: "stat", label: "対象になる目印", big: "好酸球 ≥300",
         sub: "血液中の好酸球（/μL）が多い<br>＝ 2型炎症のタイプ",
-        src: "BOREAS/NOTUS・MATINEE の登録基準｜PMID 39900091, 40305712",
+        src: "BOREAS/NOTUS 試験の登録基準｜PMID 39900091",
       },
       {
         type: "compare", label: "中等度〜重度の増悪（回/年）",
         bars: [
           { name: "プラセボ", value: 1.156, tone: "muted" },
           { name: "デュピルマブ", value: 0.794, tone: "accent" },
-          { name: "プラセボ", value: 1.01, tone: "muted" },
-          { name: "メポリズマブ", value: 0.8, tone: "accent2" },
         ],
-        caption: "デュピルマブ <b>約31%減</b>（1,874人）／ メポリズマブ <b>21%減</b>（804人）",
-        src: "Bhatt SP, et al. Lancet Respir Med 2025｜PMID 39900091 ／ Sciurba FC, et al. NEJM 2025｜PMID 40305712",
+        caption: "増悪が<b>約31%減</b>（1,874人）",
+        src: "Bhatt SP, et al. Lancet Respir Med 2025｜PMID 39900091",
       },
       {
-        type: "duo", label: "米国FDAで COPD の適応",
+        type: "duo", label: "日本でも COPD で使える",
         cards: [
-          { name: "Dupixent", value: "注射", sub: "デュピルマブ" },
-          { name: "Nucala", value: "注射", sub: "メポリズマブ" },
-          { name: "Ohtuvayre", value: "吸入", sub: "エンシフェントリン（2024）" },
+          { name: "日本での承認", value: "2025年", sub: "既存治療で<br>効果不十分な場合" },
+          { name: "使い方", value: "2週ごと", sub: "300mgを皮下注射" },
         ],
-        note: "※米国の承認情報。日本の承認状況は別途確認を",
-        src: "FDA label BLA 761055 ／ DailyMed Nucala ／ FDA NDA 217389",
+        src: "サノフィ プレスリリース 2025年3月27日（デュピクセント COPD 適応追加の承認）",
       },
       {
         type: "close", kicker: "まとめ", lines: ["タイプを見分けて", "治療を上乗せ"],
@@ -202,8 +198,8 @@ export const NARRATION = {
   v4: [
     "三剤でも増悪する人には、注射の治療も。",
     "目印は、血液中の好酸球が多いタイプです。",
-    "デュピルマブで約三割、メポリズマブで約二割、増悪が減りました。",
-    "アメリカでは、シーオーピーディーへの使用が承認されています。",
+    "デュピルマブで、中等度以上の増悪が約三割減りました。",
+    "日本でも二千二十五年に、シーオーピーディーで承認されています。",
     "タイプを見分けて、治療を上乗せします。",
   ],
   v5: [
