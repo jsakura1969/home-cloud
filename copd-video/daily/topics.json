@@ -1,6 +1,6 @@
 {
   "series": "呼吸器エビデンス・ショート",
-  "note": "毎日のセッションは status が todo の先頭から1件選ぶ。hint は根拠集めの出発点（必ず MCP で確認し直すこと）。",
+  "note": "毎日のセッションは status が todo の先頭から1件選ぶ。hint は根拠集めの出発点（必ず MCP で確認し直すこと）。 日本で使えない治療は動画にしない（RUNBOOK 参照）。",
   "topics": [
     {
       "id": "copd-burden",
@@ -61,7 +61,7 @@
       "id": "asthma-mart",
       "title": "発作止めも兼ねる吸入薬（MART/AIR）",
       "status": "todo",
-      "hint": "SYGMA・Novel START などの ICS-formoterol 頓用の RCT"
+      "hint": "SYGMA・Novel START などの ICS-formoterol 頓用の RCT。※日本で承認されているか必ず確認し、未承認なら扱わない（中心の治療が未承認ならテーマごと skipped）"
     },
     {
       "id": "inhaler-technique",
@@ -73,7 +73,7 @@
       "id": "asthma-biologics",
       "title": "重症喘息の生物学的製剤",
       "status": "todo",
-      "hint": "メポリズマブ・ベンラリズマブ・デュピルマブ・テゼペルマブの増悪減少 RCT、FDA 添付文書"
+      "hint": "メポリズマブ・ベンラリズマブ・デュピルマブ・テゼペルマブの増悪減少 RCT、FDA 添付文書。※日本で承認されているか必ず確認し、未承認なら扱わない（中心の治療が未承認ならテーマごと skipped）"
     },
     {
       "id": "cap-burden",
@@ -85,7 +85,7 @@
       "id": "pneumococcal-vaccine",
       "title": "肺炎球菌ワクチン",
       "status": "todo",
-      "hint": "CAPiTA 試験（PCV13 の高齢者RCT）、PPSV23 のメタ解析、新しい結合型ワクチンの FDA 承認"
+      "hint": "CAPiTA 試験（PCV13 の高齢者RCT）、PPSV23 のメタ解析、新しい結合型ワクチンの FDA 承認。※日本で承認されているか必ず確認し、未承認なら扱わない（中心の治療が未承認ならテーマごと skipped）"
     },
     {
       "id": "influenza-vaccine",
@@ -97,13 +97,13 @@
       "id": "rsv-vaccine",
       "title": "大人のRSウイルスとワクチン",
       "status": "todo",
-      "hint": "RSVPreF3（AReSVi-006）・RSVpreF（RENOIR）の第3相、FDA 承認"
+      "hint": "RSVPreF3（AReSVi-006）・RSVpreF（RENOIR）の第3相、FDA 承認。※日本で承認されているか必ず確認し、未承認なら扱わない（中心の治療が未承認ならテーマごと skipped）"
     },
     {
       "id": "cap-steroids",
       "title": "重症肺炎とステロイド",
       "status": "todo",
-      "hint": "CAPE COD 試験（重症市中肺炎のヒドロコルチゾン）"
+      "hint": "CAPE COD 試験（重症市中肺炎のヒドロコルチゾン）。※日本で承認されているか必ず確認し、未承認なら扱わない（中心の治療が未承認ならテーマごと skipped）"
     },
     {
       "id": "tb-basics",
@@ -127,7 +127,7 @@
       "id": "ppf",
       "title": "IPF以外でも進む肺線維症",
       "status": "todo",
-      "hint": "INBUILD 試験（進行性線維化を伴う間質性肺疾患）"
+      "hint": "INBUILD 試験（進行性線維化を伴う間質性肺疾患）。※日本で承認されているか必ず確認し、未承認なら扱わない（中心の治療が未承認ならテーマごと skipped）"
     },
     {
       "id": "osa-burden",
@@ -145,7 +145,7 @@
       "id": "osa-tirzepatide",
       "title": "睡眠時無呼吸と体重減少の薬",
       "status": "todo",
-      "hint": "SURMOUNT-OSA（チルゼパチド）の AHI 減少、FDA 承認"
+      "hint": "SURMOUNT-OSA（チルゼパチド）の AHI 減少、FDA 承認。※日本で承認されているか必ず確認し、未承認なら扱わない（中心の治療が未承認ならテーマごと skipped）"
     },
     {
       "id": "lung-cancer-screening",
@@ -157,19 +157,20 @@
       "id": "smoking-cessation-drugs",
       "title": "禁煙補助薬はどれが効く？",
       "status": "todo",
-      "hint": "EAGLES 試験、バレニクリン・NRT の Cochrane レビュー"
+      "hint": "EAGLES 試験、バレニクリン・NRT の Cochrane レビュー。※日本で承認されているか必ず確認し、未承認なら扱わない（中心の治療が未承認ならテーマごと skipped）"
     },
     {
       "id": "e-cigarettes",
       "title": "電子たばこは禁煙に役立つ？",
-      "status": "todo",
-      "hint": "Cochrane の電子たばこ禁煙レビュー、Hajek 2019 NEJM。安全性の不確実性も明記"
+      "status": "skipped",
+      "hint": "Cochrane の電子たばこ禁煙レビュー、Hajek 2019 NEJM。安全性の不確実性も明記",
+      "reason": "ニコチン入り電子たばこは日本では禁煙治療薬として承認されていないため（日本で使えない治療は動画にしない方針）"
     },
     {
       "id": "bronchiectasis",
       "title": "気管支拡張症と新しい薬",
       "status": "todo",
-      "hint": "ASPEN 試験（ブレンソカチブ）の増悪減少、FDA 承認の有無を確認"
+      "hint": "ASPEN 試験（ブレンソカチブ）の増悪減少、FDA 承認の有無を確認。※日本で承認されているか必ず確認し、未承認なら扱わない（中心の治療が未承認ならテーマごと skipped）"
     },
     {
       "id": "pulmonary-embolism",
@@ -181,7 +182,7 @@
       "id": "pulmonary-hypertension",
       "title": "肺高血圧症の新しい治療",
       "status": "todo",
-      "hint": "STELLAR 試験（ソタテルセプト）、FDA 承認"
+      "hint": "STELLAR 試験（ソタテルセプト）、FDA 承認。※日本で承認されているか必ず確認し、未承認なら扱わない（中心の治療が未承認ならテーマごと skipped）"
     },
     {
       "id": "sarcoidosis",

@@ -33,7 +33,11 @@ npm ci
   - ClinicalTrials.gov：`sources/NCT<8桁>.txt`
   - FDA 文書：`sources/FDA-<短い名前>.txt`。URL と該当箇所の抜粋を入れる
 - 結果が否定的な試験（効果なし）も正直に扱う。「〜で改善」と言えるのは、主要評価項目で有意だった場合だけ。二次解析・サブグループ解析なら、そう明記する。
-- 日本で未承認の薬・ワクチンは「米国FDAでは〜」のように、国を明記する。
+- **日本で使えない治療は動画にしない**（ユーザーの方針）。
+  - 対象は、日本で未承認の薬・ワクチン・機器。海外だけで承認されている薬は、比較のためでも登場させない
+  - 動画に出す治療は、すべて `content.json` の `japan` に書く。日本で使える根拠（PMDA の添付文書・承認情報、厚労省・製薬会社の発表など）を URL 付きで書く
+  - 根拠は、Arca の `search_medical`（sourceTypes: `global_regulatory`。PMDA・厚労省の文書を含む）で探す。見つからなければ Web で探す
+  - 日本で使えるか確認できないものは外す。テーマの中心の治療が日本で使えない場合は、そのテーマを `skipped` にし、`reason` を書く
 
 ## 3. `daily/<DATE>/content.json` を書く
 既存の COPD 動画（`build/content.mjs` の `VIDEOS`）と同じ5シーン構成にする。
@@ -59,6 +63,10 @@ npm ci
   "claims": [
     { "scene": 1, "value": "262", "source": "PMID 12345678", "quote": "抄録から一字一句そのまま写した文" },
     { "scene": 2, "value": "33", "from": "0.67", "derivation": "rate ratio 0.67 → 33%減", "source": "PMID …", "quote": "… rate ratio, 0.67 …" }
+  ],
+  "japan": [
+    { "treatment": "吸入ステロイド（ICS）", "status": "approved", "evidence": "PMDA 添付文書 https://www.pmda.go.jp/…" },
+    { "treatment": "禁煙支援", "status": "not-applicable", "evidence": "薬・機器ではない" }
   ],
   "plainNumbers": [
     { "scene": 0, "value": "3", "reason": "「3剤」は薬の数（数値データではない）" }

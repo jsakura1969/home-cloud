@@ -32,14 +32,15 @@ const ok = (msg) => passed.push(msg);
 const stop = () => {
   if (!errors.length) return;
   console.error(`\n✗ ${errors.length} check(s) failed — NOT ready for upload:\n- ${errors.join("\n- ")}`);
-  rmSync(join(DAY, "ready.json"), { force: true });
+  if (!checkOnly) rmSync(join(DAY, "ready.json"), { force: true });
   process.exit(1);
 };
 const step = (s) => console.log(`\n== ${s}`);
 
 // ---------------------------------------------------------------- 1. 入力
 step("load content.json");
-rmSync(join(DAY, "ready.json"), { force: true });
+// 本番の実行では、合格するまで ready.json を消しておく（--check-only は既存の結果に触れない）
+if (!checkOnly) rmSync(join(DAY, "ready.json"), { force: true });
 const content = JSON.parse(readFileSync(join(DAY, "content.json"), "utf8"));
 const topics = JSON.parse(readFileSync(TOPICS_FILE, "utf8"));
 const topic = topics.topics.find((t) => t.id === content.topicId);
@@ -59,6 +60,17 @@ const yt = content.youtube ?? {};
 if (!yt.title || [...yt.title].length > 60) fail("youtube.title must be 1–60 characters");
 if (!yt.summary || [...yt.summary].length > 400) fail("youtube.summary must be 1–400 characters");
 if (/[<>]/.test(JSON.stringify(yt))) fail("youtube fields must not contain < or >");
+// 日本で使えない治療は扱わない（ユーザーの方針）。動画に出す治療・薬・ワクチン・検査はすべて、
+// 日本での承認・保険適用など「日本で使える」根拠を japan に書く。薬以外（禁煙・リハビリなど）は not-applicable。
+const japan = content.japan ?? [];
+if (!Array.isArray(japan) || !japan.length) fail("japan: list every treatment/drug/vaccine/test shown, with evidence that it is available in Japan");
+for (const [i, j] of japan.entries()) {
+  if (!j.treatment) fail(`japan[${i}]: treatment is required`);
+  if (j.status !== "approved" && j.status !== "not-applicable")
+    fail(`japan[${i}] (${j.treatment}): status must be "approved" (usable in Japan) or "not-applicable" (not a drug/device) — treatments not available in Japan must not appear in the video`);
+  if (j.status === "approved" && !(j.evidence && /https?:\/\//.test(j.evidence)))
+    fail(`japan[${i}] (${j.treatment}): evidence must include a URL (PMDA 添付文書・承認情報、製薬会社や厚労省の発表など)`);
+}
 stop();
 
 // ---------------------------------------------------------------- 3. 関門: 出典と数値
