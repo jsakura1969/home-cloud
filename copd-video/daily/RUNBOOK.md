@@ -37,6 +37,7 @@ npm ci
   - 対象は、日本で未承認の薬・ワクチン・機器。海外だけで承認されている薬は、比較のためでも登場させない
   - 動画に出す治療は、すべて `content.json` の `japan` に書く。日本で使える根拠（PMDA の添付文書・承認情報、厚労省・製薬会社の発表など）を URL 付きで書く
   - 根拠は、Arca の `search_medical`（sourceTypes: `global_regulatory`。PMDA・厚労省の文書を含む）で探す。見つからなければ Web で探す
+  - PMDA のサイト（www.pmda.go.jp）は、クラウド環境「home-cloud」のネットワークで許可済み。添付文書・審査報告書の本文を直接開いて、効能・効果を確かめられる
   - 日本で使えるか確認できないものは外す。テーマの中心の治療が日本で使えない場合は、そのテーマを `skipped` にし、`reason` を書く
 
 ## 3. `daily/<DATE>/content.json` を書く
