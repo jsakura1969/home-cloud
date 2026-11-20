@@ -56,6 +56,7 @@ function sceneBody(s, i, credit) {
         <div class="label a">${s.label}</div>
         <div class="bars ${s.bars.length > 2 ? "bars-4" : ""}">${bars}</div>
         <p class="sub a">${s.caption}</p>
+        ${s.note ? `<p class="note a">${s.note}</p>` : ""}
         ${src}`;
     }
     case "icons": {

@@ -1,0 +1,174 @@
+{
+  "date": "2026-11-20",
+  "topicId": "e-cigarettes",
+  "theme": "電子たばこは禁煙に役立つ？",
+  "scenes": [
+    {
+      "type": "hook",
+      "kicker": "禁煙のための道具として",
+      "title": "電子たばこは<br>役立つ？",
+      "sub": "海外のランダム化比較試験を<br>見てみよう"
+    },
+    {
+      "type": "compare",
+      "label": "1年後も禁煙が続いた人（%）",
+      "bars": [
+        {
+          "name": "ニコチン置換療法",
+          "value": 9.9,
+          "tone": "muted"
+        },
+        {
+          "name": "電子たばこ",
+          "value": 18.0,
+          "tone": "accent"
+        }
+      ],
+      "caption": "電子たばこが<b>約1.8倍</b>（886人）",
+      "note": "※日本では承認されていません（ニコチン入り）",
+      "src": "Hajek P, et al. NEJM 2019｜PMID 30699054"
+    },
+    {
+      "type": "stat",
+      "label": "7試験のまとめ（Cochrane）",
+      "prefix": "+",
+      "count": 4,
+      "unit": "人",
+      "sub": "100人あたりの禁煙できた人が<br>ニコチン置換療法より多い",
+      "note": "確実性：高 ※日本では承認されていません",
+      "src": "Lindson N, et al. Cochrane 2025｜PMID 39878158"
+    },
+    {
+      "type": "duo",
+      "label": "ただし安全性はまだ不明",
+      "cards": [
+        {
+          "name": "重い副作用",
+          "value": "判定不能",
+          "sub": "試験が少なく<br>差を判断できない",
+          "tone": "muted"
+        },
+        {
+          "name": "長期の影響",
+          "value": "不明",
+          "sub": "長く大規模な<br>研究が必要",
+          "tone": "muted"
+        }
+      ],
+      "src": "Lindson N, et al. Cochrane 2025｜PMID 39878158"
+    },
+    {
+      "type": "close",
+      "kicker": "日本では",
+      "lines": [
+        "承認された",
+        "禁煙補助薬を"
+      ],
+      "take": "ニコチンパッチや飲み薬など<br>医師と相談しよう",
+      "src": "Hajek P, et al. NEJM 2019｜PMID 30699054 ／ Lindson N, et al. Cochrane 2025｜PMID 39878158"
+    }
+  ],
+  "narration": [
+    "電子たばこは、禁煙の助けになるのでしょうか。",
+    "イギリスの試験では、電子たばこの方が、一年後の禁煙率が高くなりました。",
+    "七つの試験のまとめでも、百人あたり四人多く禁煙できると報告されています。",
+    "ただし、日本では未承認で、長期的な安全性もまだ分かっていません。",
+    "日本では、承認された禁煙補助薬を、医師と相談しましょう。"
+  ],
+  "claims": [
+    {
+      "scene": 1,
+      "value": "1",
+      "source": "PMID 30699054",
+      "quote": "The primary outcome was sustained abstinence for 1 year"
+    },
+    {
+      "scene": 1,
+      "value": "18",
+      "from": "18.0%",
+      "derivation": "18.0% をグラフでは 18 と表示",
+      "source": "PMID 30699054",
+      "quote": "The 1-year abstinence rate was 18.0% in the e-cigarette group, as compared with 9.9% in the nicotine-replacement group"
+    },
+    {
+      "scene": 1,
+      "value": "9.9",
+      "source": "PMID 30699054",
+      "quote": "The 1-year abstinence rate was 18.0% in the e-cigarette group, as compared with 9.9% in the nicotine-replacement group"
+    },
+    {
+      "scene": 1,
+      "value": "1.8",
+      "from": "1.83",
+      "derivation": "relative risk 1.83 → 約1.8倍",
+      "source": "PMID 30699054",
+      "quote": "relative risk, 1.83; 95% confidence interval [CI], 1.30 to 2.58"
+    },
+    {
+      "scene": 1,
+      "value": "886",
+      "source": "PMID 30699054",
+      "quote": "A total of 886 participants underwent randomization"
+    },
+    {
+      "scene": 2,
+      "value": "7",
+      "source": "PMID 39878158",
+      "quote": "RR 1.59, 95% CI 1.30 to 1.93; I2 = 0%; 7 studies, 2544 participants"
+    },
+    {
+      "scene": 2,
+      "value": "4",
+      "from": "four",
+      "derivation": "an additional four quitters per 100 → 100人あたり+4人",
+      "source": "PMID 39878158",
+      "quote": "In absolute terms, this might translate to an additional four quitters per 100"
+    },
+    {
+      "scene": 2,
+      "value": "100",
+      "source": "PMID 39878158",
+      "quote": "In absolute terms, this might translate to an additional four quitters per 100"
+    }
+  ],
+  "japan": [
+    {
+      "treatment": "ニコチン入り電子たばこ",
+      "status": "not-approved",
+      "scene": 1,
+      "note": "※日本では承認されていません（ニコチン入り）",
+      "evidence": "厚労省：ニコチンを含むカートリッジは医薬品に該当し承認が必要だが、国内で承認された製品はない https://www.mhlw.go.jp/stf/houdou/2r9852000000lv0j.html ／ 国立医薬品食品衛生研究所 e-ヘルスネット https://kennet.mhlw.go.jp/information/information/dictionary/tobacco/yt-059（いずれも本文は環境から直接開けず、検索結果で確認）"
+    },
+    {
+      "treatment": "ニコチン入り電子たばこ",
+      "status": "not-approved",
+      "scene": 2,
+      "note": "※日本では承認されていません",
+      "evidence": "同上"
+    },
+    {
+      "treatment": "ニコチン置換療法（ニコチンパッチ）",
+      "status": "approved",
+      "evidence": "厚労省通知「新医薬品として承認された医薬品について」（医薬発第1153号）：ニコチネルTTS 効能・効果「…喫煙者が、医師の指導の下に行う禁煙の補助」 https://www.mhlw.go.jp/web/t_doc?dataId=00ta7584&dataType=1&pageNo=1"
+    },
+    {
+      "treatment": "バレニクリン（飲み薬）",
+      "status": "approved",
+      "evidence": "PMDA 2007年度承認品目一覧：チャンピックス錠「ニコチン依存症の喫煙者に対する禁煙の補助」 https://www.pmda.go.jp/files/000160955.pdf"
+    }
+  ],
+  "plainNumbers": [],
+  "youtube": {
+    "title": "電子たばこで禁煙できる？海外の試験結果【30秒エビデンス】",
+    "summary": "英国のランダム化比較試験（886人）では、1年後の禁煙率が電子たばこ18.0％、ニコチン置換療法9.9％でした。7試験をまとめたCochraneレビューでも、100人あたり約4人多く禁煙できると報告されています（確実性：高）。ただしニコチン入り電子たばこは日本では承認されておらず、長期的な安全性もまだ分かっていません。日本では承認された禁煙補助薬を医師と相談してください。",
+    "tags": [
+      "電子たばこ",
+      "禁煙",
+      "禁煙補助薬",
+      "ニコチンパッチ"
+    ],
+    "hashtags": [
+      "#禁煙"
+    ]
+  }
+}
