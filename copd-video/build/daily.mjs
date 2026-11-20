@@ -60,17 +60,6 @@ const yt = content.youtube ?? {};
 if (!yt.title || [...yt.title].length > 60) fail("youtube.title must be 1–60 characters");
 if (!yt.summary || [...yt.summary].length > 400) fail("youtube.summary must be 1–400 characters");
 if (/[<>]/.test(JSON.stringify(yt))) fail("youtube fields must not contain < or >");
-// 日本で使えない治療は扱わない（ユーザーの方針）。動画に出す治療・薬・ワクチン・検査はすべて、
-// 日本での承認・保険適用など「日本で使える」根拠を japan に書く。薬以外（禁煙・リハビリなど）は not-applicable。
-const japan = content.japan ?? [];
-if (!Array.isArray(japan) || !japan.length) fail("japan: list every treatment/drug/vaccine/test shown, with evidence that it is available in Japan");
-for (const [i, j] of japan.entries()) {
-  if (!j.treatment) fail(`japan[${i}]: treatment is required`);
-  if (j.status !== "approved" && j.status !== "not-applicable")
-    fail(`japan[${i}] (${j.treatment}): status must be "approved" (usable in Japan) or "not-applicable" (not a drug/device) — treatments not available in Japan must not appear in the video`);
-  if (j.status === "approved" && !(j.evidence && /https?:\/\//.test(j.evidence)))
-    fail(`japan[${i}] (${j.treatment}): evidence must include a URL (PMDA 添付文書・承認情報、製薬会社や厚労省の発表など)`);
-}
 stop();
 
 // ---------------------------------------------------------------- 3. 関門: 出典と数値
@@ -127,6 +116,24 @@ for (const [i, c] of claims.entries()) {
   const scene = content.scenes[c.scene];
   if (scene && c.scene >= 1 && id.startsWith("PMID") && !refsIn(scene.src).includes(id) && !refsIn(content.scenes[4]?.src).includes(id))
     fail(`claim ${i}: ${id} is not shown in scene ${c.scene}'s source line`);
+}
+// 日本での承認状況（ユーザーの方針: 未承認の治療も扱えるが、必ず画面に注釈を付ける）
+const japan = content.japan ?? [];
+const JP_NOTE = /日本では承認されていません|日本では未承認|のみ日本で承認/;
+if (!Array.isArray(japan) || !japan.length) fail("japan: list every treatment/drug/vaccine/test shown, with its approval status in Japan");
+for (const [i, j] of japan.entries()) {
+  const name = j.treatment ?? `#${i}`;
+  if (!j.treatment) fail(`japan[${i}]: treatment is required`);
+  if (j.status === "approved") {
+    if (!(j.evidence && /https?:\/\//.test(j.evidence))) fail(`japan[${i}] (${name}): approved needs evidence with a URL (PMDA 添付文書・承認情報、厚労省・製薬会社の発表など)`);
+  } else if (j.status === "not-approved") {
+    const scene = content.scenes?.[j.scene];
+    if (!scene) fail(`japan[${i}] (${name}): not-approved needs "scene" (the scene index where it appears)`);
+    else if (!j.note || !JP_NOTE.test(j.note)) fail(`japan[${i}] (${name}): note must say 「日本では承認されていません」 or 「○○のみ日本で承認」`);
+    else if (!norm(visibleText(scene)).includes(norm(j.note))) fail(`japan[${i}] (${name}): the note "${j.note}" must appear on screen in scene ${j.scene}`);
+  } else if (j.status !== "not-applicable") {
+    fail(`japan[${i}] (${name}): status must be "approved", "not-approved" or "not-applicable"`);
+  }
 }
 // ナレーションに算用数字を使う場合も裏付けが必要（原則は漢数字で、画面の数字を言い換えるだけ）
 for (const [k, line] of (content.narration ?? []).entries()) {

@@ -10,7 +10,7 @@
 医療系リサーチ MCP を新しく接続した場合は、この一覧と `.claude/settings.json` の両方に追加する。
 
 ## 動画の内容の方針
-- **日本で使えない治療は動画にしない**（日本で未承認の薬・ワクチン・機器は、海外の承認情報としても扱わない）。詳細は `copd-video/daily/RUNBOOK.md`。
+- **日本で未承認の治療も扱ってよいが、必ず画面に注釈を付ける**（「日本では承認されていません」、または一部だけ承認なら「○○のみ日本で承認」）。詳細は `copd-video/daily/RUNBOOK.md`。
 
 ## プロジェクト
 - `copd-video/`：呼吸器エビデンス・ショート動画（HyperFrames ＋ VOICEVOX）。概要は `copd-video/README.md`。

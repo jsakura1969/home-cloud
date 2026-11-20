@@ -33,12 +33,19 @@ npm ci
   - ClinicalTrials.gov：`sources/NCT<8桁>.txt`
   - FDA 文書：`sources/FDA-<短い名前>.txt`。URL と該当箇所の抜粋を入れる
 - 結果が否定的な試験（効果なし）も正直に扱う。「〜で改善」と言えるのは、主要評価項目で有意だった場合だけ。二次解析・サブグループ解析なら、そう明記する。
-- **日本で使えない治療は動画にしない**（ユーザーの方針）。
-  - 対象は、日本で未承認の薬・ワクチン・機器。海外だけで承認されている薬は、比較のためでも登場させない
-  - 動画に出す治療は、すべて `content.json` の `japan` に書く。日本で使える根拠（PMDA の添付文書・承認情報、厚労省・製薬会社の発表など）を URL 付きで書く
-  - 根拠は、Arca の `search_medical`（sourceTypes: `global_regulatory`。PMDA・厚労省の文書を含む）で探す。見つからなければ Web で探す
+- **日本で未承認の治療も扱ってよい。ただし必ず画面に注釈を付ける**（ユーザーの方針）。
+  - 動画に出す治療（薬・ワクチン・機器）は、すべて `content.json` の `japan` に書き、日本での承認状況を確かめる
+    - 承認済み：`"status": "approved"`。根拠（PMDA の添付文書・承認情報、厚労省・製薬会社の発表など）を URL 付きで書く
+    - 未承認：`"status": "not-approved"`。`scene`（その治療が出るシーン番号）と `note`（画面に出す注釈）を書く
+    - 薬・機器ではないもの（禁煙支援・リハビリなど）：`"status": "not-applicable"`
+  - 未承認の治療が出るシーンには、注釈を画面に表示する（`note` や `card.sub` など）。文言は次のどちらか
+    - 「日本では承認されていません」（または「日本では未承認」）
+    - 複数の薬を並べ、一部だけ日本で承認されている場合は「○○のみ日本で承認」
+  - 注釈は `japan[].note` と同じ文を、そのシーンの画面テキストに入れる（daily.mjs が一致を確認する）
+  - ナレーションで未承認薬に触れる場合も、「日本では未承認ですが」のように一言添える
+  - 承認状況は、Arca の `search_medical`（sourceTypes: `global_regulatory`。PMDA・厚労省の文書を含む）で探す。見つからなければ Web で探す
   - PMDA のサイト（www.pmda.go.jp）は、クラウド環境「home-cloud」のネットワークで許可済み。添付文書・審査報告書の本文を直接開いて、効能・効果を確かめられる
-  - 日本で使えるか確認できないものは外す。テーマの中心の治療が日本で使えない場合は、そのテーマを `skipped` にし、`reason` を書く
+  - 承認状況を確認できない場合は、承認済みとは書かない。未承認として注釈を付けるか、その治療を外す
 
 ## 3. `daily/<DATE>/content.json` を書く
 既存の COPD 動画（`build/content.mjs` の `VIDEOS`）と同じ5シーン構成にする。
@@ -67,6 +74,7 @@ npm ci
   ],
   "japan": [
     { "treatment": "吸入ステロイド（ICS）", "status": "approved", "evidence": "PMDA 添付文書 https://www.pmda.go.jp/…" },
+    { "treatment": "薬B", "status": "not-approved", "scene": 2, "note": "※薬Bは日本では承認されていません", "evidence": "国内承認なし（確認先 URL）" },
     { "treatment": "禁煙支援", "status": "not-applicable", "evidence": "薬・機器ではない" }
   ],
   "plainNumbers": [
