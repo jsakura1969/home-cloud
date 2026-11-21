@@ -1,0 +1,11 @@
+PMID: 40491263
+Title: Adverse Outcomes Associated With Short-Acting Beta-Agonist Overuse in Asthma: A Systematic Review and Meta-Analysis.
+Authors: Tsao CL, Chan SY, Lee MH, Hsieh TYJ, Phipatanakul W, Ruran HB, Ma KS
+Journal: Allergy (2025)
+DOI: 10.1111/all.16538
+Retrieved via: Arca FDA, Trials & PubMed MCP (search_papers), 2026-11-21
+
+INTRODUCTION: The 2019 Global Initiative for Asthma (GINA) report no longer recommended short-acting beta-agonists (SABA) monotherapy due to associated complications and a lack of anti-inflammatory properties. This systematic review and meta-analysis aimed to evaluate adverse outcomes associated with SABA overuse in patients with asthma.
+METHODS: PubMed, Cochrane Library, EMBASE, and Web of Science databases were searched for studies on SABA overuse (≥ 3 SABA canisters/year) in patients with asthma, from 1981 to November 2023. Randomized controlled trials (RCTs), cohort studies, and cross-sectional studies were included. Pooled risk ratios (RRs) were calculated for dichotomous measures of all-cause mortality and acute exacerbations using random-effects models and Mantel-Haenszel weighting. Subgroup analyses were conducted based on study design.
+RESULTS: Out of 626 records, 27 studies (2 RCTs, 1 prospective cohort study, 12 retrospective cohort studies, and 12 cross-sectional studies) were included. SABA overuse (≥ 3 SABA canisters/year) was associated with significantly higher mortality (2743 of 130,629 in the overuse group versus 3534 of 300,451 in controls; RR = 2.04, 95% confidence interval, CI = 1.37-3.04; p < 0.001) and a significantly higher rate of acute exacerbations (60,320 of 165,271 in the overuse group versus 84,439 of 376,845 in controls; RR = 1.93, 95% CI = 1.24-3.03; p < 0.001). An increased risk of acute exacerbations was observed in retrospective cohort studies (RR = 1.88, 95% CI = 1.43-2.47; p < 0.001) and cross-sectional studies (RR = 2.23, 95% CI = 1.04-4.77; p < 0.001).
+CONCLUSIONS: SABA overuse was associated with increased rates of mortality and acute exacerbations in patients with asthma, supporting guidelines that advise against SABA monotherapy in asthma management.

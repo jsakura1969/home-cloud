@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-21",
+  "topicId": "asthma-ics",
+  "number": 8,
+  "checks": [
+    "topic asthma-ics",
+    "10 claims verified against 4 source files",
+    "hyperframes lint",
+    "layout (no overflow / unexpected wraps)",
+    "narration fits every scene",
+    "media: 30s 1080x1920 aac -13.2 LUFS peak -1",
+    "metadata.json"
+  ],
+  "createdAt": "2026-11-21T14:22:03.849Z"
+}
