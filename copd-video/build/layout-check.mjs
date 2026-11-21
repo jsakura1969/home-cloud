@@ -78,9 +78,20 @@ export async function checkLayout(dir) {
             if (b.right > sb.right + 2 || b.left < sb.left - 2) out.push(`scene ${i} ${sel}: overflows horizontally "${el.textContent.trim().slice(0, 40)}"`);
           }
         }
+        // イラストが文字に重なっていないか（イラストは場面の上部に置く）
+        const ill = scene.querySelector(".illus");
+        if (ill) {
+          const ib = ill.getBoundingClientRect();
+          for (const el of scene.querySelectorAll(".a")) {
+            if (el === ill || el.classList.contains("src")) continue;
+            const b = el.getBoundingClientRect();
+            const overlap = b.left < ib.right - 30 && b.right > ib.left + 30 && b.top < ib.bottom - 20 && b.bottom > ib.top + 20;
+            if (overlap) out.push(`scene ${i}: illustration overlaps "${el.textContent.trim().slice(0, 30)}"`);
+          }
+        }
         // 本文（出典以外）が出典欄や画面外にはみ出していないか
         for (const el of scene.querySelectorAll(".a")) {
-          if (el.classList.contains("src")) continue;
+          if (el.classList.contains("src") || el.classList.contains("illus")) continue;
           const b = el.getBoundingClientRect();
           if (b.bottom > floor + 2) out.push(`scene ${i}: "${el.textContent.trim().slice(0, 30)}" overlaps the source line or bottom edge`);
           if (b.top < sb.top - 2) out.push(`scene ${i}: "${el.textContent.trim().slice(0, 30)}" overflows the top edge`);

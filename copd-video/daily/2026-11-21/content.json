@@ -13,21 +13,39 @@
       "type": "compare",
       "label": "3年間で重い発作が起きた人（%）",
       "bars": [
-        { "name": "プラセボ", "value": 5.5, "tone": "muted" },
-        { "name": "ブデソニド", "value": 3.3, "tone": "accent" }
+        {
+          "name": "プラセボ",
+          "value": 5.5,
+          "tone": "muted"
+        },
+        {
+          "name": "ブデソニド",
+          "value": 3.3,
+          "tone": "accent"
+        }
       ],
       "caption": "リスクが<b>44%低下</b>（7241人）",
-      "src": "Pauwels RA, et al. Lancet 2003（START）｜PMID 12672309"
+      "src": "Pauwels RA, et al. Lancet 2003（START）｜PMID 12672309",
+      "illustration": "inhaler-dpi"
     },
     {
       "type": "duo",
       "label": "同じ試験のほかの結果",
       "cards": [
-        { "name": "症状のない日", "value": "増えた", "sub": "プラセボと<br>比べて" },
-        { "name": "全身ステロイド", "value": "減った", "sub": "使った回数が<br>少なかった" }
+        {
+          "name": "症状のない日",
+          "value": "増えた",
+          "sub": "プラセボと<br>比べて"
+        },
+        {
+          "name": "全身ステロイド",
+          "value": "減った",
+          "sub": "使った回数が<br>少なかった"
+        }
       ],
       "note": "11歳未満では3年で身長の伸びが1.34cm小さかった",
-      "src": "Pauwels RA, et al. Lancet 2003（START）｜PMID 12672309"
+      "src": "Pauwels RA, et al. Lancet 2003（START）｜PMID 12672309",
+      "illustration": "inhaler-dpi"
     },
     {
       "type": "stat",
@@ -35,12 +53,16 @@
       "big": "約2倍",
       "sub": "年3本以上使う人の死亡リスク<br>（3本未満の人と比べて）",
       "note": "主に観察研究のまとめ（関連を示す結果）",
-      "src": "Tsao CL, et al. Allergy 2025｜PMID 40491263"
+      "src": "Tsao CL, et al. Allergy 2025｜PMID 40491263",
+      "illustration": "inhaler-mdi"
     },
     {
       "type": "close",
       "kicker": "まとめ",
-      "lines": ["予防の吸入を", "毎日続ける"],
+      "lines": [
+        "予防の吸入を",
+        "毎日続ける"
+      ],
       "take": "発作止めが増えてきたら<br>主治医に相談を",
       "src": "Pauwels RA, et al. Lancet 2003｜PMID 12672309 ／ Tsao CL, et al. Allergy 2025｜PMID 40491263"
     }
@@ -138,7 +160,14 @@
   "youtube": {
     "title": "喘息の基本は吸入ステロイド？7千人の試験【30秒エビデンス】",
     "summary": "軽い持続型の喘息7241人のランダム化比較試験（START）では、低用量の吸入ステロイド（ブデソニド）で重い発作のリスクが44%低下しました（ハザード比0.56）。一方、11歳未満では3年間で身長の伸びが1.34cm小さいことも報告されています。発作止め（SABA）を年3本以上使う人は死亡リスクが約2倍という観察研究中心のメタ解析もあります。発作止めが増えてきたら主治医に相談してください。",
-    "tags": ["喘息", "吸入ステロイド", "ブデソニド", "発作止め"],
-    "hashtags": ["#喘息"]
+    "tags": [
+      "喘息",
+      "吸入ステロイド",
+      "ブデソニド",
+      "発作止め"
+    ],
+    "hashtags": [
+      "#喘息"
+    ]
   }
 }

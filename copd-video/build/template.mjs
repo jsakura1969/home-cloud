@@ -19,6 +19,40 @@ const esc = (s) => String(s).replace(/&(?!\w+;)/g, "&amp;");
 const fmt = (n, d = 0) =>
   n.toLocaleString("en-US", { minimumFractionDigits: d, maximumFractionDigits: d });
 
+// ---------------------------------------------------------------- illustrations
+// 場面に添えるオリジナルの線画（自作。製品写真やロゴは使わない）。content の scene.illustration で指定する。
+export const ILLUSTRATIONS = {
+  // 粉を吸うタイプの吸入器（ドライパウダー）：回転グリップ付きの筒形
+  "inhaler-dpi": `
+    <path class="soft" d="M78 34h44l8 26H70z"/>
+    <rect x="66" y="60" width="68" height="92" rx="12"/>
+    <rect class="soft" x="82" y="78" width="36" height="44" rx="6"/>
+    <rect x="62" y="152" width="76" height="30" rx="9"/>
+    <path d="M76 156v22M88 156v22M100 156v22M112 156v22M124 156v22"/>
+    <circle class="dot" cx="100" cy="20" r="4"/><circle class="dot" cx="86" cy="14" r="3"/><circle class="dot" cx="114" cy="12" r="3"/>
+    <path d="M150 46c10 8 10 22 0 30M164 38c16 14 16 32 0 46"/>`,
+  // スプレータイプの吸入器（定量噴霧式）：L字の本体＋缶
+  "inhaler-mdi": `
+    <rect class="soft" x="108" y="18" width="36" height="92" rx="14"/>
+    <path d="M98 62h56v104a12 12 0 0 1-12 12h-32a12 12 0 0 1-12-12z"/>
+    <path d="M98 128H54a10 10 0 0 0-10 10v20a10 10 0 0 0 10 10h44"/>
+    <circle class="dot" cx="30" cy="148" r="4"/><circle class="dot" cx="18" cy="136" r="3"/><circle class="dot" cx="16" cy="160" r="3"/><circle class="dot" cx="26" cy="124" r="2.5"/><circle class="dot" cx="24" cy="172" r="2.5"/>`,
+  // 飲み薬：カプセルと錠剤
+  pill: `
+    <g transform="rotate(-35 90 100)"><rect x="40" y="76" width="110" height="48" rx="24"/><path class="soft" d="M95 76h31a24 24 0 0 1 0 48H95z"/></g>
+    <circle cx="150" cy="150" r="26"/><path d="M134 150h32"/>`,
+  // 注射（皮下注射のペン型）
+  injection: `
+    <g transform="rotate(-40 100 100)"><rect x="70" y="30" width="60" height="110" rx="14"/><rect class="soft" x="84" y="52" width="32" height="50" rx="6"/><path d="M100 140v22M92 162h16M100 162v24"/><path d="M86 18h28v12H86z"/></g>`,
+};
+
+function illustrationTag(name) {
+  if (!name) return "";
+  const body = ILLUSTRATIONS[name];
+  if (!body) throw new Error(`unknown illustration "${name}" (use: ${Object.keys(ILLUSTRATIONS).join(", ")})`);
+  return `<svg class="illus a" viewBox="-10 -10 220 220" aria-hidden="true"><circle class="halo" cx="100" cy="100" r="104"/>${body}</svg>`;
+}
+
 function sceneBody(s, i, credit) {
   const src = s.src ? `<div class="src a">出典：${esc(s.src)}</div>` : "";
   switch (s.type) {
@@ -199,6 +233,10 @@ html, body { width: ${W}px; height: ${H}px; overflow: hidden; background: var(--
 .card-name { font-size: 38px; font-weight: 700; color: var(--ink-2); line-height: 1.4; }
 .card-value { margin: 18px 0 14px; font-size: 88px; font-weight: 900; color: var(--accent); line-height: 1.1; }
 .card-sub { font-size: 34px; line-height: 1.5; color: var(--ink-2); }
+.illus { position: absolute; right: 0; top: 10px; width: 300px; height: 300px; fill: rgba(62,214,195,0.08); stroke: var(--accent); stroke-width: 6; stroke-linejoin: round; stroke-linecap: round; }
+.illus .soft { fill: rgba(62,214,195,0.28); }
+.illus .halo { fill: #0e2440; stroke: rgba(62,214,195,0.22); stroke-width: 3; }
+.illus .dot { fill: var(--accent); stroke: none; }
 .close-lines { margin-top: 30px; font-size: 96px; line-height: 1.3; font-weight: 900; display: flex; flex-direction: column; }
 .take { font-size: 54px; line-height: 1.6; font-weight: 700; color: var(--ink); }
 `;
@@ -229,7 +267,7 @@ export function buildHtml(v, opts) {
     .map((s, i) => {
       const [start, end] = SLOTS[i];
       return `
-    <section id="s${i}" class="scene clip scene-${s.type}" data-start="${start}" data-duration="${end - start}" data-track-index="1">${sceneBody(s, i, credit)}
+    <section id="s${i}" class="scene clip scene-${s.type}" data-start="${start}" data-duration="${end - start}" data-track-index="1">${illustrationTag(s.illustration)}${sceneBody(s, i, credit)}
     </section>`;
     })
     .join("");
@@ -268,6 +306,9 @@ export function buildHtml(v, opts) {
         var items = scene.querySelectorAll(".a");
         tl.fromTo(items, { opacity: 0, y: 46 }, { opacity: 1, y: 0, duration: 0.55, ease: "power3.out", stagger: 0.16 }, start + 0.1);
 
+        scene.querySelectorAll(".illus").forEach(function (el) {
+          tl.fromTo(el, { rotation: -6, scale: 0.85 }, { rotation: 4, scale: 1, duration: (end - start) - 0.5, ease: "sine.inOut", transformOrigin: "50% 60%" }, start + 0.1);
+        });
         scene.querySelectorAll(".rule").forEach(function (el) {
           tl.fromTo(el, { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power2.out" }, start + 0.5);
         });
