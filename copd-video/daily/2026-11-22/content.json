@@ -1,0 +1,89 @@
+{
+  "date": "2026-11-22",
+  "topicId": "asthma-mart",
+  "theme": "発作止めも兼ねる吸入薬",
+  "scenes": [
+    {
+      "type": "hook",
+      "kicker": "喘息のSMART療法",
+      "title": "予防と<br>発作止めを<br>同じ1本で",
+      "sub": "シムビコートの維持＋頓用<br>試験の結果を見てみよう",
+      "illustration": "inhaler-dpi"
+    },
+    {
+      "type": "compare",
+      "label": "重い発作（100人あたり年間の回数）",
+      "bars": [
+        { "name": "テルブタリン頓用", "value": 37, "tone": "muted" },
+        { "name": "SMART療法", "value": 19, "tone": "accent" }
+      ],
+      "caption": "全員が同じ維持薬で<br>発作時の薬だけ違う試験<br><b>48%少ない</b>（3394人・1年）",
+      "note": "※テルブタリン吸入は日本では承認されていません",
+      "src": "Rabe KF, et al. Lancet 2006（SMILE）｜PMID 16935685"
+    },
+    {
+      "type": "duo",
+      "label": "16試験のまとめ（12歳以上）",
+      "cards": [
+        { "name": "同じ量の<br>ICS＋LABA", "value": "32%減", "sub": "SABA頓用と比べた<br>増悪リスク" },
+        { "name": "多い量の<br>ICS＋LABA", "value": "23%減", "sub": "SABA頓用と比べた<br>増悪リスク" }
+      ],
+      "note": "ほぼすべてシムビコートと同じ成分の試験",
+      "src": "Sobieraj DM, et al. JAMA 2018｜PMID 29554195"
+    },
+    {
+      "type": "duo",
+      "label": "比べる相手で結果は変わる",
+      "cards": [
+        { "name": "多い量の<br>吸入ステロイドと", "value": "減った", "sub": "飲み薬のステロイドが<br>必要になった人" },
+        { "name": "医師が調整する<br>通常治療と", "value": "差なし", "sub": "重い発作に<br>有意差なし", "tone": "muted" }
+      ],
+      "note": "成人の試験のまとめ（結果待ちの試験もあった）",
+      "src": "Cates CJ, et al. Cochrane 2009｜PMID 19370682"
+    },
+    {
+      "type": "close",
+      "kicker": "まとめ",
+      "lines": ["維持も発作時も", "同じ1本で"],
+      "take": "日本では成人に承認。発作時は1吸入<br>1回の発作で最大6吸入まで<br>使い方は主治医に確認を",
+      "src": "Rabe KF, et al. Lancet 2006｜PMID 16935685 ／ Sobieraj DM, et al. JAMA 2018｜PMID 29554195 ／ シムビコート添付文書（PMDA）"
+    }
+  ],
+  "narration": [
+    "予防も発作止めも、一本の吸入薬で。",
+    "三千人以上の試験で、重い発作が四十八パーセント少なくなりました。",
+    "十六試験のまとめでも、増悪のリスクが二割から三割低いと報告されています。",
+    "ただし、医師が調整する通常治療とは差がなかったという報告もあります。",
+    "日本では成人に承認されています。使い方は主治医に確認しましょう。"
+  ],
+  "claims": [
+    { "scene": 1, "value": "100", "source": "PMID 16935685", "quote": "The rate of severe exacerbations was 37, 29, and 19 per 100 patients per year with as-needed terbutaline, formoterol, and budesonide-formoterol, respectively" },
+    { "scene": 1, "value": "37", "source": "PMID 16935685", "quote": "The rate of severe exacerbations was 37, 29, and 19 per 100 patients per year with as-needed terbutaline, formoterol, and budesonide-formoterol, respectively" },
+    { "scene": 1, "value": "19", "source": "PMID 16935685", "quote": "The rate of severe exacerbations was 37, 29, and 19 per 100 patients per year with as-needed terbutaline, formoterol, and budesonide-formoterol, respectively" },
+    { "scene": 1, "value": "48", "from": "0.52", "derivation": "rate ratio 0.52 → 48%少ない", "source": "PMID 16935685", "quote": "budesonide-formoterol versus terbutaline 0.52 [0.44-0.62; p<0.0001]" },
+    { "scene": 1, "value": "3394", "source": "PMID 16935685", "quote": "We did a 12-month, double-blind, parallel-group study in 3394 patients (aged 12 years or older)" },
+    { "scene": 1, "value": "1", "from": "12-month", "derivation": "12か月 → 1年", "source": "PMID 16935685", "quote": "We did a 12-month, double-blind, parallel-group study in 3394 patients (aged 12 years or older)" },
+    { "scene": 2, "value": "16", "source": "PMID 29554195", "quote": "The analyses included 16 randomized clinical trials (N = 22 748 patients), 15 of which evaluated SMART as a combination therapy with budesonide and formoterol in a dry-powder inhaler." },
+    { "scene": 2, "value": "12", "source": "PMID 29554195", "quote": "Among patients aged 12 years or older (n = 22 524; mean age, 42 years" },
+    { "scene": 2, "value": "32", "from": "0.68", "derivation": "RR 0.68 → 32%減", "source": "PMID 29554195", "quote": "compared with the same dose of inhaled corticosteroids and LABA as the controller therapy (RR, 0.68 [95% CI, 0.58 to 0.80]" },
+    { "scene": 2, "value": "23", "from": "0.77", "derivation": "RR 0.77 → 23%減", "source": "PMID 29554195", "quote": "a higher dose of inhaled corticosteroids and LABA as the controller therapy (RR, 0.77 [95% CI, 0.60 to 0.98]" }
+  ],
+  "japan": [
+    { "treatment": "ブデソニド/ホルモテロール（シムビコート）の維持療法＋頓用（SMART療法）", "status": "approved", "evidence": "PMDA 添付文書：シムビコートタービュヘイラー 承認番号 22100AMX02249。成人の気管支喘息で、維持療法（1回1吸入あるいは2吸入1日2回）に加えて発作発現時に1吸入、1回の発作につき最大6吸入まで頓用可。頓用単独は不可（「本剤は頓用吸入のみに使用しないこと」）。小児の臨床試験は未実施 https://www.pmda.go.jp/PmdaSearch/iyakuDetail/670227_2290801G1029_1_17 （本文は sources/PMDA-symbicort.txt）" },
+    { "treatment": "テルブタリン吸入（SMILE 試験の比較対照の発作止め）", "status": "not-approved", "scene": 1, "note": "※テルブタリン吸入は日本では承認されていません", "evidence": "PMDA 一般名一覧（テルブタリン硫酸塩）の掲載品は錠剤・シロップのみで吸入剤なし https://www.pmda.go.jp/PmdaSearch/iyakuDetail/GeneralList/2252003 （sources/PMDA-terbutaline.txt）。国内承認の吸入剤を確認できないため未承認として注釈" },
+    { "treatment": "吸入ステロイド＋LABA 配合剤（ICS＋LABA）", "status": "approved", "evidence": "国内承認の例：シムビコートタービュヘイラー（ブデソニド/ホルモテロール）承認番号 22100AMX02249 https://www.pmda.go.jp/PmdaSearch/iyakuDetail/670227_2290801G1029_1_17 。ほかの ICS/LABA 配合剤も PMDA 一般名一覧に掲載 https://www.pmda.go.jp/PmdaSearch/iyakuDetail/GeneralList/2290802" },
+    { "treatment": "短時間作用性β2刺激薬（SABA：サルブタモール吸入）", "status": "approved", "evidence": "PMDA 添付文書：サルタノールインヘラー100μg 承認番号 22000AMX02177 https://www.pmda.go.jp/PmdaSearch/iyakuDetail/340278_2254700G4037_1_12 （sources/PMDA-salbutamol.txt）" },
+    { "treatment": "吸入ステロイド（ブデソニド：パルミコート）", "status": "approved", "evidence": "PMDA 添付文書：パルミコートタービュヘイラー 承認番号 21900AMX00008 https://www.pmda.go.jp/PmdaSearch/iyakuDetail/670227_2290701G1039_1_16 （sources/PMDA-budesonide.txt）" }
+  ],
+  "plainNumbers": [
+    { "scene": 0, "value": "1", "reason": "「同じ1本」は吸入器の数（数値データではない）" },
+    { "scene": 4, "value": "1", "reason": "「同じ1本」は吸入器の数。「発作時は1吸入」は国内添付文書の用法（sources/PMDA-symbicort.txt「発作発現時に1吸入する」）" },
+    { "scene": 4, "value": "6", "reason": "国内添付文書の用法（sources/PMDA-symbicort.txt「1回の発作発現につき、最大6吸入までとする」）" }
+  ],
+  "youtube": {
+    "title": "予防と発作止めを1本で？喘息のSMART療法【30秒でわかるエビデンス】",
+    "summary": "シムビコート（ブデソニド/ホルモテロール）を毎日の維持と発作時の両方に使うSMART療法。3394人の試験（SMILE）では、発作時にテルブタリンを使う場合と比べて重い発作が48%少なくなりました（テルブタリン吸入は日本では未承認）。16試験のメタ解析でも増悪リスクの低下が報告される一方、医師が調整する通常治療とは有意差がなかったという系統的レビューもあります。日本では成人に承認（発作時1吸入、1回の発作で最大6吸入まで）。使い方は主治医に確認してください。",
+    "tags": ["喘息", "SMART療法", "シムビコート", "吸入薬", "発作止め"],
+    "hashtags": ["#喘息"]
+  }
+}

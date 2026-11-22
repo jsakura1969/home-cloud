@@ -1,0 +1,21 @@
+PMDA 医療用医薬品 添付文書情報（パルミコートタービュヘイラー）
+URL: https://www.pmda.go.jp/PmdaSearch/iyakuDetail/670227_2290701G1039_1_16
+一覧: https://www.pmda.go.jp/PmdaSearch/iyakuDetail/GeneralList/2290701
+Retrieved: 2026-11-21（PMDA サイトを直接取得）
+
+--- 該当箇所の抜粋 ---
+パルミコート100µgタービュヘイラー112吸入
+販売名コード
+YJコード
+2290701G1039
+販売名英語表記
+Pulmicort 100µg Turbuhaler 112 doses
+販売名ひらがな
+ぱるみこーとたーびゅへいらー
+承認番号等
+承認番号
+21900AMX00008
+販売開始年月
+
+4. 効能又は効果
+気管支喘息

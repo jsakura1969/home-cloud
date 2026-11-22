@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-22",
+  "topicId": "asthma-mart",
+  "number": 9,
+  "checks": [
+    "topic asthma-mart",
+    "10 claims verified against 7 source files",
+    "hyperframes lint",
+    "layout (no overflow / unexpected wraps)",
+    "narration fits every scene",
+    "media: 30s 1080x1920 aac -13.3 LUFS peak -1",
+    "metadata.json"
+  ],
+  "createdAt": "2026-11-22T13:46:55.519Z"
+}

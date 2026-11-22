@@ -1,0 +1,20 @@
+PMID: 29554195
+Title: Association of Inhaled Corticosteroids and Long-Acting β-Agonists as Controller and Quick Relief Therapy With Exacerbations and Symptom Control in Persistent Asthma: A Systematic Review and Meta-analysis.
+Authors: Sobieraj DM, Weeda ER, Nguyen E, Coleman CI, White CM, Lazarus SC, Blake KV, Lang JE, Baker WL
+Journal: JAMA (2018) 319(14):1485-1496
+DOI: 10.1001/jama.2018.2769
+Retrieved via: PubMed MCP (get_article_metadata), 2026-11-22
+
+IMPORTANCE: Combined use of inhaled corticosteroids and long-acting β-agonists (LABAs) as the controller and the quick relief therapy termed single maintenance and reliever therapy (SMART) is a potential therapeutic regimen for the management of persistent asthma.
+
+OBJECTIVE: To conduct a systematic review and meta-analysis of the effects of SMART in patients with persistent asthma.
+
+DATA SOURCES AND STUDY SELECTION: The databases of MEDLINE via OVID, EMBASE, the Cochrane Central Register of Controlled Trials, and the Cochrane Database of Systematic Reviews were searched from database inception through August 2016 and updated through November 28, 2017. Two reviewers selected randomized clinical trials or observational studies evaluating SMART vs inhaled corticosteroids with or without a LABA used as the controller therapy and short-acting β-agonists as the relief therapy for patients aged 5 years or older with persistent asthma and reporting on an outcome of interest.
+
+DATA EXTRACTION AND SYNTHESIS: Meta-analyses were conducted using a random-effects model to calculate risk ratios (RRs), risk differences (RDs), and mean differences with corresponding 95% CIs. Citation screening, data abstraction, risk assessment, and strength of evidence grading were completed by 2 independent reviewers.
+
+MAIN OUTCOMES AND MEASURES: Asthma exacerbations.
+
+RESULTS: The analyses included 16 randomized clinical trials (N = 22 748 patients), 15 of which evaluated SMART as a combination therapy with budesonide and formoterol in a dry-powder inhaler. Among patients aged 12 years or older (n = 22 524; mean age, 42 years; 14 634 [65%] were female), SMART was associated with a reduced risk of asthma exacerbations compared with the same dose of inhaled corticosteroids and LABA as the controller therapy (RR, 0.68 [95% CI, 0.58 to 0.80]; RD, -6.4% [95% CI, -10.2% to -2.6%]) and a higher dose of inhaled corticosteroids and LABA as the controller therapy (RR, 0.77 [95% CI, 0.60 to 0.98]; RD, -2.8% [95% CI, -5.2% to -0.3%]). Similar results were seen when SMART was compared with inhaled corticosteroids alone as the controller therapy. Among patients aged 4 to 11 years (n = 341; median age, 8 [range, 4-11] years; 69 [31%] were female), SMART was associated with a reduced risk of asthma exacerbations compared with a higher dose of inhaled corticosteroids as the controller therapy (RR, 0.55 [95% CI, 0.32 to 0.94]; RD, -12.0% [95% CI, -22.5% to -1.5%]) or the same dose of inhaled corticosteroids and LABA as the controller therapy (RR, 0.38 [95% CI, 0.23 to 0.63]; RD, -23.2% [95% CI, -33.6% to -12.1%]).
+
+CONCLUSIONS AND RELEVANCE: In this meta-analysis of patients with persistent asthma, the use of single maintenance and reliever therapy compared with inhaled corticosteroids as the controller therapy (with or without a long-acting β-agonist) and short-acting β-agonists as the relief therapy was associated with a lower risk of asthma exacerbations. Evidence for patients aged 4 to 11 years was limited.

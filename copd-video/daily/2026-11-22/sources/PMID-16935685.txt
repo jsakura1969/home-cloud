@@ -1,0 +1,14 @@
+PMID: 16935685
+Title: Effect of budesonide in combination with formoterol for reliever therapy in asthma exacerbations: a randomised controlled, double-blind study.
+Authors: Rabe KF, Atienza T, Magyar P, Larsson P, Jorup C, Lalloo UG
+Journal: Lancet (London, England) (2006) 368(9537):744-53
+DOI: 10.1016/S0140-6736(06)69284-2
+Retrieved via: PubMed MCP (get_article_metadata), 2026-11-22
+
+BACKGROUND: The contributions of as-needed inhaled corticosteroids and long-acting beta2 agonists (LABA) to asthma control have not been fully established. We compared the efficacy and safety of three reliever strategies: a traditional short-acting beta2 agonist; a rapid-onset LABA (formoterol); and a combination of LABA and an inhaled corticosteroid (budesonide-formoterol) in symptomatic patients receiving budesonide-formoterol maintenance therapy.
+
+METHODS: We did a 12-month, double-blind, parallel-group study in 3394 patients (aged 12 years or older), in 289 centres in 20 countries, who were using inhaled corticosteroids at study entry and symptomatic on budesonide-formoterol (160 microg and 4.5 microg, respectively), one inhalation twice daily, during a 2-week run-in. After run-in, patients were randomly assigned budesonide-formoterol maintenance therapy plus one of three alternative as-needed medications-terbutaline (0.4 mg), formoterol (4.5 microg), or budesonide-formoterol (160 microg and 4.5 microg). The primary outcome was time to first severe exacerbation, defined as an event resulting in hospitalisation, emergency room treatment, or both, or the need for oral steroids for 3 days or more.
+
+FINDINGS: Time to first severe exacerbation was longer with as-needed budesonide-formoterol versus formoterol (p=0.0048; log-rank test) and with as-needed formoterol versus terbutaline (p=0.0051). The rate of severe exacerbations was 37, 29, and 19 per 100 patients per year with as-needed terbutaline, formoterol, and budesonide-formoterol, respectively (rate ratios budesonide-formoterol versus formoterol 0.67 [95% CI 0.56-0.80; p<0.0001]; budesonide-formoterol versus terbutaline 0.52 [0.44-0.62; p<0.0001]; formoterol versus terbutaline 0.78 [0.67-0.91; p=0.0012]). Asthma control days increased to a similar extent in all treatment groups. As-needed formoterol did not significantly improve symptoms compared with as-needed terbutaline. All treatments were well tolerated.
+
+INTERPRETATION: Both monocomponents of budesonide-formoterol given as needed contribute to enhanced protection from severe exacerbations in patients receiving combination therapy for maintenance.
