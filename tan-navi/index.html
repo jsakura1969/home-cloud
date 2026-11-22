@@ -1,0 +1,1084 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="痰の色と症状から受診の目安を確認し、ハフィングや呼吸法のガイド、毎日の記録で痰の悩みを軽くするウェブアプリ。">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font-size:14px;font-family:system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>たんすっきりナビ</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&family=BIZ+UDPGothic:wght@400;700&display=swap">
+<style>
+/* Layout: 1カラムの縦スクロール。上部に固定ナビ、各セクションは「チェック→出し方→呼吸ガイド→記録→受診の目安」の順 */
+:root {
+  --bg: #EAF1F0;
+  --surface: #FFFFFF;
+  --ink: #18282E;
+  --muted: #56686D;
+  --line: #CFDCDA;
+  --accent: #2B7671;
+  --accent-soft: #D7EAE7;
+  --ok: #2E7A4C;     --ok-bg: #E2F2E8;
+  --care: #9A6512;   --care-bg: #FBF0DA;
+  --urgent: #B6430F; --urgent-bg: #FCE6DA;
+  --emer: #B01F1F;   --emer-bg: #FADCDC;
+  --glass: #7FB3AE; --mucus: #E0B93E; --paper: #FFFFFF;
+  --f-display: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", "Meiryo", sans-serif;
+  --f-body: "BIZ UDPGothic", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0E171A; --surface: #162327; --ink: #E2ECEA; --muted: #9DB0AF; --line: #2A3B3F;
+  --accent: #62C2B9; --accent-soft: #1D3A3A;
+  --ok: #6FCF97; --ok-bg: #16301F; --care: #F0B85A; --care-bg: #33270F;
+  --urgent: #F59866; --urgent-bg: #3A2014; --emer: #FF8A8A; --emer-bg: #3D1616;
+  --glass: #8FD3CB; --mucus: #E8C65A; --paper: #DCE7E5;
+  color-scheme: dark;
+} }
+:root[data-theme="dark"] {
+  --bg: #0E171A; --surface: #162327; --ink: #E2ECEA; --muted: #9DB0AF; --line: #2A3B3F;
+  --accent: #62C2B9; --accent-soft: #1D3A3A;
+  --ok: #6FCF97; --ok-bg: #16301F; --care: #F0B85A; --care-bg: #33270F;
+  --urgent: #F59866; --urgent-bg: #3A2014; --emer: #FF8A8A; --emer-bg: #3D1616;
+  --glass: #8FD3CB; --mucus: #E8C65A; --paper: #DCE7E5;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 16px; line-height: 1.8; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--surface); }
+.wrap { max-width: 760px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; line-height: 1.4; margin: 0; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.15rem; }
+p { margin: 0; }
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
+
+/* header + nav */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: var(--surface); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; gap: 12px; padding-block: 10px; flex-wrap: wrap; }
+.brand { font-family: var(--f-display); font-weight: 700; font-size: 1.15rem; color: var(--accent); white-space: nowrap; }
+.nav { display: flex; gap: 4px; overflow-x: auto; flex: 1; min-width: 0; scrollbar-width: none; }
+.nav a { white-space: nowrap; text-decoration: none; color: var(--muted); font-size: .9rem; padding: 6px 10px; border-radius: 999px; }
+.nav a:hover { background: var(--accent-soft); color: var(--ink); }
+
+/* WebGL: 画面全体に1枚のキャンバスを重ね、各要素の位置に3Dシーンを描く */
+#gl { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 8; }
+.ico { width: 52px; height: 52px; flex: none; border-radius: 14px; background: var(--accent-soft); }
+.ico.sm { width: 48px; height: 48px; }
+.avoid .ico { background: var(--surface); }
+.no-gl .ico, .no-gl .hero-fig { display: none; }
+h2 { display: flex; align-items: center; gap: 12px; }
+
+.hero { padding-block: 24px 8px; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 12px 24px; align-items: center; }
+.hero-text { display: grid; gap: 12px; min-width: 0; }
+.hero h1 { font-size: clamp(1.7rem, 5vw, 2.3rem); }
+.nw { display: inline-block; }
+.hero p { color: var(--muted); max-width: 36em; }
+.hero-fig { margin: 0; display: grid; gap: 4px; min-width: 0; }
+.hero-3d { width: 100%; height: 380px; max-width: 100%; position: relative; overflow: hidden; }
+/* 3Dの部位名ラベル（キャンバスより手前） */
+.hl { position: absolute; left: 0; top: 0; z-index: 8; pointer-events: none; display: flex; align-items: center; gap: 4px; font-size: .72rem; line-height: 1; color: var(--ink); white-space: nowrap; will-change: transform; }
+.hl i { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); flex: none; }
+.hl .ln { width: 14px; height: 1px; background: var(--muted); }
+.hl span { background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 4px 8px; }
+.hl.flip { flex-direction: row-reverse; }
+.hero-fig figcaption { font-size: .8rem; color: var(--muted); text-align: center; }
+.sos { grid-column: 1 / -1; }
+.no-gl .hero { grid-template-columns: 1fr; }
+@media (max-width: 640px) { .hero { grid-template-columns: 1fr; } .hero-fig { order: -1; } .hero-3d { height: 250px; } }
+.sos { display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; background: var(--emer-bg); color: var(--emer); border-radius: 12px; padding: 12px 16px; font-size: .95rem; }
+.sos strong { font-family: var(--f-display); }
+.num { font-weight: 700; font-variant-numeric: tabular-nums; user-select: all; }
+
+section { padding-block: 36px 8px; scroll-margin-top: 70px; display: grid; gap: 16px; }
+.lead { color: var(--muted); }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 20px; display: grid; gap: 16px; }
+.label { font-size: .8rem; letter-spacing: .08em; color: var(--muted); font-weight: 700; }
+
+/* phlegm color chips */
+.chips { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+.chip { display: flex; align-items: center; gap: 10px; text-align: left; background: var(--bg); border: 2px solid transparent; border-radius: 12px; padding: 10px 12px; min-height: 52px; line-height: 1.4; }
+.chip[aria-pressed="true"] { border-color: var(--accent); background: var(--accent-soft); }
+.sw { width: 26px; height: 26px; border-radius: 50%; flex: none; border: 1px solid rgba(0,0,0,.18);
+  background-image: radial-gradient(circle at 32% 28%, rgba(255,255,255,.85) 0 10%, rgba(255,255,255,0) 46%);
+  box-shadow: inset 0 -3px 5px rgba(0,0,0,.18); }
+.meter { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4px; }
+.meter span { color: inherit; opacity: .6; font-size: .72rem; letter-spacing: .04em; padding-top: 6px; border-top: 6px solid var(--line); border-radius: 3px 3px 0 0; }
+.meter span.on { border-top-color: currentColor; }
+.meter span.cur { opacity: 1; font-weight: 700; }
+.checks { display: grid; gap: 6px; }
+.checks label { display: flex; gap: 10px; align-items: flex-start; padding: 8px 10px; border-radius: 10px; line-height: 1.5; cursor: pointer; }
+.checks label:hover { background: var(--bg); }
+.checks input { width: 20px; height: 20px; margin-top: 2px; accent-color: var(--accent); flex: none; }
+
+.result { border-radius: 14px; padding: 18px; display: grid; gap: 8px; border-left: 6px solid currentColor; }
+.result h3 { font-size: 1.25rem; }
+.result ul { margin: 0; padding-left: 1.2em; color: var(--ink); }
+.r0 { background: var(--ok-bg); color: var(--ok); }
+.r1 { background: var(--care-bg); color: var(--care); }
+.r2 { background: var(--urgent-bg); color: var(--urgent); }
+.r3 { background: var(--emer-bg); color: var(--emer); }
+.result p { color: var(--ink); }
+
+/* techniques */
+.tech { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 12px; }
+.tcard { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.tcard ol, .tcard ul { margin: 0; padding-left: 1.3em; }
+.thead { display: flex; gap: 12px; align-items: center; }
+.tt { display: grid; gap: 4px; min-width: 0; }
+.tag { justify-self: start; font-size: .75rem; padding: 2px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-weight: 700; letter-spacing: .04em; }
+.note { font-size: .88rem; color: var(--muted); }
+.avoid { background: var(--care-bg); border-color: transparent; }
+.avoid .tag { background: var(--surface); color: var(--care); }
+
+/* breathing guide */
+.guide { display: grid; grid-template-columns: 220px 1fr; gap: 24px; align-items: center; }
+@media (max-width: 560px) { .guide { grid-template-columns: 1fr; justify-items: center; text-align: center; } }
+.lung-box { width: 220px; max-width: 100%; display: grid; justify-items: center; gap: 2px; }
+.lung3d { width: 220px; height: 200px; max-width: 100%; position: relative; }
+.no-gl .lung3d::after { content: ""; position: absolute; inset: 40px 50px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, var(--accent-soft), var(--accent)); transform: scale(var(--s, .75)); transition: transform var(--d, 1s) ease-in-out; }
+.count-wrap { position: relative; width: 68px; height: 68px; display: grid; place-items: center; }
+.ring { position: absolute; inset: 0; width: 100%; height: 100%; transform: rotate(-90deg); }
+.ring circle { fill: none; stroke-width: 5; }
+.ring .trk { stroke: var(--line); }
+.ring .prg { stroke: var(--accent); stroke-linecap: round; stroke-dasharray: 175.9; stroke-dashoffset: 175.9; transition: stroke-dashoffset 1s linear; }
+.count { font-family: var(--f-display); font-weight: 700; font-size: 1.6rem; line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+.phase { font-family: var(--f-display); font-size: 1.6rem; font-weight: 700; }
+.steps { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.steps span { font-size: .8rem; padding: 3px 10px; border-radius: 999px; background: var(--bg); color: var(--muted); }
+.steps span.on { background: var(--accent); color: var(--surface); }
+.btns { display: flex; gap: 8px; flex-wrap: wrap; }
+.btn { border: 0; border-radius: 999px; padding: 10px 22px; background: var(--accent); color: var(--surface); font-weight: 700; min-height: 46px; }
+.btn.ghost { background: transparent; color: var(--accent); border: 2px solid var(--accent); }
+@media (prefers-reduced-motion: reduce) { .lung3d::after { transition: none !important; } }
+
+/* log */
+.water { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.cups { display: flex; gap: 4px; flex-wrap: wrap; }
+.cup { width: 22px; height: 30px; border: 2px solid var(--accent); border-top-width: 0; border-radius: 0 0 6px 6px; }
+.cup.f { background: var(--accent); }
+.round { width: 46px; height: 46px; border-radius: 50%; border: 2px solid var(--accent); background: var(--surface); color: var(--accent); font-size: 1.4rem; font-weight: 700; line-height: 1; }
+.form { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.form label { display: grid; gap: 4px; font-size: .85rem; color: var(--muted); }
+.form select, .form input { font: inherit; font-size: 1rem; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 10px; padding: 10px; min-height: 46px; width: 100%; }
+.tbl-box { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: .92rem; min-width: 460px; }
+th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+th { font-size: .78rem; color: var(--muted); letter-spacing: .06em; }
+td.n { font-variant-numeric: tabular-nums; }
+.cc { display: inline-flex; align-items: center; gap: 6px; }
+.cc .sw { width: 16px; height: 16px; }
+.ex { font-size: .7rem; padding: 1px 6px; border-radius: 4px; background: var(--bg); color: var(--muted); margin-left: 4px; }
+.del { background: none; border: 0; color: var(--muted); font-size: .85rem; text-decoration: underline; }
+
+/* when to see a doctor */
+.levels { display: grid; gap: 10px; }
+.lv { display: grid; grid-template-columns: 9.5em 1fr; gap: 12px; padding: 14px 16px; border-radius: 12px; }
+@media (max-width: 520px) { .lv { grid-template-columns: 1fr; gap: 4px; } }
+.lv b { font-family: var(--f-display); }
+.lv div { color: var(--ink); }
+footer { padding-block: 40px 48px; color: var(--muted); font-size: .85rem; }
+</style>
+</head>
+<body>
+
+<canvas id="gl" aria-hidden="true"></canvas>
+<header class="top">
+  <div class="wrap">
+    <span class="brand">たんすっきりナビ</span>
+    <nav class="nav" aria-label="ページ内メニュー">
+      <a href="#check">痰チェック</a>
+      <a href="#ways">出し方</a>
+      <a href="#breath">呼吸ガイド</a>
+      <a href="#log">記録</a>
+      <a href="#doctor">受診の目安</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="hero">
+    <div class="hero-text">
+      <h1><span class="nw">からむ痰を、</span><span class="nw">楽に出す。</span><br><span class="nw">危ないサインは</span><span class="nw">見逃さない。</span></h1>
+      <p>痰の色と症状から受診の目安を確認し、ハフィングや呼吸法で無理なく痰を出すためのガイドです。診断ではありません。気になる時は医療機関に相談してください。</p>
+    </div>
+    <figure class="hero-fig">
+      <div class="hero-3d" id="heroView" aria-hidden="true"></div>
+      <figcaption>気管支の線毛と咳・ハフィングが、痰をのどの方へ運び出します</figcaption>
+    </figure>
+    <div class="sos" role="note">
+      <strong>息が苦しい・ピンクの泡の痰・大量の血</strong>
+      <span>すぐ救急 <span class="num">119</span></span>
+      <span>迷ったら 救急安心センター <span class="num">#7119</span></span>
+      <span>子ども <span class="num">#8000</span></span>
+    </div>
+  </div>
+
+  <!-- 痰チェック -->
+  <section id="check">
+    <h2><span class="ico" data-ico="check" aria-hidden="true"></span>痰チェック</h2>
+    <p class="lead">今出ている痰の色と、当てはまる症状を選んでください。結果はすぐ下に出ます。</p>
+    <div class="panel">
+      <div class="label">痰の色・状態</div>
+      <div class="chips" id="chips"></div>
+      <div class="label">当てはまる症状（いくつでも）</div>
+      <div class="checks" id="symptoms"></div>
+      <div id="result" class="result r0" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- 出し方 -->
+  <section id="ways">
+    <h2><span class="ico" data-ico="ways" aria-hidden="true"></span>痰を出しやすくする方法</h2>
+    <p class="lead">強い咳を何度もくり返すより、「ゆるめる → 動かす → 出す」の順に進める方が体力を使いません。</p>
+    <div class="tech">
+      <article class="tcard">
+        <div class="thead"><span class="ico sm" data-ico="huff" aria-hidden="true"></span><div class="tt"><span class="tag">出す</span><h3>ハフィング</h3></div></div>
+        <ol>
+          <li>背すじを伸ばして座り、少し大きめに息を吸う</li>
+          <li>口を「ハ」の形に開けたまま</li>
+          <li>窓ガラスを曇らせるように「ハーッ」と素早く強く吐き切る</li>
+          <li>1〜2回行い、痰がのどまで来たら軽く咳をして出す</li>
+        </ol>
+        <p class="note">咳より喉や気道への負担が少なく、体力が落ちている時にも向いています。</p>
+      </article>
+      <article class="tcard">
+        <div class="thead"><span class="ico sm" data-ico="cycle" aria-hidden="true"></span><div class="tt"><span class="tag">動かす</span><h3>アクティブサイクル呼吸法</h3></div></div>
+        <p>楽な呼吸 → 深呼吸 → ハフィングを1セットとして、痰が出るまでくり返す方法です。リハビリの現場でよく使われます。</p>
+        <p><a href="#breath" style="color:var(--accent);font-weight:700">呼吸ガイドで一緒にやってみる</a></p>
+      </article>
+      <article class="tcard">
+        <div class="thead"><span class="ico sm" data-ico="water" aria-hidden="true"></span><div class="tt"><span class="tag">ゆるめる</span><h3>水分をこまめにとる</h3></div></div>
+        <p>体の水分が足りないと痰は粘り、張り付きやすくなります。常温の水や白湯を少しずつ、1日1.5〜2Lを目安に。</p>
+        <p class="note">心臓病・腎臓病などで水分制限を受けている人は、医師の指示に従ってください。</p>
+      </article>
+      <article class="tcard">
+        <div class="thead"><span class="ico sm" data-ico="steam" aria-hidden="true"></span><div class="tt"><span class="tag">ゆるめる</span><h3>湿度と蒸気</h3></div></div>
+        <ul>
+          <li>部屋の湿度を50〜60%に保つ</li>
+          <li>入浴やシャワーの湯気をゆっくり吸う</li>
+          <li>蒸しタオルを口元に当てて呼吸する（やけどに注意）</li>
+          <li>寝る時はマスクでのどの乾燥を防ぐ</li>
+        </ul>
+      </article>
+      <article class="tcard">
+        <div class="thead"><span class="ico sm" data-ico="posture" aria-hidden="true"></span><div class="tt"><span class="tag">動かす</span><h3>姿勢を変える（体位ドレナージ）</h3></div></div>
+        <p>痰のたまっている側を上にして横向きに寝ると、重力で痰が太い気管へ移動しやすくなります。5〜10分を目安に。</p>
+        <p class="note">食後1時間以内は避けてください。心臓病・逆流性食道炎・頭を低くできない病気がある人は医師に相談を。</p>
+      </article>
+      <article class="tcard">
+        <div class="thead"><span class="ico sm" data-ico="nose" aria-hidden="true"></span><div class="tt"><span class="tag">原因を減らす</span><h3>鼻からの痰（後鼻漏）</h3></div></div>
+        <p>鼻水がのどに流れて痰になっている場合は、こまめに鼻をかむ・生理食塩水での鼻うがいが役立ちます。朝に痰が多く、鼻づまりがある人は耳鼻科も選択肢です。</p>
+      </article>
+      <article class="tcard">
+        <div class="thead"><span class="ico sm" data-ico="medicine" aria-hidden="true"></span><div class="tt"><span class="tag">薬</span><h3>去痰薬を使う</h3></div></div>
+        <p>市販薬にも痰を出しやすくする成分（カルボシステイン、アンブロキソール、ブロムヘキシンなど）があります。持病や服用中の薬がある人は薬剤師に相談してください。</p>
+      </article>
+      <article class="tcard avoid">
+        <div class="thead"><span class="ico sm" data-ico="avoid" aria-hidden="true"></span><div class="tt"><span class="tag">避けたいこと</span><h3>逆効果になりやすいこと</h3></div></div>
+        <ul>
+          <li>喫煙・受動喫煙（痰の量が増えます）</li>
+          <li>痰があるのに自己判断で咳止めを使う（痰が出しにくくなることがあります）</li>
+          <li>出ない痰を強い咳で何度も出そうとする</li>
+          <li>アルコールやカフェインのとりすぎ（脱水ぎみになります）</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- 呼吸ガイド -->
+  <section id="breath">
+    <h2><span class="ico" data-ico="breath" aria-hidden="true"></span>呼吸ガイド</h2>
+    <p class="lead">アクティブサイクル呼吸法を1セット（約1分半）ガイドします。椅子に座り、肩の力を抜いて始めてください。</p>
+    <div class="panel">
+      <div class="guide">
+        <div class="lung-box"><div class="lung3d" id="lungView" aria-hidden="true"></div><div class="count-wrap"><svg class="ring" viewBox="0 0 64 64" aria-hidden="true"><circle class="trk" cx="32" cy="32" r="28"></circle><circle class="prg" id="ringPrg" cx="32" cy="32" r="28"></circle></svg><div class="count" id="orb">–</div></div></div>
+        <div>
+          <div class="label" id="phaseLabel">準備</div>
+          <div class="phase" id="phase">スタートを押してください</div>
+          <p class="note" id="phaseHint">肺がふくらむ時に吸い、しぼむ時に吐きます。</p>
+          <div class="steps" id="steps"></div>
+          <div class="btns" style="margin-top:16px">
+            <button class="btn" id="startBtn" type="button">スタート</button>
+            <button class="btn ghost" id="stopBtn" type="button" hidden>止める</button>
+          </div>
+        </div>
+      </div>
+      <p class="note">めまい・息苦しさを感じたらすぐに中止し、楽な呼吸に戻ってください。</p>
+    </div>
+  </section>
+
+  <!-- 記録 -->
+  <section id="log">
+    <h2><span class="ico" data-ico="log" aria-hidden="true"></span>毎日の記録</h2>
+    <p class="lead">痰の色と量を記録しておくと、変化に気づきやすく、受診時に医師へ伝えやすくなります。記録はこの端末のブラウザだけに保存されます。</p>
+    <div class="panel">
+      <div class="label">今日の水分（コップ1杯＝200mL）</div>
+      <div class="water">
+        <button class="round" id="cupMinus" type="button" aria-label="1杯減らす">−</button>
+        <div class="cups" id="cups"></div>
+        <button class="round" id="cupPlus" type="button" aria-label="1杯増やす">＋</button>
+        <span class="num" id="cupText"></span>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="label">痰の記録をつける</div>
+      <form class="form" id="logForm">
+        <label>日付<input type="date" id="fDate" required></label>
+        <label>色<select id="fColor"></select></label>
+        <label>量<select id="fAmount"><option>少ない</option><option selected>ふつう</option><option>多い</option></select></label>
+        <label>メモ<input type="text" id="fMemo" placeholder="例：朝に多い、熱37.5℃"></label>
+        <div style="display:flex;align-items:end"><button class="btn" type="submit" style="width:100%">記録する</button></div>
+      </form>
+      <div class="tbl-box">
+        <table>
+          <thead><tr><th>日付</th><th>色</th><th>量</th><th>水分</th><th>メモ</th><th></th></tr></thead>
+          <tbody id="logBody"></tbody>
+        </table>
+      </div>
+      <p class="note" id="logNote"></p>
+    </div>
+  </section>
+
+  <!-- 受診の目安 -->
+  <section id="doctor">
+    <h2><span class="ico" data-ico="doctor" aria-hidden="true"></span>受診の目安</h2>
+    <div class="levels">
+      <div class="lv r3"><b>今すぐ救急（119）</b><div>息が苦しくて会話がつらい／唇や顔色が紫色／ピンク色で泡のような痰／コップ半分以上の血を吐く／意識がぼんやりしている</div></div>
+      <div class="lv r2"><b>今日中に受診</b><div>胸の痛み／38℃以上の熱が3日以上続く／持病（COPD・喘息・心不全など）がいつもより悪い／高齢者や乳幼児で食欲や元気がない</div></div>
+      <div class="lv r1"><b>数日以内に受診</b><div>痰に血が混じる（少量でも）／鉄さび色・茶色・黒っぽい痰／痰や咳が3週間以上続く／体重減少や寝汗がある</div></div>
+      <div class="lv r0"><b>様子を見てよい</b><div>透明〜白・黄色の痰で、熱が軽く、日ごとに良くなっている。水分と休養を十分に。</div></div>
+    </div>
+    <p class="note">呼吸器内科・内科が基本の受診先です。鼻水がのどに流れる痰は耳鼻咽喉科も相談先になります。受診の際は「いつから・色・量・熱・喫煙歴」を伝えるとスムーズです。</p>
+  </section>
+</main>
+
+<footer class="wrap">
+  このページは一般的な情報をまとめたもので、医師の診断や治療に代わるものではありません。症状が重い時、判断に迷う時は医療機関に相談してください。
+</footer>
+
+<script>
+(function () {
+  const COLORS = [
+    { id: "clear",  name: "透明・水っぽい", sw: "#E8F1F4", lv: 0, text: "アレルギー、鼻水がのどに流れる後鼻漏、風邪のひき始めによく見られます。" },
+    { id: "white",  name: "白・ねばねば",   sw: "#F7F7F2", lv: 0, text: "風邪、気管支炎、喫煙、乾燥などで出やすい痰です。長く続く場合は慢性気管支炎や喘息のこともあります。" },
+    { id: "yellow", name: "黄色",           sw: "#E9CF5C", lv: 0, text: "体が炎症と戦っている時によく見られます。数日で良くなっていれば多くはセルフケアで様子を見られます。" },
+    { id: "green",  name: "緑色",           sw: "#93B04A", lv: 0, text: "炎症が続いているサインです。緑色だから必ず細菌感染、抗菌薬が必要というわけではありませんが、熱が続く・悪化する時は受診を。" },
+    { id: "brown",  name: "茶色・鉄さび色", sw: "#9A5B2E", lv: 1, text: "古い血液や喫煙の影響のほか、鉄さび色は肺炎のこともあります。早めに受診してください。" },
+    { id: "black",  name: "黒・灰色",       sw: "#4A4A4A", lv: 1, text: "煙・粉じん・喫煙の影響が多いですが、心当たりがない場合や続く場合は受診してください。" },
+    { id: "blood",  name: "血が混じる",     sw: "#C0392B", lv: 1, text: "のどや鼻の小さな出血のこともありますが、少量でも一度は受診して原因を確かめてください。量が多い時は救急へ。" },
+    { id: "pink",   name: "ピンク色の泡",   sw: "#F2A7B5", lv: 3, text: "肺に水がたまる状態（肺水腫）のサインのことがあります。すぐに119番へ。" }
+  ];
+  const SYMPTOMS = [
+    { id: "breath", text: "息が苦しい・会話がつらい", lv: 3 },
+    { id: "cyan",   text: "唇や顔色が紫っぽい、意識がぼんやりする", lv: 3 },
+    { id: "bigblood", text: "コップ半分以上の血を吐いた", lv: 3 },
+    { id: "chest",  text: "胸が痛む", lv: 2 },
+    { id: "fever",  text: "38℃以上の熱が3日以上続いている", lv: 2 },
+    { id: "chronic", text: "持病（COPD・喘息・心不全など）がいつもより悪い", lv: 2 },
+    { id: "frail",  text: "高齢者・乳幼児で、食欲や元気がない", lv: 2 },
+    { id: "long",   text: "痰や咳が3週間以上続いている", lv: 1 },
+    { id: "weight", text: "体重が減ってきた・寝汗をかく", lv: 1 }
+  ];
+  const LEVELS = [
+    { title: "セルフケアで様子を見ましょう", body: "水分・加湿・ハフィングで痰を出しやすくし、休養をとってください。悪化する、良くならない時は受診を。" },
+    { title: "数日以内に受診しましょう", body: "急ぎではありませんが、原因を確かめるために内科・呼吸器内科を受診してください。" },
+    { title: "今日中に受診しましょう", body: "診療時間内に医療機関へ。夜間で迷う時は #7119（救急安心センター）に相談できます。" },
+    { title: "すぐに救急車（119）を", body: "命に関わる状態の可能性があります。ためらわず119番に電話してください。" }
+  ];
+
+  const $ = (id) => document.getElementById(id);
+  const store = {
+    get(k, d) { try { const v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } },
+    set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  };
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  // ---- 痰チェック ----
+  let picked = "yellow";
+  const chips = $("chips");
+  COLORS.forEach((c) => {
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "chip"; b.id = "chip-" + c.id;
+    b.innerHTML = '<span class="sw" style="background-color:' + c.sw + '"></span><span>' + c.name.split("・").map((s) => '<span class="nw">' + s + "</span>").join("・") + "</span>";
+    b.addEventListener("click", () => { picked = c.id; render(); });
+    chips.appendChild(b);
+  });
+  const symBox = $("symptoms");
+  SYMPTOMS.forEach((s) => {
+    const l = document.createElement("label");
+    l.innerHTML = '<input type="checkbox" id="sym-' + s.id + '"><span>' + s.text + "</span>";
+    l.querySelector("input").addEventListener("change", render);
+    symBox.appendChild(l);
+  });
+  function render() {
+    COLORS.forEach((c) => $("chip-" + c.id).setAttribute("aria-pressed", String(c.id === picked)));
+    const color = COLORS.find((c) => c.id === picked);
+    let lv = color.lv;
+    const reasons = [color.name + "：" + color.text];
+    SYMPTOMS.forEach((s) => {
+      if ($("sym-" + s.id).checked) { lv = Math.max(lv, s.lv); if (s.lv > 0) reasons.push(s.text); }
+    });
+    if (picked === "green" && $("sym-fever").checked) lv = Math.max(lv, 2);
+    const r = $("result");
+    r.className = "result r" + lv;
+    const meter = '<div class="meter" aria-hidden="true">' + ["様子見", "数日以内", "今日中", "救急"].map((n, i) =>
+      '<span class="' + (i <= lv ? "on" : "") + (i === lv ? " cur" : "") + '">' + n + "</span>").join("") + "</div>";
+    r.innerHTML = "<h3>" + LEVELS[lv].title + "</h3>" + meter + "<p>" + LEVELS[lv].body + "</p><ul>" +
+      reasons.map((t) => "<li>" + esc(t) + "</li>").join("") + "</ul>";
+  }
+  render();
+
+  // ---- 呼吸ガイド ----
+  // 1セット: 楽な呼吸 → 深呼吸×3 → 楽な呼吸 → ハフィング×2 → 楽な呼吸
+  const SEQ = [];
+  const calm = (sec) => SEQ.push({ group: "楽な呼吸", phase: "楽に呼吸", hint: "肩の力を抜き、お腹でゆっくり自然に呼吸します。", sec: sec, scale: 0.85 });
+  calm(15);
+  for (let i = 1; i <= 3; i++) {
+    SEQ.push({ group: "深呼吸", phase: "鼻から深く吸う", hint: "深呼吸 " + i + " / 3", sec: 4, scale: 1.45 });
+    SEQ.push({ group: "深呼吸", phase: "そのまま止める", hint: "深呼吸 " + i + " / 3　息を3秒ためます", sec: 3, scale: 1.45 });
+    SEQ.push({ group: "深呼吸", phase: "口からゆっくり吐く", hint: "深呼吸 " + i + " / 3", sec: 5, scale: 0.75 });
+  }
+  calm(12);
+  for (let i = 1; i <= 2; i++) {
+    SEQ.push({ group: "ハフィング", phase: "少し大きめに吸う", hint: "ハフィング " + i + " / 2", sec: 3, scale: 1.25 });
+    SEQ.push({ group: "ハフィング", phase: "「ハーッ」と吐き切る", hint: "口を開けたまま、窓を曇らせるように", sec: 2, scale: 0.6 });
+    SEQ.push({ group: "ハフィング", phase: "ひと休み", hint: "楽に呼吸します", sec: 4, scale: 0.85 });
+  }
+  SEQ.push({ group: "出す", phase: "痰が来たら軽く咳", hint: "のどまで来た痰を、軽い咳で出します。出なければもう1セット。", sec: 10, scale: 0.85 });
+  const GROUPS = ["楽な呼吸", "深呼吸", "ハフィング", "出す"];
+  $("steps").innerHTML = GROUPS.map((g) => '<span data-g="' + g + '">' + g + "</span>").join("");
+
+  let timer = null, idx = 0, left = 0, wake = null;
+  const orb = $("orb"), lungView = $("lungView"), ring = $("ringPrg");
+  // 3Dの肺（下のWebGLスクリプト）が読む呼吸の大きさ
+  const breath = window.tanBreath = { target: 0.75 };
+  function setBreath(scale, sec) {
+    breath.target = scale;
+    lungView.style.setProperty("--s", scale);
+    lungView.style.setProperty("--d", sec + "s");
+  }
+  function show() {
+    const s = SEQ[idx];
+    $("phaseLabel").textContent = s.group;
+    $("phase").textContent = s.phase;
+    $("phaseHint").textContent = s.hint;
+    setBreath(s.scale, Math.min(s.sec, 4));
+    orb.textContent = left;
+    ring.style.transition = left === s.sec ? "none" : "";
+    ring.style.strokeDashoffset = 175.9 * ((left - 1) / s.sec);
+    document.querySelectorAll("#steps span").forEach((el) => el.classList.toggle("on", el.dataset.g === s.group));
+  }
+  function tick() {
+    left--;
+    if (left <= 0) {
+      idx++;
+      if (idx >= SEQ.length) return finish(true);
+      left = SEQ[idx].sec;
+    }
+    show();
+  }
+  async function start() {
+    idx = 0; left = SEQ[0].sec; show();
+    clearInterval(timer); timer = setInterval(tick, 1000);
+    $("startBtn").hidden = true; $("stopBtn").hidden = false;
+    try { wake = await navigator.wakeLock.request("screen"); } catch (e) { wake = null; }
+  }
+  function finish(done) {
+    clearInterval(timer); timer = null;
+    $("startBtn").hidden = false; $("stopBtn").hidden = true;
+    $("startBtn").textContent = done ? "もう1セット" : "スタート";
+    $("phaseLabel").textContent = done ? "おつかれさまでした" : "停止中";
+    $("phase").textContent = done ? "1セット完了" : "いつでも再開できます";
+    $("phaseHint").textContent = done ? "痰が残っていれば少し休んでからもう1セット。1回あたり3〜5セットまでが目安です。" : "肺がふくらむ時に吸い、しぼむ時に吐きます。";
+    orb.textContent = done ? "✓" : "–";
+    setBreath(0.75, 1);
+    ring.style.transition = ""; ring.style.strokeDashoffset = done ? 0 : 175.9;
+    document.querySelectorAll("#steps span").forEach((el) => el.classList.remove("on"));
+    if (wake) { wake.release().catch(() => {}); wake = null; }
+  }
+  $("startBtn").addEventListener("click", start);
+  $("stopBtn").addEventListener("click", () => finish(false));
+
+  // ---- 記録 ----
+  const today = () => { const d = new Date(); d.setMinutes(d.getMinutes() - d.getTimezoneOffset()); return d.toISOString().slice(0, 10); };
+  const shift = (n) => { const d = new Date(); d.setDate(d.getDate() - n); d.setMinutes(d.getMinutes() - d.getTimezoneOffset()); return d.toISOString().slice(0, 10); };
+  let water = store.get("tan-water", {});
+  let logs = store.get("tan-logs", null);
+  const isExample = logs === null;
+  if (isExample) {
+    logs = [
+      { date: shift(1), color: "yellow", amount: "多い", cups: 6, memo: "朝に多い・熱37.4℃", ex: true },
+      { date: shift(2), color: "green", amount: "多い", cups: 5, memo: "のどの痛み", ex: true },
+      { date: shift(3), color: "white", amount: "ふつう", cups: 7, memo: "", ex: true }
+    ];
+  }
+  function renderWater() {
+    const n = water[today()] || 0;
+    $("cups").innerHTML = Array.from({ length: Math.max(8, n) }, (_, i) => '<span class="cup' + (i < n ? " f" : "") + '"></span>').join("");
+    $("cupText").textContent = n + "杯（" + (n * 200).toLocaleString() + "mL）／目安 8杯";
+  }
+  $("cupPlus").addEventListener("click", () => { water[today()] = (water[today()] || 0) + 1; store.set("tan-water", water); renderWater(); renderLogs(); });
+  $("cupMinus").addEventListener("click", () => { water[today()] = Math.max(0, (water[today()] || 0) - 1); store.set("tan-water", water); renderWater(); renderLogs(); });
+
+  $("fColor").innerHTML = COLORS.map((c) => '<option value="' + c.id + '">' + c.name + "</option>").join("");
+  $("fDate").value = today();
+  function renderLogs() {
+    const rows = logs.slice().sort((a, b) => b.date.localeCompare(a.date));
+    $("logBody").innerHTML = rows.length ? rows.map((r) => {
+      const c = COLORS.find((x) => x.id === r.color) || COLORS[0];
+      const cups = r.ex ? r.cups : (water[r.date] || 0);
+      return "<tr><td class=\"n\">" + r.date.slice(5).replace("-", "/") + (r.ex ? '<span class="ex">例</span>' : "") +
+        '</td><td><span class="cc"><span class="sw" style="background-color:' + c.sw + '"></span>' + c.name + "</span></td><td>" + esc(r.amount) +
+        '</td><td class="n">' + cups + "杯</td><td>" + esc(r.memo || "") + '</td><td><button class="del" type="button" data-i="' + logs.indexOf(r) + '">削除</button></td></tr>';
+    }).join("") : '<tr><td colspan="6" class="note">まだ記録がありません。上のフォームから最初の記録をつけてください。</td></tr>';
+    $("logNote").textContent = logs.some((r) => r.ex) ? "表示中の「例」は入力イメージです。最初の記録をつけると消えます。" : "";
+  }
+  $("logBody").addEventListener("click", (e) => {
+    const b = e.target.closest(".del"); if (!b) return;
+    logs.splice(Number(b.dataset.i), 1);
+    store.set("tan-logs", logs.filter((r) => !r.ex)); renderLogs();
+  });
+  $("logForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    logs = logs.filter((r) => !r.ex);
+    logs.push({ date: $("fDate").value || today(), color: $("fColor").value, amount: $("fAmount").value, memo: $("fMemo").value.trim() });
+    store.set("tan-logs", logs);
+    $("fMemo").value = "";
+    renderLogs();
+  });
+  renderWater(); renderLogs();
+})();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+// ---- WebGL（Three.js）: 1枚のキャンバスで、トップの気管支・呼吸ガイドの肺・各アイコンを描く ----
+(function () {
+  const root = document.documentElement;
+  const canvas = document.getElementById("gl");
+  let renderer = null;
+  try {
+    if (!window.THREE) throw new Error("three.js not loaded");
+    renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+  } catch (e) { root.classList.add("no-gl"); canvas.remove(); return; }
+  const T = THREE;
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.setClearColor(0x000000, 0);
+  renderer.setScissorTest(true);
+
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const css = (n) => getComputedStyle(root).getPropertyValue(n).trim();
+  const V = (x, y, z) => new T.Vector3(x, y, z || 0);
+  const Y = V(0, 1, 0), Z = V(0, 0, 1);
+  const themed = [];
+  let dirty = true;
+  const track = (obj, token) => { themed.push([obj, token]); return obj; };
+  function applyTheme() { themed.forEach(([o, t]) => { const v = css(t); if (v) o.color.set(v); }); dirty = true; }
+  function rng(seed) { return () => (seed = (seed * 16807) % 2147483647) / 2147483647; }
+
+  // 反射用の環境マップ（白いソフトボックスのある部屋）
+  const ENV = (function () {
+    const pm = new T.PMREMGenerator(renderer), s = new T.Scene();
+    const geo = new T.SphereGeometry(10, 32, 16), p = geo.attributes.position, cols = [];
+    const sky = new T.Color(0xffffff), ground = new T.Color(0x6f8285), c = new T.Color();
+    for (let i = 0; i < p.count; i++) { c.copy(ground).lerp(sky, (p.getY(i) / 10 + 1) / 2); cols.push(c.r, c.g, c.b); }
+    geo.setAttribute("color", new T.Float32BufferAttribute(cols, 3));
+    s.add(new T.Mesh(geo, new T.MeshBasicMaterial({ vertexColors: true, side: T.BackSide })));
+    [[V(4, 6, 5), 7, 3, 1.8], [V(-7, 2, 3), 3, 4, 1.1], [V(0, -3, 7), 6, 1, 0.6]].forEach(([at, w, h, k]) => {
+      const m = new T.Mesh(new T.PlaneGeometry(w, h), new T.MeshBasicMaterial({ color: new T.Color(k, k, k), side: T.DoubleSide }));
+      m.position.copy(at); m.lookAt(0, 0, 0); s.add(m);
+    });
+    const tex = pm.fromScene(s, 0.04).texture; pm.dispose(); return tex;
+  })();
+
+  function makeScene(fog) {
+    const s = new T.Scene(); s.environment = ENV;
+    s.add(new T.HemisphereLight(0xffffff, 0x6f8285, 0.35));
+    const key = new T.DirectionalLight(0xffffff, 0.65); key.position.set(2, 3, 4); s.add(key);
+    const rim = new T.DirectionalLight(0xffffff, 0.35); rim.position.set(-3, 1, -3); s.add(rim);
+    if (fog) s.fog = track(new T.Fog(0xffffff, fog[0], fog[1]), "--bg");
+    return s;
+  }
+
+  // ---- 素材 ----
+  const mat = (token, o) => track(new T.MeshPhysicalMaterial(Object.assign({ roughness: 0.42, metalness: 0, clearcoat: 0.3, clearcoatRoughness: 0.35, envMapIntensity: 0.8 }, o || {})), token);
+  const wet = (o) => mat("--mucus", Object.assign({ roughness: 0.15, clearcoat: 1, clearcoatRoughness: 0.06 }, o || {}));
+  const glass = (o) => mat("--glass", Object.assign({ transparent: true, opacity: 0.25, depthWrite: false, side: T.DoubleSide, roughness: 0.05, clearcoat: 1, clearcoatRoughness: 0.05, envMapIntensity: 1.2 }, o || {}));
+
+  // ---- 形 ----
+  const dropGeo = (function () { // しずく形（痰のかたまり）
+    const pts = [];
+    for (let i = 0; i <= 32; i++) {
+      const t = Math.PI - (i / 32) * Math.PI;
+      pts.push(new T.Vector2(Math.max(0.0001, Math.sin(t) * (1 - Math.cos(t)) / 2), Math.cos(t)));
+    }
+    return new T.LatheGeometry(pts, 40);
+  })();
+  const blobGeo = new T.IcosahedronGeometry(1, 3);
+  const jointGeo = new T.SphereGeometry(1, 12, 8);
+  const lathe = (pts, seg) => new T.LatheGeometry(pts.map(([x, y]) => new T.Vector2(x, y)), seg || 40);
+  function roundRect(w, h, r) {
+    const s = new T.Shape(), x = -w / 2, y = -h / 2;
+    s.moveTo(x + r, y); s.lineTo(x + w - r, y); s.quadraticCurveTo(x + w, y, x + w, y + r);
+    s.lineTo(x + w, y + h - r); s.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+    s.lineTo(x + r, y + h); s.quadraticCurveTo(x, y + h, x, y + h - r);
+    s.lineTo(x, y + r); s.quadraticCurveTo(x, y, x + r, y);
+    return s;
+  }
+  function slab(shape, depth, bevel) {
+    const g = new T.ExtrudeGeometry(shape, { depth: depth, bevelEnabled: true, bevelThickness: bevel, bevelSize: bevel, bevelSegments: 5, curveSegments: 16 });
+    g.center(); return g;
+  }
+  function rbox(w, h, d, r) {
+    const b = Math.min(r, d / 2) * 0.7;
+    return slab(roundRect(w - 2 * b, h - 2 * b, Math.max(0.001, r - b)), Math.max(0.001, d - 2 * b), b);
+  }
+
+  // ---- 気管支の木 ----
+  // 世代ごとに2本に分かれ、太さは約0.74倍。最初の分岐だけ右主気管支（画面左）を太く急角度にする
+  function growTree(o) {
+    const rand = rng(o.seed), out = [];
+    (function grow(a, dir, len, r, gen, parent) {
+      const b = a.clone().addScaledVector(dir, len);
+      const br = { a: a, b: b, r: r, gen: gen, parent: parent, kids: 0 };
+      out.push(br);
+      if (gen >= o.depth) return;
+      [-1, 1].forEach((s) => {
+        let ang = o.angle * (0.8 + rand() * 0.4), rr = r * 0.74, ll = len * (0.74 + rand() * 0.08);
+        if (gen === 0) { ang = s < 0 ? 0.45 : 0.8; rr = r * (s < 0 ? 0.78 : 0.68); ll = len * o.first * (s > 0 ? 1.15 : 1); }
+        const d = dir.clone().applyAxisAngle(Z, s * ang);
+        d.z += (rand() - 0.5) * 0.6; d.y -= o.gravity; d.normalize();
+        br.kids++;
+        grow(b, d, ll, rr, gen + 1, br);
+      });
+    })(o.top, V(0, -1, 0), o.len, o.r, 0, null);
+    return out;
+  }
+  function branchMesh(br, material, radial) {
+    const d = br.b.clone().sub(br.a), len = d.length(); d.normalize();
+    const m = new T.Mesh(new T.CylinderGeometry(br.r * 0.86, br.r, len, radial || 18, 1, true), material);
+    m.position.copy(br.a).addScaledVector(d, len / 2);
+    m.quaternion.setFromUnitVectors(Y, d);
+    return m;
+  }
+  function route(leaf, exit) { // 末梢からのどまでの道すじ
+    const pts = [leaf.b.clone()];
+    for (let n = leaf; n; n = n.parent) pts.push(n.a.clone());
+    pts.push(exit);
+    const c = new T.CatmullRomCurve3(pts);
+    return { c: c, len: c.getLength() };
+  }
+
+  // ---- 肺 ----
+  function lungGeo(side) { // side: -1 = 画面左, 1 = 画面右
+    const g = new T.SphereGeometry(1, 56, 40), p = g.attributes.position;
+    for (let i = 0; i < p.count; i++) {
+      let x = p.getX(i), y = p.getY(i), z = p.getZ(i);
+      if (x * side < 0) x *= 0.45;                 // 心臓側を平らに
+      const taper = 1 - 0.4 * Math.max(0, y);      // 肺尖を細く
+      x *= taper; z *= taper;
+      if (y < -0.6) y = -0.6 + (y + 0.6) * 0.35;   // 横隔膜側を平らに
+      if (side > 0 && x < 0.1 && y < 0.1 && y > -0.75) x += 0.12 * Math.sin((y + 0.75) / 0.85 * Math.PI) * Math.max(0, z + 0.2); // 左肺の心切痕
+      p.setXYZ(i, x * 0.62, y * 1.05, z * 0.5);
+    }
+    g.computeVertexNormals();
+    return g;
+  }
+  function buildLungs(group, detailed) {
+    const m = detailed
+      ? mat("--accent", { transparent: true, opacity: 0.36, depthWrite: false, roughness: 0.3, clearcoat: 0.7 })
+      : mat("--accent", { roughness: 0.5, clearcoat: 0.4 });
+    const lobes = [-1, 1].map((s) => {
+      const mesh = new T.Mesh(lungGeo(s), m);
+      mesh.position.set(s * 0.62, -0.15, 0); mesh.rotation.z = s * -0.08;
+      group.add(mesh); return mesh;
+    });
+    const air = mat("--ink", { roughness: 0.55 });
+    let tree = null;
+    if (detailed) {
+      tree = growTree({ seed: 5, top: V(0, 1.55, 0), len: 0.95, r: 0.085, depth: 4, angle: 0.55, gravity: 0.35, first: 0.5 });
+      tree.forEach((b) => {
+        group.add(branchMesh(b, air, 12));
+        if (b.kids) { const j = new T.Mesh(jointGeo, air); j.scale.setScalar(b.r * 0.86); j.position.copy(b.b); group.add(j); }
+      });
+    } else {
+      const tr = new T.Mesh(new T.CylinderGeometry(0.09, 0.09, 0.9, 16), air); tr.position.y = 1.05; group.add(tr);
+      [-1, 1].forEach((s) => {
+        const b = new T.Mesh(new T.CylinderGeometry(0.07, 0.07, 0.6, 12), air);
+        b.position.set(s * 0.22, 0.5, 0.05); b.rotation.z = s * 0.75; group.add(b);
+      });
+    }
+    return { lobes: lobes, tree: tree };
+  }
+  const inflate = (lobes, ls) => lobes.forEach((l) => l.scale.set(ls, 1 + (ls - 1) * 0.6, ls));
+
+  const views = [];
+  const addView = (el, scene, camera, update) => views.push({ el: el, scene: scene, camera: camera, update: update });
+  const tmpQ = new T.Quaternion(), tmpP = new T.Vector3(), tmpS = new T.Vector3(1, 1, 1), tmpM = new T.Matrix4(), tmpD = new T.Vector3();
+
+  // ---- トップ: 気管支の中を痰がのどへ上がっていく ----
+  const heroEl = document.getElementById("heroView");
+  if (heroEl) {
+    const scene = makeScene([8.1, 12]), g = new T.Group(); scene.add(g);
+    const cam = new T.PerspectiveCamera(38, 1, 0.1, 50); cam.position.set(0, 0.3, 8.4); cam.lookAt(0, 0.3, 0);
+    const tree = growTree({ seed: 7, top: V(0, 1.95, 0), len: 1.85, r: 0.3, depth: 4, angle: 0.5, gravity: 0.28, first: 0.42 });
+    const trachea = tree[0], leaves = tree.filter((b) => !b.kids);
+
+    const wall = glass({ opacity: 0.2 });
+    tree.forEach((b) => g.add(branchMesh(b, wall, b.gen < 2 ? 32 : 16)));
+
+    // 軟骨輪（後ろが開いたC字形）
+    const ringM = mat("--accent", { transparent: true, opacity: 0.5, depthWrite: false });
+    tree.filter((b) => b.gen <= 1).forEach((b) => {
+      const d = b.b.clone().sub(b.a), len = d.length(); d.normalize();
+      const q = new T.Quaternion().setFromUnitVectors(Z, d);
+      for (let s = 0.1; s < len - 0.05; s += 0.15) {
+        const rr = b.r * (1 - 0.14 * s / len) + 0.006;
+        const ring = new T.Mesh(new T.TorusGeometry(rr, 0.02, 8, 48, Math.PI * 1.6), ringM);
+        ring.quaternion.copy(q); ring.rotateZ(-0.3 * Math.PI);
+        ring.position.copy(b.a).addScaledVector(d, s);
+        g.add(ring);
+      }
+    });
+
+    // 線毛（気管の内側で波打ち、痰を上へ送る）
+    const ROWS = 26, PER = 22;
+    const cilia = new T.InstancedMesh(new T.CylinderGeometry(0.004, 0.008, 0.08, 4, 1), mat("--accent", { roughness: 0.6 }), ROWS * PER);
+    g.add(cilia);
+    const tTop = trachea.a.y, tLen = trachea.a.y - trachea.b.y;
+    function beatCilia(t) {
+      let k = 0;
+      for (let r = 0; r < ROWS; r++) {
+        const y = trachea.b.y + 0.08 + r * ((tLen - 0.16) / (ROWS - 1));
+        const wallR = trachea.r * (0.86 + 0.14 * (y - trachea.b.y) / tLen) - 0.014;
+        for (let j = 0; j < PER; j++) {
+          const th = (j / PER) * Math.PI * 2 + r * 0.13;
+          const nx = -Math.cos(th), nz = -Math.sin(th);
+          const a = 0.15 + 0.85 * (0.5 + 0.5 * Math.sin(y * 14 - t * 7)); // 列ごとにずれて動く波（メタクロナール波）
+          tmpD.set(nx * Math.cos(a), Math.sin(a), nz * Math.cos(a));
+          tmpQ.setFromUnitVectors(Y, tmpD);
+          tmpP.set(-nx * wallR, y, -nz * wallR).addScaledVector(tmpD, 0.04);
+          tmpM.compose(tmpP, tmpQ, tmpS); cilia.setMatrixAt(k++, tmpM);
+        }
+      }
+      cilia.instanceMatrix.needsUpdate = true;
+    }
+
+    // 肺胞（末端のぶどうの房）
+    const PER_LEAF = 11;
+    const alv = new T.InstancedMesh(new T.SphereGeometry(1, 16, 12), mat("--accent", { transparent: true, opacity: 0.55, roughness: 0.3, clearcoat: 0.8 }), leaves.length * PER_LEAF);
+    const ar = rng(11); let ai = 0;
+    leaves.forEach((l) => {
+      const d = l.b.clone().sub(l.a).normalize();
+      for (let i = 0; i < PER_LEAF; i++) {
+        const off = V(ar() - 0.5, ar() - 0.5, ar() - 0.5).normalize().multiplyScalar(0.06 + ar() * 0.07).addScaledVector(d, 0.07);
+        const s = 0.045 + ar() * 0.035;
+        tmpM.compose(tmpP.copy(l.b).add(off), tmpQ.identity(), tmpS.set(s, s, s)); alv.setMatrixAt(ai++, tmpM);
+      }
+    });
+    tmpS.set(1, 1, 1);
+    g.add(alv);
+
+    // 痰（末梢で生まれ、太い気道に集まるほど大きくなる）
+    const routes = leaves.map((l) => route(l, V(0, tTop + 0.7, 0)));
+    const mucus = wet(), dr = rng(3), drops = [];
+    for (let i = 0; i < 16; i++) {
+      const m = new T.Mesh(blobGeo, mucus); g.add(m);
+      drops.push({ m: m, r: routes[i % routes.length], u: (i * 0.618) % 1, sp: 0.26 + dr() * 0.12, base: 0.05 + dr() * 0.03, ph: dr() * 6 });
+    }
+
+    // のどから出ていく空気の粒
+    const N = 80, pos = new Float32Array(N * 3), seeds = [];
+    for (let i = 0; i < N; i++) seeds.push({ a: Math.random() * 6.28, r: Math.random() * 0.25, y: Math.random() });
+    const pGeo = new T.BufferGeometry(); pGeo.setAttribute("position", new T.BufferAttribute(pos, 3));
+    g.add(new T.Points(pGeo, track(new T.PointsMaterial({ size: 0.035, transparent: true, opacity: 0.6, depthWrite: false }), "--accent")));
+
+    // 部位の名前
+    const mid = (b) => b.a.clone().lerp(b.b, 0.5);
+    const anchors = [
+      { text: "気管", p: V(trachea.r + 0.01, tTop - 0.45, 0) },
+      { text: "線毛", p: V(-trachea.r + 0.03, trachea.b.y + tLen * 0.45, 0.06) },
+      { text: "気管支", p: mid(tree.filter((b) => b.gen === 1)[1]) },
+      { text: "細気管支", p: mid(tree.filter((b) => b.gen === 3)[1]) },
+      { text: "肺胞", p: leaves[leaves.length - 1].b.clone() }
+    ].map((a) => {
+      const el = document.createElement("span");
+      el.className = "hl"; el.innerHTML = '<i></i><b class="ln"></b><span>' + a.text + "</span>";
+      heroEl.appendChild(el);
+      return { el: el, p: a.p, w: 0 };
+    });
+
+    let tx = 0, ty = 0, rx = 0, ry = 0;
+    heroEl.closest(".hero").addEventListener("pointermove", (e) => {
+      const r = heroEl.getBoundingClientRect();
+      tx = (e.clientX - r.left) / r.width - 0.5; ty = (e.clientY - r.top) / r.height - 0.5;
+    });
+    const pr = new T.Vector3();
+    addView(heroEl, scene, cam, (t, dt, rect) => {
+      rx += (ty * 0.3 - rx) * 0.05; ry += (tx * 0.7 - ry) * 0.05;
+      g.rotation.y = Math.sin(t * 0.25) * 0.5 + ry; g.rotation.x = rx;
+      beatCilia(t);
+      drops.forEach((d) => {
+        d.u += d.sp * dt / d.r.len;
+        if (d.u >= 1) { d.u = 0; d.r = routes[Math.floor(Math.random() * routes.length)]; }
+        d.m.position.copy(d.r.c.getPointAt(d.u));
+        const edge = Math.min(1, d.u / 0.05, (1 - d.u) / 0.1);
+        const s = d.base * (0.55 + 0.75 * d.u) * edge, w = 1 + 0.15 * Math.sin(t * 3 + d.ph);
+        d.m.scale.set(s * w, s / w, s);
+      });
+      seeds.forEach((sd, i) => {
+        const y = (sd.y + t * 0.12) % 1;
+        pos[i * 3] = Math.cos(sd.a) * sd.r * (1 + y); pos[i * 3 + 1] = tTop + y * 0.6; pos[i * 3 + 2] = Math.sin(sd.a) * sd.r * (1 + y);
+      });
+      pGeo.attributes.position.needsUpdate = true;
+      g.updateMatrixWorld();
+      anchors.forEach((a) => {
+        pr.copy(a.p).applyMatrix4(g.matrixWorld).project(cam);
+        const x = (pr.x + 1) / 2 * rect.width, y = (1 - pr.y) / 2 * rect.height;
+        if (!a.w) a.w = a.el.offsetWidth;
+        const flip = x + a.w > rect.width - 4;
+        a.el.classList.toggle("flip", flip);
+        a.el.style.transform = "translate(" + (flip ? x - a.w + 3.5 : x - 3.5) + "px," + y + "px) translateY(-50%)";
+      });
+    });
+  }
+
+  // ---- 呼吸ガイド: 呼吸に合わせてふくらむ肺と、下がる横隔膜 ----
+  const lungEl = document.getElementById("lungView");
+  if (lungEl) {
+    const scene = makeScene(), g = new T.Group(); scene.add(g);
+    const cam = new T.PerspectiveCamera(35, 1, 0.1, 30); cam.position.set(0, 0.15, 5.6); cam.lookAt(0, 0.05, 0);
+    const L = buildLungs(g, true);
+    const dia = new T.Mesh(new T.SphereGeometry(1.7, 56, 14, 0, Math.PI * 2, 0, 0.75),
+      mat("--muted", { transparent: true, opacity: 0.45, depthWrite: false, side: T.DoubleSide, roughness: 0.5 }));
+    dia.scale.set(1, 0.32, 0.62); g.add(dia);
+
+    // ハフィングで動く痰
+    const leaves = L.tree.filter((b) => !b.kids);
+    const routes = [1, 5, 10, 14].map((i) => route(leaves[i % leaves.length], V(0, 1.7, 0)));
+    const mucus = wet();
+    const drops = routes.map((r, i) => { const m = new T.Mesh(blobGeo, mucus); m.scale.setScalar(0.05); g.add(m); return { m: m, r: r, u: 0.1 + i * 0.12 }; });
+
+    // 気管を出入りする空気
+    const N = 50, pos = new Float32Array(N * 3), seeds = [];
+    for (let i = 0; i < N; i++) seeds.push({ a: Math.random() * 6.28, r: Math.random() * 0.06, y: Math.random() });
+    const pGeo = new T.BufferGeometry(); pGeo.setAttribute("position", new T.BufferAttribute(pos, 3));
+    const pMat = track(new T.PointsMaterial({ size: 0.04, transparent: true, opacity: 0, depthWrite: false }), "--glass");
+    g.add(new T.Points(pGeo, pMat));
+
+    let cur = 0.75, flowPos = 0;
+    addView(lungEl, scene, cam, (t, dt) => {
+      const target = window.tanBreath ? window.tanBreath.target : 0.75;
+      const prev = cur;
+      cur = dt ? cur + (target - cur) * Math.min(1, dt * 1.6) : target;
+      const flow = dt ? (cur - prev) / dt : 0; // +: 吸う, -: 吐く
+      const ls = 0.72 + 0.3 * cur;
+      inflate(L.lobes, ls);
+      dia.position.y = -0.15 - 0.777 * (1 + (ls - 1) * 0.6) - 1.7 * 0.32 - 0.01;
+      g.rotation.y = Math.sin(t * 0.3) * 0.3;
+      flowPos -= flow * dt * 1.2;
+      seeds.forEach((sd, i) => {
+        const y = ((sd.y + flowPos) % 1 + 1) % 1;
+        pos[i * 3] = Math.cos(sd.a) * sd.r; pos[i * 3 + 1] = 0.6 + y * 1.0; pos[i * 3 + 2] = Math.sin(sd.a) * sd.r;
+      });
+      pGeo.attributes.position.needsUpdate = true;
+      pMat.opacity = Math.min(0.85, Math.abs(flow) * 2.5);
+      drops.forEach((d) => {
+        if (flow < 0) d.u += -flow * dt * 0.35;
+        if (d.u >= 1) d.u = 0.05;
+        d.m.position.copy(d.r.c.getPointAt(d.u));
+        d.m.scale.setScalar(0.04 + 0.03 * d.u);
+      });
+    });
+  }
+
+  // ---- アイコン ----
+  const ICONS = {
+    check(g) { // 痰のしずくと虫めがね
+      const d = new T.Mesh(dropGeo, wet()); d.scale.setScalar(0.4); d.position.set(-0.5, 0, -0.35); g.add(d);
+      const rim = new T.Mesh(new T.TorusGeometry(0.48, 0.085, 20, 64), mat("--accent", { clearcoat: 0.8 })); rim.position.set(-0.05, 0.2, 0.2); g.add(rim);
+      const lens = new T.Mesh(new T.CircleGeometry(0.48, 48), glass({ opacity: 0.18 })); lens.position.copy(rim.position); g.add(lens);
+      const hm = mat("--ink", { roughness: 0.35, clearcoat: 0.6 });
+      const h = new T.Group(); h.position.set(0.58, -0.43, 0.2); h.rotation.z = Math.PI / 4; g.add(h);
+      h.add(new T.Mesh(new T.CylinderGeometry(0.075, 0.095, 0.62, 20), hm));
+      [-0.12, 0.02, 0.16].forEach((y) => { const gr = new T.Mesh(new T.TorusGeometry(0.088, 0.016, 8, 24), hm); gr.rotation.x = Math.PI / 2; gr.position.y = y; h.add(gr); });
+      const neck = new T.Mesh(new T.CylinderGeometry(0.05, 0.05, 0.14, 12), mat("--accent")); neck.position.y = 0.36; h.add(neck);
+      return (t) => { d.position.y = Math.sin(t * 1.5) * 0.06; };
+    },
+    ways(g) { // 上へ運ばれる痰
+      const s = new T.Shape();
+      s.moveTo(-0.1, -0.55); s.lineTo(0.1, -0.55); s.lineTo(0.1, 0.1); s.lineTo(0.28, 0.1); s.lineTo(0, 0.52); s.lineTo(-0.28, 0.1); s.lineTo(-0.1, 0.1); s.closePath();
+      const ar = new T.Mesh(slab(s, 0.12, 0.04), mat("--accent", { clearcoat: 0.7 })); ar.position.x = 0.4; g.add(ar);
+      const m = wet(), d = new T.Mesh(dropGeo, m); d.position.x = -0.38; g.add(d);
+      const trail = [0.1, 0.07, 0.05].map(() => { const b = new T.Mesh(blobGeo, m); g.add(b); return b; });
+      return (t) => {
+        const u = (t * 0.35) % 1;
+        d.position.y = -0.5 + u * 1.0; d.scale.setScalar(0.34 * Math.sin(Math.PI * u) + 0.02);
+        trail.forEach((b, i) => { b.position.set(-0.38, d.position.y - 0.32 - i * 0.16, 0); b.scale.setScalar(Math.max(0.001, (0.07 - i * 0.02) * Math.sin(Math.PI * u))); });
+      };
+    },
+    breath(g) { // 小さな肺
+      const L = buildLungs(g, false); g.scale.setScalar(0.62); g.position.y = -0.12;
+      return (t) => inflate(L.lobes, 1 + 0.07 * Math.sin(t * 1.6));
+    },
+    log(g) { // 痰の色を記録するノート
+      g.add(new T.Mesh(rbox(1.1, 1.42, 0.1, 0.08), mat("--accent", { clearcoat: 0.6 })));
+      const page = new T.Mesh(rbox(1.0, 1.32, 0.08, 0.05), mat("--paper", { roughness: 0.75, clearcoat: 0 })); page.position.set(0.04, 0, 0.07); g.add(page);
+      const lm = mat("--muted", { roughness: 0.8 });
+      for (let i = 0; i < 5; i++) { const l = new T.Mesh(new T.BoxGeometry(0.5, 0.022, 0.01), lm); l.position.set(0.16, 0.42 - i * 0.2, 0.115); g.add(l); }
+      [wet(), glass({ opacity: 0.9 }), mat("--accent")].forEach((m, i) => {
+        const dot = new T.Mesh(blobGeo, m); dot.scale.set(0.055, 0.055, 0.025); dot.position.set(-0.2, 0.42 - i * 0.2, 0.125); g.add(dot);
+      });
+      const rm = mat("--muted", { metalness: 0.8, roughness: 0.25 });
+      for (let i = 0; i < 5; i++) { const r = new T.Mesh(new T.TorusGeometry(0.09, 0.022, 10, 24), rm); r.position.set(-0.55, 0.5 - i * 0.25, 0.02); r.rotation.y = Math.PI / 2; g.add(r); }
+    },
+    doctor(g) { // 医療の十字
+      const a = 0.17, L = 0.56, s = new T.Shape();
+      [[-a, L], [a, L], [a, a], [L, a], [L, -a], [a, -a], [a, -L], [-a, -L], [-a, -a], [-L, -a], [-L, a], [-a, a]].forEach(([x, y], i) => (i ? s.lineTo(x, y) : s.moveTo(x, y)));
+      s.closePath();
+      g.add(new T.Mesh(slab(s, 0.16, 0.07), mat("--emer", { clearcoat: 0.8 })));
+      const badge = new T.Mesh(new T.CylinderGeometry(0.9, 0.9, 0.08, 64), mat("--paper", { roughness: 0.4 })); badge.rotation.x = Math.PI / 2; badge.position.z = -0.17; g.add(badge);
+      const edge = new T.Mesh(new T.TorusGeometry(0.9, 0.04, 12, 64), mat("--emer", { clearcoat: 0.8 })); edge.position.z = -0.17; g.add(edge);
+    },
+    huff(g) { // 口から「ハーッ」と出る息
+      const lips = new T.Mesh(new T.TorusGeometry(0.26, 0.085, 16, 40), mat("--emer", { clearcoat: 0.6 }));
+      lips.rotation.y = Math.PI / 2; lips.scale.set(1, 0.62, 1); lips.position.x = -0.62; g.add(lips);
+      const puffs = [0, 1, 2, 3].map(() => {
+        const m = mat("--glass", { transparent: true, depthWrite: false, roughness: 0.3 }), grp = new T.Group();
+        [[0, 0, 0, 1], [0.6, 0.4, 0.2, 0.7], [-0.5, 0.5, -0.2, 0.65], [0.2, -0.5, 0.3, 0.6]].forEach(([x, y, z, k]) => {
+          const b = new T.Mesh(blobGeo, m); b.position.set(x, y, z); b.scale.setScalar(k); grp.add(b);
+        });
+        g.add(grp); return { grp: grp, m: m };
+      });
+      return (t) => puffs.forEach((p, i) => {
+        const u = (t * 0.5 + i / 4) % 1;
+        p.grp.position.set(-0.4 + u * 1.35, Math.sin(u * 4) * 0.05, 0);
+        p.grp.scale.setScalar(0.08 + u * 0.16); p.m.opacity = 0.75 * (1 - u);
+      });
+    },
+    cycle(g) { // 楽な呼吸 → 深呼吸 → ハフィングのくり返し
+      const sub = new T.Group(); g.add(sub);
+      const m = mat("--accent", { clearcoat: 0.7 }), a = Math.PI * 1.55;
+      sub.add(new T.Mesh(new T.TorusGeometry(0.6, 0.085, 16, 80, a), m));
+      const head = new T.Mesh(new T.ConeGeometry(0.21, 0.34, 32), m);
+      head.position.set(0.6 * Math.cos(a) - Math.sin(a) * 0.12, 0.6 * Math.sin(a) + Math.cos(a) * 0.12, 0); head.rotation.z = a; sub.add(head);
+      [[mat("--paper", { clearcoat: 0.8 }), 0.4], [glass({ opacity: 0.9 }), 2.0], [wet(), 3.6]].forEach(([bm, ang]) => {
+        const b = new T.Mesh(new T.SphereGeometry(0.13, 24, 16), bm); b.position.set(0.6 * Math.cos(ang), 0.6 * Math.sin(ang), 0); sub.add(b);
+      });
+      return (t) => { sub.rotation.z = t * 0.8; };
+    },
+    water(g) { // 水の入ったコップと気泡
+      g.rotation.x = 0.22;
+      g.add(new T.Mesh(lathe([[0, -0.62], [0.4, -0.62], [0.47, 0.62], [0.44, 0.62], [0.37, -0.52], [0, -0.52]]), glass({ opacity: 0.3 })));
+      g.add(new T.Mesh(lathe([[0, -0.52], [0.37, -0.52], [0.413, 0.18], [0, 0.18]]), mat("--accent", { transparent: true, opacity: 0.75, roughness: 0.1, clearcoat: 1 })));
+      const bm = mat("--paper", { transparent: true, opacity: 0.7, roughness: 0.1 });
+      const bubbles = [0, 1, 2, 3, 4].map((i) => { const b = new T.Mesh(blobGeo, bm); b.scale.setScalar(0.022 + (i % 2) * 0.014); g.add(b); return b; });
+      return (t) => bubbles.forEach((b, i) => { const u = (t * 0.3 + i / 5) % 1; b.position.set(Math.sin(i * 2.3) * 0.22, -0.45 + u * 0.6, Math.cos(i * 1.7) * 0.18); });
+    },
+    steam(g) { // 湯気の立つカップ
+      const pm = mat("--paper", { roughness: 0.3, clearcoat: 0.8, side: T.DoubleSide });
+      const cup = new T.Mesh(lathe([[0, -0.3], [0.3, -0.3], [0.36, -0.25], [0.44, 0.22], [0.45, 0.26], [0.41, 0.26], [0.38, 0.2], [0.31, -0.2], [0, -0.2]]), pm);
+      cup.position.y = -0.38; g.add(cup);
+      const hd = new T.Mesh(new T.TorusGeometry(0.15, 0.045, 12, 24, Math.PI * 1.2), pm); hd.position.set(0.44, -0.37, 0); hd.rotation.z = -Math.PI * 0.6; g.add(hd);
+      const saucer = new T.Mesh(lathe([[0, -0.04], [0.62, -0.02], [0.66, 0.03], [0.6, 0.02], [0, 0]]), pm); saucer.position.y = -0.7; g.add(saucer);
+      const tea = new T.Mesh(new T.CircleGeometry(0.37, 40), mat("--accent", { roughness: 0.1, clearcoat: 1 })); tea.rotation.x = -Math.PI / 2; tea.position.y = -0.23; g.add(tea);
+      const puffs = [0, 1, 2].map(() => { const p = new T.Mesh(blobGeo, mat("--glass", { transparent: true, depthWrite: false })); g.add(p); return p; });
+      return (t) => puffs.forEach((p, i) => {
+        const u = (t * 0.4 + i / 3) % 1;
+        p.position.set(Math.sin(u * 6 + i) * 0.15, -0.1 + u * 1.0, 0);
+        p.scale.setScalar(0.1 + u * 0.18); p.material.opacity = 0.8 * (1 - u);
+      });
+    },
+    posture(g) { // 頭側を低くしたベッドの上を、痰が頭側へ移動
+      const sub = new T.Group(); sub.rotation.z = 0.26; g.add(sub);
+      const fm = mat("--muted", { roughness: 0.5 });
+      sub.add(new T.Mesh(rbox(1.75, 0.12, 0.85, 0.05), fm));
+      [-0.78, 0.78].forEach((x) => { const leg = new T.Mesh(new T.CylinderGeometry(0.04, 0.04, 0.22, 12), fm); leg.position.set(x, -0.16, 0.3); sub.add(leg); });
+      const mattress = new T.Mesh(rbox(1.65, 0.16, 0.8, 0.07), mat("--paper", { roughness: 0.6 })); mattress.position.y = 0.13; sub.add(mattress);
+      const pillow = new T.Mesh(rbox(0.42, 0.14, 0.6, 0.07), mat("--accent", { clearcoat: 0.5 })); pillow.position.set(-0.58, 0.28, 0); sub.add(pillow);
+      const d = new T.Mesh(blobGeo, wet()); d.scale.setScalar(0.1); sub.add(d);
+      return (t) => { const u = (t * 0.3) % 1; d.position.set(0.7 - u * 0.95, 0.3, 0.1); };
+    },
+    nose(g) { // 鼻の奥からのどへ流れ落ちる鼻水
+      const curve = new T.CatmullRomCurve3([V(0.6, 0.8), V(0, 0.6), V(-0.3, 0.1), V(-0.2, -0.8)]);
+      g.add(new T.Mesh(new T.TubeGeometry(curve, 48, 0.16, 16, false), glass({ opacity: 0.35 })));
+      const m = wet();
+      const drops = [0, 0.5].map(() => { const d = new T.Mesh(blobGeo, m); g.add(d); return d; });
+      return (t) => drops.forEach((d, i) => { const u = (t * 0.3 + i * 0.5) % 1; d.position.copy(curve.getPointAt(u)); d.scale.setScalar(0.07 + 0.05 * u); });
+    },
+    medicine(g) { // 去痰薬のカプセルと錠剤
+      const prof = [[0, 0], [0.27, 0], [0.27, 0.24]];
+      for (let i = 1; i <= 10; i++) { const a = (i / 10) * Math.PI / 2; prof.push([0.27 * Math.cos(a), 0.24 + 0.27 * Math.sin(a)]); }
+      const sub = new T.Group(); sub.rotation.z = 0.8; sub.position.set(-0.12, 0.12, 0); g.add(sub);
+      sub.add(new T.Mesh(lathe(prof, 40), mat("--accent", { clearcoat: 1, clearcoatRoughness: 0.1, side: T.DoubleSide })));
+      const bot = new T.Mesh(lathe(prof, 40), mat("--paper", { clearcoat: 1, clearcoatRoughness: 0.1, side: T.DoubleSide })); bot.rotation.z = Math.PI; sub.add(bot);
+      const seam = new T.Mesh(new T.TorusGeometry(0.272, 0.012, 8, 48), mat("--muted")); seam.rotation.x = Math.PI / 2; sub.add(seam);
+      const tab = new T.Group(); tab.position.set(0.55, -0.55, 0.1); tab.rotation.x = 1.1; g.add(tab);
+      tab.add(new T.Mesh(lathe([[0, -0.07], [0.2, -0.07], [0.25, -0.03], [0.25, 0.03], [0.2, 0.07], [0, 0.07]], 40), mat("--paper", { side: T.DoubleSide })));
+      const score = new T.Mesh(new T.BoxGeometry(0.4, 0.012, 0.02), mat("--muted")); score.position.y = 0.071; score.rotation.x = Math.PI / 2; tab.add(score);
+    },
+    avoid(g) { // 注意の三角
+      const R = 0.8, cr = 0.18, vs = [90, 210, 330].map((d) => new T.Vector2(R * Math.cos(d * Math.PI / 180), R * Math.sin(d * Math.PI / 180)));
+      const toward = (v, w) => v.clone().add(w.clone().sub(v).normalize().multiplyScalar(cr));
+      const s = new T.Shape(); s.moveTo(toward(vs[2], vs[0]).x, toward(vs[2], vs[0]).y);
+      vs.forEach((v, i) => {
+        const a = toward(v, vs[(i + 2) % 3]), b = toward(v, vs[(i + 1) % 3]);
+        s.lineTo(a.x, a.y); s.quadraticCurveTo(v.x, v.y, b.x, b.y);
+      });
+      const tri = new T.Mesh(slab(s, 0.14, 0.05), mat("--care", { clearcoat: 0.8 })); tri.position.y = 0.08; g.add(tri);
+      const im = mat("--paper", { clearcoat: 0.6 });
+      const bar = new T.Mesh(rbox(0.13, 0.36, 0.08, 0.06), im); bar.position.set(0, 0.14, 0.13); g.add(bar);
+      const dot = new T.Mesh(new T.SphereGeometry(0.075, 20, 14), im); dot.position.set(0, -0.2, 0.13); g.add(dot);
+    }
+  };
+  document.querySelectorAll("[data-ico]").forEach((el, n) => {
+    const build = ICONS[el.dataset.ico]; if (!build) return;
+    const scene = makeScene(), g = new T.Group(); scene.add(g);
+    const cam = new T.PerspectiveCamera(30, 1, 0.1, 20); cam.position.set(0, 0.3, 4.4); cam.lookAt(0, 0, 0);
+    const upd = build(g) || function () {};
+    const ph = n * 0.9;
+    addView(el, scene, cam, (t) => { g.rotation.y = Math.sin(t * 0.6 + ph) * 0.45; upd(t + ph); });
+  });
+
+  applyTheme();
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", applyTheme);
+  new MutationObserver(applyTheme).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
+  ["scroll", "resize"].forEach((ev) => window.addEventListener(ev, () => { dirty = true; }, { passive: true }));
+
+  // ---- 描画ループ: 見えている要素だけを、その位置に描く ----
+  const header = document.querySelector(".top");
+  const size = new T.Vector2();
+  let last = performance.now(), clock = 0, lastTarget = null;
+  function frame(now) {
+    requestAnimationFrame(frame);
+    const dt = Math.max(0, Math.min(0.05, (now - last) / 1000)); last = now;
+    const still = reduced.matches;
+    if (still) {
+      const bt = window.tanBreath ? window.tanBreath.target : 0;
+      if (bt !== lastTarget) { lastTarget = bt; dirty = true; }
+      if (!dirty) return;
+      dirty = false;
+    } else clock += dt;
+    const w = canvas.clientWidth, h = canvas.clientHeight;
+    renderer.getSize(size);
+    if (size.x !== w || size.y !== h) renderer.setSize(w, h, false);
+    renderer.setScissor(0, 0, w, h); renderer.clear();
+    const limit = header ? header.getBoundingClientRect().bottom : 0;
+    const t = still ? 2 : clock, step = still ? 0 : dt;
+    for (const v of views) {
+      const r = v.el.getBoundingClientRect();
+      if (!r.width || r.bottom <= limit || r.top >= h || r.right <= 0 || r.left >= w) continue;
+      const bottom = h - r.bottom;
+      renderer.setViewport(r.left, bottom, r.width, r.height);
+      renderer.setScissor(r.left, bottom, r.width, r.bottom - Math.max(r.top, limit));
+      v.camera.aspect = r.width / r.height; v.camera.updateProjectionMatrix();
+      v.update(t, step, r);
+      renderer.render(v.scene, v.camera);
+    }
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
