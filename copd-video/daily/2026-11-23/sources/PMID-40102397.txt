@@ -1,0 +1,8 @@
+PMID: 40102397
+Title: Inhalation technique-related errors after education among asthma and COPD patients using different types of inhalers - systematic review and meta-analysis.
+Authors: Marko M, Pawliczak R
+Journal: NPJ primary care respiratory medicine (2025) 35(1):15
+DOI: 10.1038/s41533-025-00422-0
+Retrieved via: PubMed MCP (get_article_metadata), 2026-11-23
+
+In asthma and chronic obstructive pulmonary disease (COPD) incorrect use of inhalers is still common. The aim of the study was to detect whether education improves inhalation skills and whether the type of education influenced the educational effect depending on the device. A systematic review and meta-analysis for errors during inhalation before and after education was performed. The selected data allowed for education assessment of dry powder (DPIs) and pressurised metered dose (pMDI/MDIs) inhalers in a meta-analysis. Education reduced critical errors (risk ratio [RR], 0.28, 95% confidence interval [CI]: 0.17, 0.47, P < 0.00001) and any incorrect use events for DPI (RR = 0.38, 95% CI: 0.21, 0.70, P = 0.002) and pMDI/MDIs, (RR = 0.16, 95% CI: 0.11, 0.23, P < 0.00001). Education improves patient's inhalation skills regardless of the device. The educational effect for pMDI/MDIs depends on the type of educational approach which has not been demonstrated for DPIs.

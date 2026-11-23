@@ -1,0 +1,14 @@
+PMID: 27060726
+Title: Systematic Review of Errors in Inhaler Use: Has Patient Technique Improved Over Time?
+Authors: Sanchis J, Gich I, Pedersen S, Aerosol Drug Management Improvement Team (ADMIT)
+Journal: Chest (2016) 150(2):394-406
+DOI: 10.1016/j.chest.2016.03.041
+Retrieved via: PubMed MCP (get_article_metadata), 2026-11-23
+
+BACKGROUND: Problems with the use of inhalers by patients were noted shortly after the launch of the metered-dose inhaler (MDI) and persist today. We aimed to assess the most common errors in inhaler use over the past 40 years in patients treated with MDIs or dry powder inhalers (DPIs).
+
+METHODS: A systematic search for articles reporting direct observation of inhaler technique by trained personnel covered the period from 1975 to 2014. Outcomes were the nature and frequencies of the three most common errors; the percentage of patients demonstrating correct, acceptable, or poor technique; and variations in these outcomes over these 40 years and when partitioned into years 1 to 20 and years 21 to 40. Analyses were conducted in accordance with recommendations from Preferred Reporting Items for Systematic Reviews and Meta-Analyses and Strengthening the Reporting of Observational Studies in Epidemiology.
+
+RESULTS: Data were extracted from 144 articles reporting on a total number of 54,354 subjects performing 59,584 observed tests of technique. The most frequent MDI errors were in coordination (45%; 95% CI, 41%-49%), speed and/or depth of inspiration (44%; 40%-47%), and no postinhalation breath-hold (46%; 42%-49%). Frequent DPI errors were incorrect preparation in 29% (26%-33%), no full expiration before inhalation in 46% (42%-50%), and no postinhalation breath-hold in 37% (33%-40%). The overall prevalence of correct technique was 31% (28%-35%); of acceptable, 41% (36%-47%); and of poor, 31% (27%-36%). There were no significant differences between the first and second 20-year periods of scrutiny.
+
+CONCLUSIONS: Incorrect inhaler technique is unacceptably frequent and has not improved over the past 40 years, pointing to an urgent need for new approaches to education and drug delivery.

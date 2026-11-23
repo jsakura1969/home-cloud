@@ -1,0 +1,78 @@
+{
+  "date": "2026-11-23",
+  "topicId": "inhaler-technique",
+  "theme": "吸入薬は「使い方」が大切",
+  "scenes": [
+    {
+      "type": "hook",
+      "kicker": "喘息・COPDの吸入薬",
+      "title": "その吸い方<br>大丈夫？",
+      "sub": "使い方の間違いは<br>とても多いと報告",
+      "illustration": "inhaler-mdi"
+    },
+    {
+      "type": "stat",
+      "label": "正しく吸えていた人の割合",
+      "count": 31,
+      "unit": "%",
+      "sub": "144論文のまとめ<br>（専門家が直接観察）",
+      "note": "40年間で改善はみられず",
+      "src": "Sanchis J, et al. Chest 2016｜PMID 27060726"
+    },
+    {
+      "type": "duo",
+      "label": "よくある間違い",
+      "cards": [
+        { "name": "スプレー式", "value": "46%", "sub": "吸ったあと<br>息を止めない" },
+        { "name": "粉を吸うタイプ", "value": "46%", "sub": "吸う前に<br>息を吐ききらない" }
+      ],
+      "note": "スプレー式は押すタイミングのずれも45%",
+      "src": "Sanchis J, et al. Chest 2016｜PMID 27060726"
+    },
+    {
+      "type": "duo",
+      "label": "吸入指導と誤りの影響",
+      "cards": [
+        { "name": "指導の後の<br>重大な誤り", "value": "72%減", "sub": "指導の前後を<br>比べた研究のまとめ" },
+        { "name": "誤りと<br>増悪", "value": "関連あり", "sub": "系統的レビュー<br>（因果は未確定）", "tone": "muted" }
+      ],
+      "note": "COPDでは関連の根拠は弱いという報告も",
+      "src": "Marko M, et al. NPJ Prim Care Respir Med 2025｜PMID 40102397 ／ Usmani OS, et al. Respir Res 2018｜PMID 29338792 ／ Halpin DMG, et al. BMJ Open Respir Res 2024｜PMID 38626929"
+    },
+    {
+      "type": "close",
+      "kicker": "まとめ",
+      "lines": ["吸入薬は", "使い方も大切"],
+      "take": "受診のときに吸い方を見てもらおう<br>医師・薬剤師に相談を",
+      "src": "Sanchis J, et al. Chest 2016｜PMID 27060726 ／ Marko M, et al. NPJ Prim Care Respir Med 2025｜PMID 40102397"
+    }
+  ],
+  "narration": [
+    "その吸入薬、正しく使えていますか？",
+    "観察研究のまとめで、正しく吸えていた人は三十一パーセントでした。",
+    "吸ったあと息を止めないなどの間違いが、多く見られました。",
+    "指導の後は重大な誤りが七割以上減ったと報告されています。",
+    "吸い方は、医師や薬剤師に見てもらいましょう。"
+  ],
+  "claims": [
+    { "scene": 1, "value": "31", "source": "PMID 27060726", "quote": "The overall prevalence of correct technique was 31% (28%-35%)" },
+    { "scene": 1, "value": "144", "source": "PMID 27060726", "quote": "Data were extracted from 144 articles reporting on a total number of 54,354 subjects performing 59,584 observed tests of technique." },
+    { "scene": 1, "value": "40", "source": "PMID 27060726", "quote": "Incorrect inhaler technique is unacceptably frequent and has not improved over the past 40 years" },
+    { "scene": 2, "value": "46", "source": "PMID 27060726", "quote": "and no postinhalation breath-hold (46%; 42%-49%)" },
+    { "scene": 2, "value": "46", "source": "PMID 27060726", "quote": "no full expiration before inhalation in 46% (42%-50%)" },
+    { "scene": 2, "value": "45", "source": "PMID 27060726", "quote": "The most frequent MDI errors were in coordination (45%; 95% CI, 41%-49%)" },
+    { "scene": 3, "value": "72", "from": "0.28", "derivation": "risk ratio 0.28（指導の前後比較）→ 72%減", "source": "PMID 40102397", "quote": "Education reduced critical errors (risk ratio [RR], 0.28, 95% confidence interval [CI]: 0.17, 0.47, P < 0.00001)" }
+  ],
+  "japan": [
+    { "treatment": "スプレー式の吸入器（加圧式定量噴霧吸入器・エアゾール剤。例：サルブタモール吸入）", "status": "approved", "evidence": "PMDA 添付文書：サルタノールインヘラー100μg（エアゾール剤）承認番号 22000AMX02177 https://www.pmda.go.jp/PmdaSearch/iyakuDetail/340278_2254700G4037_1_12 （2026-11-23 に開けることを確認。sources/PMDA-salbutamol.txt）。動画では特定の製品名は出さない" },
+    { "treatment": "粉を吸うタイプの吸入器（ドライパウダー吸入器。例：ブデソニド吸入）", "status": "approved", "evidence": "PMDA 添付文書：パルミコートタービュヘイラー（ドライパウダー吸入式ステロイド薬）承認番号 21900AMX00008 https://www.pmda.go.jp/PmdaSearch/iyakuDetail/670227_2290701G1039_1_16 （2026-11-23 に開けることを確認。sources/PMDA-budesonide.txt）。動画では特定の製品名は出さない" },
+    { "treatment": "吸入指導（医師・薬剤師などによる吸入手技の教育）", "status": "not-applicable", "evidence": "薬・機器ではない" }
+  ],
+  "plainNumbers": [],
+  "youtube": {
+    "title": "吸入薬を正しく使えている人は31%？【30秒でわかるエビデンス】",
+    "summary": "喘息やCOPDの吸入薬は、使い方の間違いがとても多いと報告されています。144論文の系統的レビュー（Chest 2016）では、正しく吸えていた人は31%で、吸ったあとに息を止めない・吸う前に息を吐ききらないといった間違いがそれぞれ46%に見られました。吸入指導の前後を比べたメタ解析では重大な誤りが72%減少（RR 0.28）。誤りは増悪との関連が報告されていますが、COPDでは根拠が弱いとするレビューもあります。吸い方は医師・薬剤師に確認してください。",
+    "tags": ["喘息", "COPD", "吸入薬", "吸入指導", "吸入器"],
+    "hashtags": ["#喘息", "#COPD"]
+  }
+}

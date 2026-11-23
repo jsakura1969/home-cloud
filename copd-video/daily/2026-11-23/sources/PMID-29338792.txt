@@ -1,0 +1,14 @@
+PMID: 29338792
+Title: Critical inhaler errors in asthma and COPD: a systematic review of impact on health outcomes.
+Authors: Usmani OS, Lavorini F, Marshall J, Dunlop WCN, Heron L, Farrington E, Dekhuijzen R
+Journal: Respiratory research (2018) 19(1):10
+DOI: 10.1186/s12931-017-0710-y
+Retrieved via: PubMed MCP (get_article_metadata), 2026-11-23
+
+BACKGROUND: Inhaled drug delivery is the cornerstone treatment for asthma and chronic obstructive pulmonary disease (COPD). However, use of inhaler devices can be challenging, potentially leading to critical errors in handling that can significantly reduce drug delivery to the lungs and effectiveness of treatment.
+
+METHODS: A systematic review was conducted to define 'critical' errors and their impact on health outcomes and resource use between 2004 and 2016, using key search terms for inhaler errors in asthma and COPD (Search-1) and associated health-economic and patient burden (Search-2).
+
+RESULTS: Search-1 identified 62 manuscripts, 47 abstracts, and 5 conference proceedings (n = 114 total). Search-2 identified 9 studies. We observed 299 descriptions of critical error. Age, education status, previous inhaler instruction, comorbidities and socioeconomic status were associated with worse handling error frequency. A significant association was found between inhaler errors and poor disease outcomes (exacerbations), and greater health-economic burden.
+
+CONCLUSIONS: We have shown wide variations in how critical errors are defined, and the evidence shows an important association between inhaler errors and worsened health outcomes. Given the negative impact diminished disease outcomes impose on resource use, our findings highlight the importance of achieving optimal inhaler technique, and a need for a consensus on defining critical and non-critical errors.

@@ -1,0 +1,14 @@
+PMID: 38626929
+Title: Systematic review of the effects of patient errors using inhaled delivery systems on clinical outcomes in COPD.
+Authors: Halpin DMG, Mahler DA
+Journal: BMJ open respiratory research (2024) 11(1)
+DOI: 10.1136/bmjresp-2023-002211
+Retrieved via: PubMed MCP (get_article_metadata), 2026-11-23
+
+BACKGROUND: Errors using inhaled delivery systems for COPD are common and it is assumed that these lead to worse clinical outcomes. Previous systematic reviews have included patients with both asthma and COPD and much of the evidence related to asthma. More studies in COPD have now been published. Through systematic review, the relationship between errors using inhalers and clinical outcomes in COPD, including the importance of specific errors, was assessed.Methods Electronic databases were searched on 27 October 2023 to identify cohort, case-control or randomised controlled studies, which included patients with COPD, an objective assessment of inhaler errors and data on at least one outcome of interest (forced expiratory volume in 1 s, (FEV_1_), dyspnoea, health status and exacerbations). Study quality was assessed using the Newcastle and Ottawa scales. A narrative synthesis of the results was performed as there was insufficient detail in the publications to allow quantitative synthesis. There was no funding for the review.
+
+RESULTS: 19 publications were included (7 cohort and 12 case-control) reporting outcomes on 6487 patients. 15 were considered low quality, and most were confounded by the absence of adherence data. There was weak evidence that lower error rates are associated with better FEV_1_, symptoms and health status and fewer exacerbations. Only one considered the effects of individual errors and found that only some were related to worse outcomes.
+
+CONCLUSION: Evidence about the importance of specific errors using inhalers and outcomes would optimise the education and training of patients with COPD. Prospective studies, including objective monitoring of inhalation technique and adherence, are needed.
+
+PROSPERO REGISTRATION NUMBER: CRD42023393120.
