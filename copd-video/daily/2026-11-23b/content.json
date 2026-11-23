@@ -1,0 +1,244 @@
+{
+  "date": "2026-11-23b",
+  "topicId": "asthma-triple",
+  "theme": "喘息の3剤配合吸入薬",
+  "scenes": [
+    {
+      "type": "hook",
+      "kicker": "最近の喘息の吸入薬",
+      "title": "1本に<br>3つの薬",
+      "sub": "吸入ステロイド＋気管支拡張薬2種<br>（ICS/LABA/LAMA）",
+      "illustration": "inhaler-dpi"
+    },
+    {
+      "type": "compare",
+      "label": "重い発作が起きた人（%）",
+      "bars": [
+        {
+          "name": "2剤（ICS/LABA）",
+          "value": 27.4,
+          "tone": "muted"
+        },
+        {
+          "name": "3剤（ICS/LABA/LAMA）",
+          "value": 22.7,
+          "tone": "accent"
+        }
+      ],
+      "caption": "リスクが<b>17%低下</b>（9試験・9932人）",
+      "note": "確実性：高（20試験のメタ解析）",
+      "src": "Kim LHY, et al. JAMA 2021｜PMID 34009257"
+    },
+    {
+      "type": "duo",
+      "label": "同じまとめのほかの結果",
+      "cards": [
+        {
+          "name": "生活の質・死亡",
+          "value": "差なし",
+          "sub": "2剤と比べて",
+          "tone": "muted"
+        },
+        {
+          "name": "口の渇き・声がれ",
+          "value": "やや増",
+          "sub": "3.0% 対 1.8%",
+          "tone": "muted"
+        }
+      ],
+      "src": "Kim LHY, et al. JAMA 2021｜PMID 34009257"
+    },
+    {
+      "type": "duo",
+      "label": "日本で喘息に使える1本3剤",
+      "cards": [
+        {
+          "name": "テリルジー",
+          "value": "1日1回",
+          "sub": "粉を吸うタイプ"
+        },
+        {
+          "name": "エナジア",
+          "value": "1日1回",
+          "sub": "カプセルを吸うタイプ"
+        },
+        {
+          "name": "ビレーズトリ14.4",
+          "value": "1日2回",
+          "sub": "スプレー式"
+        }
+      ],
+      "src": "Kerstjens HAM, et al. Lancet Respir Med 2020｜PMID 32653074 ／ Papi A, et al. Lancet Respir Med 2026｜PMID 41692019"
+    },
+    {
+      "type": "close",
+      "kicker": "まとめ",
+      "lines": [
+        "2剤で不十分なら",
+        "3剤も選択肢"
+      ],
+      "take": "吸入器の種類や使い方も含めて<br>主治医と相談を",
+      "src": "Kim LHY, et al. JAMA 2021｜PMID 34009257"
+    }
+  ],
+  "narration": [
+    "三つの薬を、一本にまとめた吸入薬があります。",
+    "二剤と比べて、重い発作のリスクが約十七パーセント下がりました。",
+    "ただし生活の質や死亡に差はなく、口の渇きや声がれが少し増えます。",
+    "日本では、テリルジー、エナジア、ビレーズトリが喘息に使えます。",
+    "二剤で不十分なときの選択肢として、主治医と相談しましょう。"
+  ],
+  "claims": [
+    {
+      "scene": 1,
+      "value": "27.4",
+      "source": "PMID 34009257",
+      "quote": "a reduction in severe exacerbation risk (9 trials [9932 patients]; 22.7% vs 27.4%; risk ratio, 0.83 [95% CI, 0.77 to 0.90])"
+    },
+    {
+      "scene": 1,
+      "value": "22.7",
+      "source": "PMID 34009257",
+      "quote": "a reduction in severe exacerbation risk (9 trials [9932 patients]; 22.7% vs 27.4%; risk ratio, 0.83 [95% CI, 0.77 to 0.90])"
+    },
+    {
+      "scene": 1,
+      "value": "17",
+      "from": "0.83",
+      "derivation": "risk ratio 0.83 → 17%低下",
+      "source": "PMID 34009257",
+      "quote": "a reduction in severe exacerbation risk (9 trials [9932 patients]; 22.7% vs 27.4%; risk ratio, 0.83 [95% CI, 0.77 to 0.90])"
+    },
+    {
+      "scene": 1,
+      "value": "9",
+      "source": "PMID 34009257",
+      "quote": "a reduction in severe exacerbation risk (9 trials [9932 patients]; 22.7% vs 27.4%"
+    },
+    {
+      "scene": 1,
+      "value": "9932",
+      "source": "PMID 34009257",
+      "quote": "a reduction in severe exacerbation risk (9 trials [9932 patients]; 22.7% vs 27.4%"
+    },
+    {
+      "scene": 1,
+      "value": "20",
+      "from": "Twenty",
+      "derivation": "Twenty RCTs → 20試験",
+      "source": "PMID 34009257",
+      "quote": "Twenty RCTs using 3 LAMA types that enrolled 11 894 children and adults"
+    },
+    {
+      "scene": 2,
+      "value": "3.0",
+      "source": "PMID 34009257",
+      "quote": "Triple therapy was significantly associated with increased dry mouth and dysphonia (10 trials [7395 patients]; 3.0% vs 1.8%"
+    },
+    {
+      "scene": 2,
+      "value": "1.8",
+      "source": "PMID 34009257",
+      "quote": "Triple therapy was significantly associated with increased dry mouth and dysphonia (10 trials [7395 patients]; 3.0% vs 1.8%"
+    }
+  ],
+  "plainNumbers": [
+    {
+      "scene": 0,
+      "value": "1",
+      "reason": "「1本」＝吸入器の本数（データではない）"
+    },
+    {
+      "scene": 0,
+      "value": "3",
+      "reason": "「3つの薬」＝配合されている薬の数（ICS/LABA/LAMA）"
+    },
+    {
+      "scene": 0,
+      "value": "2",
+      "reason": "「気管支拡張薬2種」＝LABAとLAMAの2種類"
+    },
+    {
+      "scene": 1,
+      "value": "2",
+      "reason": "「2剤」＝ICS/LABAの薬の数"
+    },
+    {
+      "scene": 1,
+      "value": "3",
+      "reason": "「3剤」＝ICS/LABA/LAMAの薬の数"
+    },
+    {
+      "scene": 2,
+      "value": "2",
+      "reason": "「2剤」＝ICS/LABAの薬の数"
+    },
+    {
+      "scene": 3,
+      "value": "1",
+      "reason": "「1本3剤」「1日1回」＝本数と用法（添付文書の用法）"
+    },
+    {
+      "scene": 3,
+      "value": "3",
+      "reason": "「1本3剤」＝配合されている薬の数"
+    },
+    {
+      "scene": 3,
+      "value": "2",
+      "reason": "「1日2回」＝用法（添付文書・KALOS/LOGOS は twice a day）"
+    },
+    {
+      "scene": 3,
+      "value": "14.4",
+      "reason": "製品名「ビレーズトリ14.4」の一部（データではない）"
+    },
+    {
+      "scene": 4,
+      "value": "2",
+      "reason": "「2剤」＝ICS/LABAの薬の数"
+    },
+    {
+      "scene": 4,
+      "value": "3",
+      "reason": "「3剤」＝ICS/LABA/LAMAの薬の数"
+    }
+  ],
+  "japan": [
+    {
+      "treatment": "ICS/LABA 配合剤（2剤）",
+      "status": "approved",
+      "evidence": "PMDA 2013年度承認品目一覧：レルベアエリプタ「気管支喘息（吸入ステロイド剤及び長時間作動型吸入β2刺激剤の併用が必要な場合）」 https://www.pmda.go.jp/files/000232598.pdf"
+    },
+    {
+      "treatment": "テリルジー（フルチカゾンフランカルボン酸エステル／ウメクリジニウム／ビランテロール）",
+      "status": "approved",
+      "evidence": "PMDA 添付文書（2026-11-23 本文を直接確認）：効能又は効果「気管支喘息（吸入ステロイド剤、長時間作用性吸入抗コリン剤及び長時間作用性吸入β2刺激剤の併用が必要な場合）」 https://www.pmda.go.jp/PmdaSearch/iyakuDetail/340278_2290804G1022_1_07"
+    },
+    {
+      "treatment": "エナジア（モメタゾン／インダカテロール／グリコピロニウム）",
+      "status": "approved",
+      "evidence": "PMDA 審査報告書（2020年承認） https://www.pmda.go.jp/drugs/2020/P20200624004/300242000_30200AMX00492_A100_1.pdf ／ 添付文書の効能：気管支喘息（吸入ステロイド剤、長時間作用性吸入β2刺激剤及び長時間作用性吸入抗コリン剤の併用が必要な場合） https://www.pmda.go.jp/PmdaSearch/iyakuDetail/300242_2290807G1026_1_07"
+    },
+    {
+      "treatment": "ビレーズトリ14.4（ブデソニド／グリコピロニウム／ホルモテロール）",
+      "status": "approved",
+      "evidence": "アストラゼネカ発表（2026年8月24日付で気管支喘息の承認取得、成人と12歳以上） https://www.astrazeneca.co.jp/news/press-releases1/2026/202608242.html （本文は環境から直接開けず、検索結果と医療メディア https://medical-tribune.co.jp/rensai/articles/?blogid=11&entryid=612024 で確認）"
+    }
+  ],
+  "youtube": {
+    "title": "喘息の3剤配合吸入薬（ICS/LABA/LAMA）とは？【30秒エビデンス】",
+    "summary": "1本の吸入器に吸入ステロイド（ICS）と2種類の気管支拡張薬（LABA・LAMA）をまとめた喘息の3剤配合吸入薬。20試験のメタ解析（JAMA 2021）では、2剤と比べて重い発作のリスクが17%低下（22.7% 対 27.4%）しました。一方、生活の質や死亡に差はなく、口の渇き・声がれがやや増えます。日本ではテリルジー、エナジア、ビレーズトリ14.4が喘息に使えます。",
+    "tags": [
+      "喘息",
+      "吸入薬",
+      "3剤配合",
+      "テリルジー",
+      "エナジア",
+      "ビレーズトリ"
+    ],
+    "hashtags": [
+      "#喘息"
+    ]
+  }
+}

@@ -15,7 +15,7 @@ const dryRun = args.includes("--dry-run");
 const onlyDate = args.includes("--date") ? args[args.indexOf("--date") + 1] : null;
 
 const pending = readdirSync(DAILY)
-  .filter((d) => /^\d{4}-\d{2}-\d{2}$/.test(d))
+  .filter((d) => /^\d{4}-\d{2}-\d{2}[a-z]?$/.test(d))
   .filter((d) => !onlyDate || d === onlyDate)
   .filter((d) => existsSync(join(DAILY, d, "ready.json")) && !existsSync(join(DAILY, d, "youtube.json")))
   .sort();

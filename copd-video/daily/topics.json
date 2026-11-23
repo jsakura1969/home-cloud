@@ -84,6 +84,15 @@
       "video": "daily/2026-11-23/short.mp4"
     },
     {
+      "id": "asthma-triple",
+      "title": "喘息の3剤配合吸入薬（ICS/LABA/LAMA）",
+      "status": "done",
+      "hint": "JAMA 2021 メタ解析（Kim LHY）、IRIDIUM・CAPTAIN・KALOS/LOGOS。【日本：承認済み】テリルジー（喘息 2020年）、エナジア（2020年）、ビレーズトリ14.4（喘息 2026年8月）",
+      "date": "2026-11-23b",
+      "number": 11,
+      "video": "daily/2026-11-23b/short.mp4"
+    },
+    {
       "id": "asthma-biologics",
       "title": "重症喘息の生物学的製剤",
       "status": "todo",

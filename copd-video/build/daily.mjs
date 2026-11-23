@@ -19,8 +19,9 @@ const DISCLAIMER = "本動画は一般的な医療情報の提供を目的とし
 
 const [date, ...flags] = process.argv.slice(2);
 const checkOnly = flags.includes("--check-only");
-if (!/^\d{4}-\d{2}-\d{2}$/.test(date ?? "")) {
-  console.error("usage: node build/daily.mjs <YYYY-MM-DD> [--check-only]");
+// 同じ日に2本目を作るときは日付のあとに英小文字を付ける（例: 2026-11-23b）
+if (!/^\d{4}-\d{2}-\d{2}[a-z]?$/.test(date ?? "")) {
+  console.error("usage: node build/daily.mjs <YYYY-MM-DD[b]> [--check-only]");
   process.exit(2);
 }
 const DAY = join(ROOT, "daily", date);
