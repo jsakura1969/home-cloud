@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-24",
+  "topicId": "asthma-biologics",
+  "number": 12,
+  "checks": [
+    "topic asthma-biologics",
+    "8 claims verified against 7 source files",
+    "hyperframes lint",
+    "layout (no overflow / unexpected wraps)",
+    "narration fits every scene",
+    "media: 30s 1080x1920 aac -13.7 LUFS peak -1",
+    "metadata.json"
+  ],
+  "createdAt": "2026-11-24T13:45:21.011Z"
+}
