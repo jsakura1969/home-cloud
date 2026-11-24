@@ -1,0 +1,190 @@
+{
+  "date": "2026-11-24",
+  "topicId": "asthma-biologics",
+  "theme": "重症喘息の注射薬（生物学的製剤）",
+  "scenes": [
+    {
+      "type": "hook",
+      "kicker": "重症喘息の治療",
+      "title": "注射で<br>発作を減らす",
+      "sub": "吸入薬でも発作が続く人に<br>（生物学的製剤）",
+      "illustration": "injection"
+    },
+    {
+      "type": "stat",
+      "label": "抗IL-5系の注射薬で重い発作は",
+      "big": "約半分",
+      "sub": "好酸球が多い重症喘息<br>約6000人の試験のまとめ",
+      "note": "※メポリズマブ・ベンラリズマブのみ日本で承認",
+      "src": "Farne HA, et al. Cochrane Database Syst Rev 2017｜PMID 28933516"
+    },
+    {
+      "type": "compare",
+      "label": "1年あたりの発作（回）",
+      "bars": [
+        {
+          "name": "プラセボ",
+          "value": 2.1,
+          "tone": "muted"
+        },
+        {
+          "name": "テゼペルマブ",
+          "value": 0.93,
+          "tone": "accent"
+        }
+      ],
+      "caption": "発作の頻度が<b>56%減</b>",
+      "src": "Menzies-Gow A, et al. N Engl J Med 2021｜PMID 33979488",
+      "note": "NAVIGATOR試験（主要評価項目）"
+    },
+    {
+      "type": "duo",
+      "label": "デュピルマブの試験（QUEST）",
+      "cards": [
+        {
+          "name": "重い発作<br>（全体）",
+          "value": "48%減",
+          "sub": "プラセボと比べて"
+        },
+        {
+          "name": "好酸球が<br>多い人",
+          "value": "66%減",
+          "sub": "副次評価項目"
+        }
+      ],
+      "note": "血液の好酸球が増えた人 4.1% 対 0.6%",
+      "src": "Castro M, et al. N Engl J Med 2018｜PMID 29782217"
+    },
+    {
+      "type": "close",
+      "kicker": "まとめ",
+      "lines": [
+        "重症喘息に",
+        "注射の選択肢"
+      ],
+      "take": "合うかどうかは検査などで判断<br>主治医に相談を",
+      "src": "Farne HA, et al. Cochrane 2017｜PMID 28933516 ／ Menzies-Gow A, et al. NEJM 2021｜PMID 33979488"
+    }
+  ],
+  "narration": [
+    "重症喘息には、注射の薬があります。",
+    "抗アイエルファイブ系の薬は、重い発作をおよそ半分に減らしました。",
+    "テゼペルマブでは、発作の頻度が五十六パーセント減りました。",
+    "デュピルマブでも、重い発作が四十八パーセント減りました。",
+    "合うかどうか、主治医に相談しましょう。"
+  ],
+  "claims": [
+    {
+      "scene": 1,
+      "value": "6000",
+      "source": "PMID 28933516",
+      "quote": "Thirteen studies on 6000 participants met the inclusion criteria."
+    },
+    {
+      "scene": 2,
+      "value": "2.1",
+      "source": "PMID 33979488",
+      "quote": "The annualized rate of asthma exacerbations was 0.93 (95% confidence interval [CI], 0.80 to 1.07) with tezepelumab and 2.10 (95% CI, 1.84 to 2.39) with placebo"
+    },
+    {
+      "scene": 2,
+      "value": "0.93",
+      "source": "PMID 33979488",
+      "quote": "The annualized rate of asthma exacerbations was 0.93 (95% confidence interval [CI], 0.80 to 1.07) with tezepelumab"
+    },
+    {
+      "scene": 2,
+      "value": "56",
+      "from": "0.44",
+      "derivation": "rate ratio 0.44 → 56%減（主要評価項目）",
+      "source": "PMID 33979488",
+      "quote": "(rate ratio, 0.44; 95% CI, 0.37 to 0.53; P<0.001)"
+    },
+    {
+      "scene": 3,
+      "value": "48",
+      "from": "47.7",
+      "derivation": "47.7% lower rate（主要評価項目、200mg群）→ 約48%減",
+      "source": "PMID 29782217",
+      "quote": "for a 47.7% lower rate with dupilumab than with placebo (P<0.001)"
+    },
+    {
+      "scene": 3,
+      "value": "66",
+      "from": "65.8",
+      "derivation": "65.8% lower rate（好酸球300/μL以上、副次評価項目）→ 約66%減",
+      "source": "PMID 29782217",
+      "quote": "(65.8% lower rate with dupilumab than with placebo; 95% CI, 52.0 to 75.6)"
+    },
+    {
+      "scene": 3,
+      "value": "4.1",
+      "source": "PMID 29782217",
+      "quote": "Blood eosinophilia occurred after the start of the intervention in 52 patients (4.1%) who received dupilumab"
+    },
+    {
+      "scene": 3,
+      "value": "0.6",
+      "source": "PMID 29782217",
+      "quote": "as compared with 4 patients (0.6%) who received placebo"
+    }
+  ],
+  "japan": [
+    {
+      "treatment": "メポリズマブ（ヌーカラ）",
+      "status": "approved",
+      "evidence": "PMDA 審査報告書（英語版）：Nucala for S.C. Injection 100 mg、効能 Bronchial asthma (only for patients with refractory asthma whose symptoms cannot be controlled by conventional treatment) https://www.pmda.go.jp/files/000221523.pdf （2026-11-24 に開けることを確認。sources/PMDA-mepolizumab.txt）"
+    },
+    {
+      "treatment": "ベンラリズマブ（ファセンラ）",
+      "status": "approved",
+      "evidence": "PMDA 審査報告書（英語版）：Fasenra Subcutaneous Injection 30 mg Syringe、効能 Bronchial asthma (only for patients with intractable bronchial asthma uncontrolled on conventional therapy) https://www.pmda.go.jp/files/000236124.pdf （2026-11-24 に開けることを確認。sources/PMDA-benralizumab.txt）"
+    },
+    {
+      "treatment": "レスリズマブ（Cochrane レビューに含まれる抗IL-5薬）",
+      "status": "not-approved",
+      "scene": 1,
+      "note": "※メポリズマブ・ベンラリズマブのみ日本で承認",
+      "evidence": "Arca search_medical（global_regulatory：PMDA・厚労省の文書）で国内承認の記録を確認できず（2026-11-24）。確認できないため承認済みとは扱わず、画面に注釈を付けた。動画では製品名を出さない"
+    },
+    {
+      "treatment": "デュピルマブ（デュピクセント）",
+      "status": "approved",
+      "evidence": "PMDA 審議結果報告書・審査報告書：デュピクセント皮下注300mgシリンジ、効能に「気管支喘息（既存治療によっても喘息症状をコントロールできない重症又は難治の患者に限る）」を追加 https://www.pmda.go.jp/drugs/2019/P20190314001/780069000_23000AMX00015_A100_2.pdf （2026-11-24 に開けることを確認。sources/PMDA-dupilumab.txt）"
+    },
+    {
+      "treatment": "テゼペルマブ（テゼスパイア）",
+      "status": "approved",
+      "evidence": "PMDA 審議結果報告書・審査報告書：テゼスパイア皮下注210mgシリンジ、効能「気管支喘息（既存治療によっても喘息症状をコントロールできない重症又は難治の患者に限る）」 https://www.pmda.go.jp/drugs/2022/P20220929001/670227000_30400AMX00402_A100_1.pdf （2026-11-24 に開けることを確認。sources/PMDA-tezepelumab.txt）"
+    }
+  ],
+  "plainNumbers": [
+    {
+      "scene": 1,
+      "value": "5",
+      "reason": "「IL-5」は物質名（インターロイキン5）の一部で、数値データではない"
+    },
+    {
+      "scene": 2,
+      "value": "1",
+      "reason": "「1年あたり」は単位（年間発作率の期間）で、数値データではない"
+    }
+  ],
+  "youtube": {
+    "title": "重症喘息の注射薬で発作は半分に？【30秒でわかるエビデンス】",
+    "summary": "吸入薬を使っても発作が続く重症喘息には、生物学的製剤（注射薬）という選択肢があります。Cochraneレビュー（13試験・6000人）では、抗IL-5系の薬が好酸球性の重症喘息で重い発作をおよそ半分に減らしました（日本で承認されているのはメポリズマブ・ベンラリズマブ）。NAVIGATOR試験ではテゼペルマブで年間の発作が56%減（率比0.44）、QUEST試験ではデュピルマブで重い発作が47.7%減りました。合うかどうかは検査などで判断します。主治医に相談してください。",
+    "tags": [
+      "喘息",
+      "重症喘息",
+      "生物学的製剤",
+      "メポリズマブ",
+      "ベンラリズマブ",
+      "デュピルマブ",
+      "テゼペルマブ"
+    ],
+    "hashtags": [
+      "#喘息",
+      "#重症喘息"
+    ]
+  }
+}

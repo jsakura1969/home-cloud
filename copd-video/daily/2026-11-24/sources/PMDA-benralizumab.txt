@@ -1,0 +1,30 @@
+PMDA review report (English version): Fasenra Subcutaneous Injection 30 mg Syringe (Benralizumab)
+URL: https://www.pmda.go.jp/files/000236124.pdf
+Retrieved: 2026-11-24（Arca search_medical で特定し、PMDA サイトから直接取得、HTTP 200）
+
+--- 該当箇所の抜粋（pdftotext） ---
+Report on the Deliberation Results
+December 5, 2017
+Pharmaceutical Evaluation Division, Pharmaceutical Safety and Environmental Health Bureau
+Ministry of Health, Labour and Welfare
+Brand Name
+Fasenra Subcutaneous Injection 30 mg Syringe
+Non-proprietary Name
+Benralizumab (Genetical Recombination) (JAN*)
+Applicant
+AstraZeneca K.K.
+Date of Application
+February 22, 2017
+Results of Deliberation
+In its meeting held on November 24, 2017, the Second Committee on New Drugs concluded that the
+product may be approved and that this result should be presented to the Pharmaceutical Affairs
+Department of the Pharmaceutical Affairs and Food Sanitation Council.
+The product is classified as a biological product. The re-examination period is 8 years. The drug product
+and its drug substance are both classified as powerful drugs.
+Condition of Approval
+The applicant is required to develop and appropriately implement a risk management plan.
+...
+Indication
+Bronchial asthma (only for patients with intractable bronchial asthma uncontrolled on conventional
+therapy)
+Dosage and Administration
