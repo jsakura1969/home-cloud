@@ -31,6 +31,24 @@ export const ILLUSTRATIONS = {
     <path d="M76 156v22M88 156v22M100 156v22M112 156v22M124 156v22"/>
     <circle class="dot" cx="100" cy="20" r="4"/><circle class="dot" cx="86" cy="14" r="3"/><circle class="dot" cx="114" cy="12" r="3"/>
     <path d="M150 46c10 8 10 22 0 30M164 38c16 14 16 32 0 46"/>`,
+  // 粉を吸うタイプの吸入器（ドライパウダー）：平たい本体＋スライド式カバー（1日1回の3剤配合薬などで使われる形）
+  "inhaler-flat": `
+    <path d="M80 60V42a8 8 0 0 1 8-8h24a8 8 0 0 1 8 8v18"/>
+    <path d="M92 46h16"/>
+    <rect x="32" y="60" width="136" height="124" rx="50"/>
+    <rect x="88" y="80" width="24" height="18" rx="4"/>
+    <path class="soft" d="M32 122h136v12a50 50 0 0 1-50 50H82a50 50 0 0 1-50-50z"/>
+    <path d="M186 104v38M178 134l8 10 8-10"/>
+    <circle class="dot" cx="100" cy="18" r="4"/><circle class="dot" cx="86" cy="12" r="3"/><circle class="dot" cx="114" cy="10" r="3"/>`,
+  // カプセルを入れて吸うタイプの吸入器：本体＋吸い口＋カプセル
+  "inhaler-capsule": `
+    <path class="soft" d="M70 108l12-66a8 8 0 0 1 8-6h20a8 8 0 0 1 8 6l12 66z"/>
+    <rect x="46" y="108" width="108" height="74" rx="24"/>
+    <rect x="68" y="126" width="64" height="30" rx="15"/>
+    <path d="M100 126v30"/>
+    <rect x="154" y="132" width="14" height="24" rx="5"/>
+    <g transform="rotate(-30 40 70)"><rect x="12" y="58" width="56" height="24" rx="12"/><path class="soft" d="M40 58h16a12 12 0 0 1 0 24H40z"/></g>
+    <circle class="dot" cx="100" cy="16" r="4"/><circle class="dot" cx="88" cy="10" r="3"/><circle class="dot" cx="112" cy="8" r="3"/>`,
   // スプレータイプの吸入器（定量噴霧式）：L字の本体＋缶
   "inhaler-mdi": `
     <rect class="soft" x="108" y="18" width="36" height="92" rx="14"/>
