@@ -8,8 +8,8 @@
     "hyperframes lint",
     "layout (no overflow / unexpected wraps)",
     "narration fits every scene",
-    "media: 30s 1080x1920 aac -13.5 LUFS peak -2.9",
+    "media: 30s 1080x1920 aac -13 LUFS peak -1",
     "metadata.json"
   ],
-  "createdAt": "2026-11-24T13:40:48.854Z"
+  "createdAt": "2026-11-24T13:47:31.914Z"
 }
