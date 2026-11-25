@@ -104,8 +104,11 @@
     {
       "id": "cap-burden",
       "title": "肺炎は高齢者の大きな敵",
-      "status": "todo",
-      "hint": "市中肺炎の入院・死亡の疫学（GBD・大規模コホート） 【日本：治療の紹介なし】疫学のみ"
+      "status": "done",
+      "hint": "市中肺炎の入院・死亡の疫学（GBD・大規模コホート） 【日本：治療の紹介なし】疫学のみ",
+      "date": "2026-11-25",
+      "number": 13,
+      "video": "daily/2026-11-25/short.mp4"
     },
     {
       "id": "pneumococcal-vaccine",

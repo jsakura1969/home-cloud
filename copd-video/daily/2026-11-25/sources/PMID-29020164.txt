@@ -1,0 +1,14 @@
+PMID: 29020164
+Title: Adults Hospitalized With Pneumonia in the United States: Incidence, Epidemiology, and Mortality.
+Authors: Ramirez JA, Wiemken TL, Peyrani P, Arnold FW, Kelley R, Mattingly WA, Nakamatsu R, Pena S, Guinn BE, Furmanek SP, Persaud AK, Raghuram A, Fernandez F, Beavin L, Bosson R, Fernandez-Botran R, Cavallazzi R, Bordon J, Valdivieso C, Schulte J, Carrico RM; University of Louisville Pneumonia Study Group
+Journal: Clinical infectious diseases (2017) 65(11):1806-1812
+DOI: 10.1093/cid/cix647
+Retrieved via: PubMed MCP (get_article_metadata), 2026-11-25
+
+BACKGROUND: Understanding the burden of community-acquired pneumonia (CAP) is critical to allocate resources for prevention, management, and research. The objectives of this study were to define incidence, epidemiology, and mortality of adult patients hospitalized with CAP in the city of Louisville, and to estimate burden of CAP in the US adult population.
+
+METHODS: This was a prospective population-based cohort study of adult residents in Louisville, Kentucky, from 1 June 2014 to 31 May 2016. Consecutive hospitalized patients with CAP were enrolled at all adult hospitals in Louisville. The annual population-based CAP incidence was calculated. Geospatial epidemiology was used to define ecological associations among CAP and income level, race, and age. Mortality was evaluated during hospitalization and at 30 days, 6 months, and 1 year after hospitalization.
+
+RESULTS: During the 2-year study, from a Louisville population of 587499 adults, 186384 hospitalizations occurred. A total of 7449 unique patients hospitalized with CAP were documented. The annual age-adjusted incidence was 649 patients hospitalized with CAP per 100000 adults (95% confidence interval, 628.2-669.8), corresponding to 1591825 annual adult CAP hospitalizations in the United States. Clusters of CAP cases were found in areas with low-income and black/African American populations. Mortality during hospitalization was 6.5%, corresponding to 102821 annual deaths in the United States. Mortality at 30 days, 6 months, and 1 year was 13.0%, 23.4%, and 30.6%, respectively.
+
+CONCLUSIONS: The estimated US burden of CAP is substantial, with >1.5 million unique adults being hospitalized annually, 100000 deaths occurring during hospitalization, and approximately 1 of 3 patients hospitalized with CAP dying within 1 year.

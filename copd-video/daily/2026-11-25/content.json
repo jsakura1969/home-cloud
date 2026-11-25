@@ -1,0 +1,149 @@
+{
+  "date": "2026-11-25",
+  "topicId": "cap-burden",
+  "theme": "肺炎は高齢者の大きな敵",
+  "scenes": [
+    {
+      "type": "hook",
+      "kicker": "肺炎の疫学",
+      "title": "肺炎は<br>高齢者の敵",
+      "sub": "どれくらい多く<br>どれくらい重い？"
+    },
+    {
+      "type": "stat",
+      "label": "肺炎などによる死亡（2021年・世界）",
+      "count": 218,
+      "unit": "万人",
+      "sub": "下気道感染症（肺炎・細気管支炎）<br>新型コロナは含まない",
+      "note": "世界の疾病負荷研究（GBD）の推計",
+      "src": "GBD 2021 LRI Collaborators. Lancet Infect Dis 2024｜PMID 38636536"
+    },
+    {
+      "type": "compare",
+      "label": "肺炎で入院した人（1万人あたり/年）",
+      "bars": [
+        { "name": "成人全体", "value": 24.8, "tone": "muted" },
+        { "name": "80歳以上", "value": 164.3, "tone": "accent" }
+      ],
+      "caption": "80歳以上は<b>約6.6倍</b>",
+      "note": "米国の調査（EPIC研究）",
+      "src": "Jain S, et al. N Engl J Med 2015｜PMID 26172429"
+    },
+    {
+      "type": "duo",
+      "label": "肺炎で入院した人の死亡",
+      "cards": [
+        { "name": "入院中", "value": "6.5%", "sub": "退院までに", "tone": "muted" },
+        { "name": "1年以内", "value": "30.6%", "sub": "約3人に1人" }
+      ],
+      "note": "米国の都市の成人7449人の調査",
+      "src": "Ramirez JA, et al. Clin Infect Dis 2017｜PMID 29020164"
+    },
+    {
+      "type": "close",
+      "kicker": "まとめ",
+      "lines": ["高齢ほど", "入院が増える"],
+      "take": "息苦しさや高熱が続くときは<br>早めに受診を",
+      "src": "Jain S, et al. NEJM 2015｜PMID 26172429 ／ Ramirez JA, et al. CID 2017｜PMID 29020164"
+    }
+  ],
+  "narration": [
+    "肺炎は、高齢者にとって大きな病気です。",
+    "肺炎などで、世界で年に約二百十八万人が亡くなっています。",
+    "八十歳以上では、肺炎での入院が成人全体の約六点六倍でした。",
+    "入院した人の約三人に一人が、一年以内に亡くなっていました。",
+    "息苦しさや高熱が続くときは、早めに受診しましょう。"
+  ],
+  "claims": [
+    {
+      "scene": 1,
+      "value": "218",
+      "from": "2·18",
+      "derivation": "2·18 million deaths → 218万人",
+      "source": "PMID 38636536",
+      "quote": "and 2·18 million deaths (1·98-2·36), or 27·7 deaths (25·1-29·9) per 100 000"
+    },
+    {
+      "scene": 1,
+      "value": "2021",
+      "source": "PMID 38636536",
+      "quote": "Globally, in 2021, we estimated 344 million (95% uncertainty interval [UI] 325-364) incident episodes of LRI"
+    },
+    {
+      "scene": 2,
+      "value": "24.8",
+      "source": "PMID 26172429",
+      "quote": "The annual incidence of pneumonia was 24.8 cases (95% confidence interval, 23.5 to 26.1) per 10,000 adults"
+    },
+    {
+      "scene": 2,
+      "value": "164.3",
+      "source": "PMID 26172429",
+      "quote": "and those 80 years of age or older (164.3 cases per 10,000 adults)"
+    },
+    {
+      "scene": 2,
+      "value": "80",
+      "source": "PMID 26172429",
+      "quote": "and those 80 years of age or older (164.3 cases per 10,000 adults)"
+    },
+    {
+      "scene": 2,
+      "value": "6.6",
+      "from": "164.3",
+      "derivation": "164.3 ÷ 24.8（いずれも1万人あたりの年間入院率）≈ 6.6倍",
+      "source": "PMID 26172429",
+      "quote": "and those 80 years of age or older (164.3 cases per 10,000 adults)"
+    },
+    {
+      "scene": 3,
+      "value": "6.5",
+      "source": "PMID 29020164",
+      "quote": "Mortality during hospitalization was 6.5%, corresponding to 102821 annual deaths in the United States."
+    },
+    {
+      "scene": 3,
+      "value": "30.6",
+      "source": "PMID 29020164",
+      "quote": "Mortality at 30 days, 6 months, and 1 year was 13.0%, 23.4%, and 30.6%, respectively."
+    },
+    {
+      "scene": 3,
+      "value": "3",
+      "source": "PMID 29020164",
+      "quote": "approximately 1 of 3 patients hospitalized with CAP dying within 1 year"
+    },
+    {
+      "scene": 3,
+      "value": "1",
+      "source": "PMID 29020164",
+      "quote": "approximately 1 of 3 patients hospitalized with CAP dying within 1 year"
+    },
+    {
+      "scene": 3,
+      "value": "7449",
+      "source": "PMID 29020164",
+      "quote": "A total of 7449 unique patients hospitalized with CAP were documented."
+    }
+  ],
+  "japan": [
+    {
+      "treatment": "なし（治療・薬・ワクチンは紹介しない。疫学のみ）",
+      "status": "not-applicable",
+      "evidence": "動画に治療・薬・ワクチン・機器は登場しない（topics.json の hint「疫学のみ」に従った）。まとめの「早めに受診を」は一般的な受診の勧めで、特定の治療ではない"
+    }
+  ],
+  "plainNumbers": [
+    {
+      "scene": 2,
+      "value": "1",
+      "reason": "「1万人あたり」は率の単位（per 10,000 adults）で、数値データではない"
+    }
+  ],
+  "youtube": {
+    "title": "肺炎は高齢者の大きな敵？入院は80歳以上で約6.6倍【30秒でわかるエビデンス】",
+    "summary": "GBD 2021の推計では、2021年に世界で約218万人が下気道感染症（肺炎・細気管支炎、新型コロナを除く）で亡くなりました。米国のEPIC研究では、肺炎で入院する人は成人全体で1万人あたり年24.8人、80歳以上では164.3人でした。米国ルイビルの調査では、肺炎で入院した人の死亡は入院中6.5%、1年以内30.6%（約3人に1人）でした。息苦しさや高熱が続くときは早めに受診してください。",
+    "tags": ["肺炎", "市中肺炎", "高齢者", "疫学"],
+    "hashtags": ["#肺炎", "#高齢者"]
+  }
+}
