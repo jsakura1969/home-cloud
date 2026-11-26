@@ -1,0 +1,22 @@
+PMID: 20211953
+Title: Efficacy of 23-valent pneumococcal vaccine in preventing pneumonia and improving survival in nursing home residents: double blind, randomised and placebo controlled trial.
+Authors: Maruyama T, Taguchi O, Niederman MS, Morser J, Kobayashi H, Kobayashi T, D'Alessandro-Gabazza C, Nakayama S, Nishikubo K, Noguchi T, Takei Y, Gabazza EC
+Journal: BMJ (Clinical research ed.) (2010) 340:c1004
+DOI: 10.1136/bmj.c1004
+Retrieved via: PubMed MCP (get_article_metadata), 2026-11-26
+
+OBJECTIVE: To determine the efficacy of a 23-valent pneumococcal polysaccharide vaccine in people at high risk of pneumococcal pneumonia.
+
+DESIGN: Prospective, randomised, placebo controlled double blind study.
+
+SETTING: Nursing homes in Japan.
+
+PARTICIPANTS: 1006 nursing home residents.
+
+INTERVENTIONS: Participants were randomly allocated to either 23-valent pneumococcal polysaccharide vaccine (n=502) or placebo (n=504).
+
+MAIN OUTCOME MEASURES: The primary end points were the incidence of all cause pneumonia and pneumococcal pneumonia. Secondary end points were deaths from pneumococcal pneumonia, all cause pneumonia, and other causes.
+
+RESULTS: Pneumonia occurred in 63 (12.5%) participants in the vaccine group and 104 (20.6%) in the placebo group. Pneumococcal pneumonia was diagnosed in 14 (2.8%) participants in the vaccine group and 37 (7.3%) in the placebo group (P<0.001). All cause pneumonia and pneumococcal pneumonia were significantly more frequent in the placebo group than in the vaccine group: incidence per 1000 person years 55 v 91 (P<0.0006) and 12 v 32 (P<0.001), respectively. Death from pneumococcal pneumonia was significantly higher in the placebo group than in the vaccine group (35.1% (13/37) v 0% (0/14), P<0.01). The death rate from all cause pneumonia (vaccine group 20.6% (13/63) v placebo group 25.0% (26/104), P=0.5) and from other causes (vaccine group 17.7% (89/502) v placebo group (80/504) 15.9%, P=0.4) did not differ between the two study groups.
+
+CONCLUSION: The 23-valent pneumococcal polysaccharide vaccine prevented pneumococcal pneumonia and reduced mortality from pneumococcal pneumonia in nursing home residents. Trial registration Japan Medical Association Center for Clinical Trials JMA-IIA00024.

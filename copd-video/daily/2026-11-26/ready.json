@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-26",
+  "topicId": "pneumococcal-vaccine",
+  "number": 14,
+  "checks": [
+    "topic pneumococcal-vaccine",
+    "14 claims verified against 5 source files",
+    "hyperframes lint",
+    "layout (no overflow / unexpected wraps)",
+    "narration fits every scene",
+    "media: 30s 1080x1920 aac -13.5 LUFS peak -1.1",
+    "metadata.json"
+  ],
+  "createdAt": "2026-11-26T13:46:07.754Z"
+}

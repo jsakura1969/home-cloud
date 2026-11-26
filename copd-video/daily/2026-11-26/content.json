@@ -1,0 +1,229 @@
+{
+  "date": "2026-11-26",
+  "topicId": "pneumococcal-vaccine",
+  "theme": "肺炎球菌ワクチン",
+  "scenes": [
+    {
+      "type": "hook",
+      "kicker": "肺炎の予防",
+      "title": "肺炎球菌<br>ワクチン",
+      "sub": "高齢者の肺炎を<br>どこまで防げる？"
+    },
+    {
+      "type": "compare",
+      "label": "ワクチン型の肺炎球菌肺炎（人）",
+      "bars": [
+        {
+          "name": "プラセボ",
+          "value": 90,
+          "tone": "muted"
+        },
+        {
+          "name": "PCV13",
+          "value": 49,
+          "tone": "accent"
+        }
+      ],
+      "caption": "ワクチン型の肺炎が<b>45.6%減</b>",
+      "note": "65歳以上 約8.4万人の試験。原因を問わない肺炎全体では差なし",
+      "src": "Bonten MJ, et al. N Engl J Med 2015｜PMID 25785969"
+    },
+    {
+      "type": "compare",
+      "label": "肺炎球菌肺炎になった人（%）",
+      "bars": [
+        {
+          "name": "プラセボ",
+          "value": 7.3,
+          "tone": "muted"
+        },
+        {
+          "name": "PPSV23",
+          "value": 2.8,
+          "tone": "accent"
+        }
+      ],
+      "caption": "肺炎全体も<b>20.6%→12.5%</b>",
+      "note": "日本の高齢者施設 1006人の試験",
+      "src": "Maruyama T, et al. BMJ 2010｜PMID 20211953"
+    },
+    {
+      "type": "duo",
+      "label": "いまの高齢者の定期接種",
+      "cards": [
+        {
+          "name": "定期接種",
+          "value": "PCV20",
+          "sub": "プレベナー20"
+        },
+        {
+          "name": "定期接種以外",
+          "value": "PPSV23",
+          "sub": "ニューモバックスNP",
+          "tone": "muted"
+        }
+      ],
+      "note": "PCV20は20種類の型に対応。抗体の反応で確かめた試験",
+      "src": "Essink B, et al. Clin Infect Dis 2022｜PMID 34940806 ／ 厚生労働省"
+    },
+    {
+      "type": "close",
+      "kicker": "まとめ",
+      "lines": [
+        "ワクチン型の",
+        "肺炎が減った"
+      ],
+      "take": "接種の時期や種類は<br>かかりつけ医に相談を",
+      "src": "Bonten MJ, et al. NEJM 2015｜PMID 25785969 ／ Maruyama T, et al. BMJ 2010｜PMID 20211953"
+    }
+  ],
+  "narration": [
+    "肺炎球菌ワクチンの効果は？",
+    "八万人超の試験で、ワクチン型の肺炎が四十五点六パーセント減りました。",
+    "日本の高齢者施設でも、肺炎球菌肺炎が減りました。",
+    "いまの定期接種は、二十種類の型に対応するワクチンです。",
+    "接種は、かかりつけ医に相談しましょう。"
+  ],
+  "claims": [
+    {
+      "scene": 1,
+      "value": "90",
+      "source": "PMID 25785969",
+      "quote": "community-acquired pneumonia occurred in 49 persons in the PCV13 group and 90 persons in the placebo group (vaccine efficacy, 45.6%"
+    },
+    {
+      "scene": 1,
+      "value": "49",
+      "source": "PMID 25785969",
+      "quote": "community-acquired pneumonia occurred in 49 persons in the PCV13 group and 90 persons in the placebo group (vaccine efficacy, 45.6%"
+    },
+    {
+      "scene": 1,
+      "value": "13",
+      "source": "PMID 25785969",
+      "quote": "we evaluated the efficacy of 13-valent polysaccharide conjugate vaccine (PCV13)"
+    },
+    {
+      "scene": 1,
+      "value": "45.6",
+      "source": "PMID 25785969",
+      "quote": "community-acquired pneumonia occurred in 49 persons in the PCV13 group and 90 persons in the placebo group (vaccine efficacy, 45.6%"
+    },
+    {
+      "scene": 1,
+      "value": "65",
+      "source": "PMID 25785969",
+      "quote": "In a randomized, double-blind, placebo-controlled trial involving 84,496 adults 65 years of age or older"
+    },
+    {
+      "scene": 1,
+      "value": "8.4",
+      "from": "84,496",
+      "derivation": "84,496人 → 約8.4万人",
+      "source": "PMID 25785969",
+      "quote": "In a randomized, double-blind, placebo-controlled trial involving 84,496 adults 65 years of age or older"
+    },
+    {
+      "scene": 2,
+      "value": "7.3",
+      "source": "PMID 20211953",
+      "quote": "Pneumococcal pneumonia was diagnosed in 14 (2.8%) participants in the vaccine group and 37 (7.3%) in the placebo group (P<0.001)."
+    },
+    {
+      "scene": 2,
+      "value": "2.8",
+      "source": "PMID 20211953",
+      "quote": "Pneumococcal pneumonia was diagnosed in 14 (2.8%) participants in the vaccine group and 37 (7.3%) in the placebo group (P<0.001)."
+    },
+    {
+      "scene": 2,
+      "value": "23",
+      "source": "PMID 20211953",
+      "quote": "Participants were randomly allocated to either 23-valent pneumococcal polysaccharide vaccine (n=502) or placebo (n=504)."
+    },
+    {
+      "scene": 2,
+      "value": "20.6",
+      "source": "PMID 20211953",
+      "quote": "Pneumonia occurred in 63 (12.5%) participants in the vaccine group and 104 (20.6%) in the placebo group."
+    },
+    {
+      "scene": 2,
+      "value": "12.5",
+      "source": "PMID 20211953",
+      "quote": "Pneumonia occurred in 63 (12.5%) participants in the vaccine group and 104 (20.6%) in the placebo group."
+    },
+    {
+      "scene": 2,
+      "value": "1006",
+      "source": "PMID 20211953",
+      "quote": "PARTICIPANTS: 1006 nursing home residents."
+    },
+    {
+      "scene": 3,
+      "value": "20",
+      "source": "PMID 34940806",
+      "quote": "PCV20 induced robust responses to all 20 vaccine serotypes across age groups."
+    },
+    {
+      "scene": 3,
+      "value": "23",
+      "source": "PMID 34940806",
+      "quote": "participants aged ≥60 years also received 1 dose of saline or 23-valent polysaccharide vaccine (PPSV23)"
+    }
+  ],
+  "japan": [
+    {
+      "treatment": "PCV13（プレベナー13水性懸濁注）",
+      "status": "approved",
+      "evidence": "2014年6月20日に高齢者の肺炎球菌感染症予防の効能追加（PMDA 承認品目一覧 平成26年度 https://www.pmda.go.jp/files/000205149.pdf ）。ただし2026年4月以降の高齢者の定期接種は PCV20 のみ（厚労省 https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/kekkaku-kansenshou/yobou-sesshu/vaccine/pneumococcus-senior ）で、厚労省の医療用医薬品供給状況報告（2026-11-26版）にも掲載がない。動画では CAPiTA 試験の根拠としてのみ扱い、現在の選択肢としては出さない"
+    },
+    {
+      "treatment": "PPSV23（ニューモバックスNP）",
+      "status": "approved",
+      "evidence": "国内で販売中（厚労省 医療用医薬品供給状況報告 2026-11-26版に「ニューモバックスＮＰシリンジ」掲載 https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/iryou/kouhatu-iyaku/04_00003.html ）。2026年3月まで高齢者の定期接種ワクチンで、2026年4月以降は定期接種としては使えない（厚労省 https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/kekkaku-kansenshou/yobou-sesshu/vaccine/pneumococcus-senior ）"
+    },
+    {
+      "treatment": "PCV20（プレベナー20水性懸濁注）",
+      "status": "approved",
+      "evidence": "2024年8月28日に高齢者及び肺炎球菌による疾患に罹患するリスクが高いと考えられる者の効能追加（PMDA 承認品目一覧 2024年度 https://www.pmda.go.jp/files/000270227.pdf ）。2026年4月から高齢者の定期接種ワクチン（厚労省 https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/kekkaku-kansenshou/yobou-sesshu/vaccine/pneumococcus-senior ）"
+    }
+  ],
+  "plainNumbers": [
+    {
+      "scene": 3,
+      "value": "20",
+      "reason": "「PCV20」「プレベナー20」は製品名・略称の一部"
+    },
+    {
+      "scene": 3,
+      "value": "23",
+      "reason": "「PPSV23」は製品の略称の一部"
+    },
+    {
+      "scene": 1,
+      "value": "13",
+      "reason": "「PCV13」は製品の略称の一部"
+    },
+    {
+      "scene": 2,
+      "value": "23",
+      "reason": "「PPSV23」は製品の略称の一部"
+    }
+  ],
+  "youtube": {
+    "title": "肺炎球菌ワクチンで肺炎は減る？【30秒でわかるエビデンス】",
+    "summary": "65歳以上の約8.4万人を対象にしたCAPiTA試験では、PCV13でワクチン型の肺炎球菌肺炎が45.6%減りました（原因を問わない肺炎全体では差なし）。日本の高齢者施設1006人の試験では、PPSV23で肺炎球菌肺炎が7.3%から2.8%に減りました。2026年4月から、高齢者の定期接種はPCV20（プレベナー20）になりました。接種の時期や種類はかかりつけ医に相談してください。",
+    "tags": [
+      "肺炎球菌ワクチン",
+      "肺炎",
+      "高齢者",
+      "定期接種",
+      "予防接種"
+    ],
+    "hashtags": [
+      "#肺炎球菌ワクチン",
+      "#肺炎"
+    ]
+  }
+}

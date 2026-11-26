@@ -113,8 +113,11 @@
     {
       "id": "pneumococcal-vaccine",
       "title": "肺炎球菌ワクチン",
-      "status": "todo",
-      "hint": "CAPiTA 試験（PCV13 の高齢者RCT）、PPSV23 のメタ解析、新しい結合型ワクチンの FDA 承認。※日本で承認されているか必ず確認する。未承認の薬を扱う場合は、画面に「日本では承認されていません」（または「○○のみ日本で承認」）の注釈を付ける 【日本：一部未承認・販売終了あり】PCV20（プレベナー20）は高齢者で2024年8月承認、2026年4月から65歳の定期接種が PPSV23 から PCV20 に切替（厚労省 https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/kekkaku-kansenshou/yobou-sesshu/vaccine/pneumococcus-senior ）。PCV15（バクニュバンス、2022年9月承認）、PCV21（キャップバックス、2025年8月承認・任意接種 https://www.msdconnect.jp/capvaxive-approval-announcement ）、PPSV23（ニューモバックスNP）も国内承認。PCV13（プレベナー13）は2024年9月末で販売終了 → 現在使える選択肢として出さない（CAPiTA は背景の根拠にとどめる）。「FDA 承認」ではなく国内承認・定期接種の情報を使う"
+      "status": "done",
+      "hint": "CAPiTA 試験（PCV13 の高齢者RCT）、PPSV23 のメタ解析、新しい結合型ワクチンの FDA 承認。※日本で承認されているか必ず確認する。未承認の薬を扱う場合は、画面に「日本では承認されていません」（または「○○のみ日本で承認」）の注釈を付ける 【日本：一部未承認・販売終了あり】PCV20（プレベナー20）は高齢者で2024年8月承認、2026年4月から65歳の定期接種が PPSV23 から PCV20 に切替（厚労省 https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/kekkaku-kansenshou/yobou-sesshu/vaccine/pneumococcus-senior ）。PCV15（バクニュバンス、2022年9月承認）、PCV21（キャップバックス、2025年8月承認・任意接種 https://www.msdconnect.jp/capvaxive-approval-announcement ）、PPSV23（ニューモバックスNP）も国内承認。PCV13（プレベナー13）は2024年9月末で販売終了 → 現在使える選択肢として出さない（CAPiTA は背景の根拠にとどめる）。「FDA 承認」ではなく国内承認・定期接種の情報を使う",
+      "date": "2026-11-26",
+      "number": 14,
+      "video": "daily/2026-11-26/short.mp4"
     },
     {
       "id": "influenza-vaccine",
