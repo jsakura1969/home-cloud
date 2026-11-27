@@ -1,0 +1,197 @@
+{
+  "date": "2026-11-27",
+  "topicId": "influenza-vaccine",
+  "theme": "インフルエンザワクチン",
+  "scenes": [
+    {
+      "type": "hook",
+      "kicker": "肺の病気と予防",
+      "title": "インフル<br>ワクチン",
+      "sub": "高齢者やCOPDで<br>効果はある？"
+    },
+    {
+      "type": "compare",
+      "label": "インフルエンザになった人（%）",
+      "bars": [
+        {
+          "name": "接種なし",
+          "value": 6,
+          "tone": "muted"
+        },
+        {
+          "name": "ワクチン",
+          "value": 2.4,
+          "tone": "accent"
+        }
+      ],
+      "caption": "高齢者で<b>6%→2.4%</b>と報告",
+      "note": "65歳以上・8試験のまとめ。根拠の確実性は低く、入院・死亡は十分なデータなし",
+      "src": "Demicheli V, et al. Cochrane Database Syst Rev 2018｜PMID 29388197"
+    },
+    {
+      "type": "stat",
+      "label": "COPDの増悪（1人あたり）",
+      "big": "0.37回減",
+      "sub": "不活化ワクチン vs プラセボ",
+      "note": "2試験・180人のまとめ。根拠の質は低い",
+      "src": "Kopsaftis Z, et al. Cochrane Database Syst Rev 2018｜PMID 29943802"
+    },
+    {
+      "type": "compare",
+      "label": "インフルエンザになった人（%）",
+      "bars": [
+        {
+          "name": "標準量",
+          "value": 1.9,
+          "tone": "muted"
+        },
+        {
+          "name": "高用量",
+          "value": 1.4,
+          "tone": "accent"
+        }
+      ],
+      "caption": "高用量で相対的に<b>24.2%</b>少ない",
+      "note": "65歳以上 約3.2万人の海外試験。<br>日本ではエフルエルダ（60歳以上）が承認",
+      "src": "DiazGranados CA, et al. N Engl J Med 2014｜PMID 25119609 ／ PMDA"
+    },
+    {
+      "type": "close",
+      "kicker": "まとめ",
+      "lines": [
+        "インフルや増悪が",
+        "減ったと報告"
+      ],
+      "take": "ただし根拠の質は低め<br>接種はかかりつけ医に相談を",
+      "src": "Demicheli V, et al. Cochrane 2018｜PMID 29388197 ／ Kopsaftis Z, et al. Cochrane 2018｜PMID 29943802"
+    }
+  ],
+  "narration": [
+    "インフルエンザワクチン、肺の病気に効果は？",
+    "高齢者で、六パーセントから二点四パーセントに減ったと報告。",
+    "シーオーピーディーでは、増悪が一人あたり、れいてんさんなな回減少。",
+    "高用量ワクチンは、標準量より二十四点二パーセント少なくなりました。",
+    "接種は、かかりつけ医に相談しましょう。"
+  ],
+  "claims": [
+    {
+      "scene": 1,
+      "value": "6",
+      "source": "PMID 29388197",
+      "quote": "may experience less influenza over a single season compared with placebo, from 6% to 2.4% (risk ratio (RR) 0.42"
+    },
+    {
+      "scene": 1,
+      "value": "2.4",
+      "source": "PMID 29388197",
+      "quote": "may experience less influenza over a single season compared with placebo, from 6% to 2.4% (risk ratio (RR) 0.42"
+    },
+    {
+      "scene": 1,
+      "value": "65",
+      "source": "PMID 29388197",
+      "quote": "The consequences of influenza in the elderly (those age 65 years or older)"
+    },
+    {
+      "scene": 1,
+      "value": "8",
+      "from": "eight",
+      "derivation": "eight RCTs → 8試験",
+      "source": "PMID 29388197",
+      "quote": "We identified eight RCTs (over 5000 participants)"
+    },
+    {
+      "scene": 2,
+      "value": "0.37",
+      "from": "-0.37",
+      "derivation": "mean difference -0.37（1人あたりの増悪回数）→ 0.37回減",
+      "source": "PMID 29943802",
+      "quote": "Inactivated vaccine reduced the total number of exacerbations per vaccinated participant compared with those who received placebo (mean difference (MD) -0.37"
+    },
+    {
+      "scene": 2,
+      "value": "2",
+      "from": "two",
+      "derivation": "two RCTs → 2試験",
+      "source": "PMID 29943802",
+      "quote": "P = 0.006; two RCTs, 180 participants; low quality evidence"
+    },
+    {
+      "scene": 2,
+      "value": "180",
+      "source": "PMID 29943802",
+      "quote": "P = 0.006; two RCTs, 180 participants; low quality evidence"
+    },
+    {
+      "scene": 3,
+      "value": "1.9",
+      "source": "PMID 25119609",
+      "quote": "228 participants in the IIV3-HD group (1.4%) and 301 participants in the IIV3-SD group (1.9%) had laboratory-confirmed influenza"
+    },
+    {
+      "scene": 3,
+      "value": "1.4",
+      "source": "PMID 25119609",
+      "quote": "228 participants in the IIV3-HD group (1.4%) and 301 participants in the IIV3-SD group (1.9%) had laboratory-confirmed influenza"
+    },
+    {
+      "scene": 3,
+      "value": "24.2",
+      "source": "PMID 25119609",
+      "quote": "(relative efficacy, 24.2%; 95% confidence interval [CI], 9.7 to 36.5)"
+    },
+    {
+      "scene": 3,
+      "value": "65",
+      "source": "PMID 25119609",
+      "quote": "in adults 65 years of age or older"
+    },
+    {
+      "scene": 3,
+      "value": "3.2",
+      "from": "31,989",
+      "derivation": "31,989人 → 約3.2万人",
+      "source": "PMID 25119609",
+      "quote": "A total of 31,989 participants were enrolled from 126 research centers in the United States and Canada"
+    }
+  ],
+  "japan": [
+    {
+      "treatment": "インフルエンザHAワクチン（標準量）",
+      "status": "approved",
+      "evidence": "国内承認済みで、65歳以上と60〜64歳の心臓・腎臓・呼吸器の機能に障害がある方の定期接種に使用（厚労省「インフルエンザ（季節性）ワクチン」：定期接種に使用するワクチン「インフルエンザHAワクチンを使用します。」 https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/kenkou/kekkaku-kansenshou/yobou-sesshu/vaccine/influenza/index.html ）。sources/MHLW-influenza.txt"
+    },
+    {
+      "treatment": "高用量インフルエンザHAワクチン（エフルエルダ筋注）",
+      "status": "approved",
+      "evidence": "2024年12月27日承認、効能「インフルエンザの予防」、用法「60歳以上の者に1回、0.7mLを筋肉内接種」（PMDA 審査報告書 https://www.pmda.go.jp/drugs/2024/P20241220002/780069000_30600AMX00298_A100_1.pdf 、承認品目一覧 https://www.pmda.go.jp/files/000270227.pdf 、添付文書 https://www.pmda.go.jp/PmdaSearch/iyakuDetail/780069_631341RG1020_1_01 ）。国内承認品は高用量4価（QIV-HD）で、動画の試験（PMID 25119609）は海外の高用量3価（TIV-HD）。審査報告書は本剤を TIV-HD の経験にもとづき開発したと記載。定期接種で使うかどうかは確認していないため、動画では触れない。sources/PMDA-efluelda.txt"
+    }
+  ],
+  "plainNumbers": [
+    {
+      "scene": 3,
+      "value": "60",
+      "reason": "エフルエルダの国内承認の対象年齢（PMDA 添付文書・審査報告書「60歳以上の者に1回」、sources/PMDA-efluelda.txt）"
+    },
+    {
+      "scene": 2,
+      "value": "1",
+      "reason": "「1人あたり」の単位（数値データではない）"
+    }
+  ],
+  "youtube": {
+    "title": "インフルエンザワクチンは肺の病気に効く？【30秒でわかるエビデンス】",
+    "summary": "Cochraneレビューでは、65歳以上でワクチンを打つとインフルエンザが6%から2.4%に減ったと報告されています（根拠の確実性は低い）。COPDでは、不活化ワクチンで増悪が1人あたり0.37回減りました（2試験・180人、根拠の質は低い）。65歳以上の約3.2万人の海外試験では、高用量ワクチンで標準量より相対的に24.2%少なくなりました。日本では高用量のエフルエルダが60歳以上で承認されています。接種はかかりつけ医に相談してください。",
+    "tags": [
+      "インフルエンザワクチン",
+      "インフルエンザ",
+      "COPD",
+      "高齢者",
+      "予防接種"
+    ],
+    "hashtags": [
+      "#インフルエンザ",
+      "#COPD"
+    ]
+  }
+}

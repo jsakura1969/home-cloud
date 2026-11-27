@@ -1,0 +1,15 @@
+{
+  "date": "2026-11-27",
+  "topicId": "influenza-vaccine",
+  "number": 15,
+  "checks": [
+    "topic influenza-vaccine",
+    "12 claims verified against 5 source files",
+    "hyperframes lint",
+    "layout (no overflow / unexpected wraps)",
+    "narration fits every scene",
+    "media: 30s 1080x1920 aac -13.6 LUFS peak -1",
+    "metadata.json"
+  ],
+  "createdAt": "2026-11-27T13:45:50.687Z"
+}

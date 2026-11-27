@@ -1,0 +1,13 @@
+PMID: 25119609
+Title: Efficacy of high-dose versus standard-dose influenza vaccine in older adults.
+Authors: DiazGranados CA, Dunning AJ, Kimmel M, Kirby D, Treanor J, Collins A, Pollak R, Christoff J, Earl J, Landolfi V, Martin E, Gurunathan S, Nathan R, Greenberg DP, Tornieporth NG, Decker MD, Talbot HK
+Journal: The New England journal of medicine (2014) 371(7):635-45
+DOI: 10.1056/NEJMoa1315727
+Retrieved: 2026-11-27 via PubMed MCP (get_article_metadata)
+
+Abstract:
+BACKGROUND: As compared with a standard-dose vaccine, a high-dose, trivalent, inactivated influenza vaccine (IIV3-HD) improves antibody responses to influenza among adults 65 years of age or older. This study evaluated whether IIV3-HD also improves protection against laboratory-confirmed influenza illness.
+
+METHODS: We conducted a phase IIIb-IV, multicenter, randomized, double-blind, active-controlled trial to compare IIV3-HD (60 μg of hemagglutinin per strain) with standard-dose trivalent, inactivated influenza vaccine (IIV3-SD [15 μg of hemagglutinin per strain]) in adults 65 years of age or older. Assessments of relative efficacy, effectiveness, safety (serious adverse events), and immunogenicity (hemagglutination-inhibition [HAI] titers) were performed during the 2011-2012 (year 1) and the 2012-2013 (year 2) northern-hemisphere influenza seasons.
+
+RESULTS: A total of 31,989 participants were enrolled from 126 research centers in the United States and Canada (15,991 were randomly assigned to receive IIV3-HD, and 15,998 to receive IIV3-SD). In the intention-to-treat analysis, 228 participants in the IIV3-HD group (1.4%) and 301 participants in the IIV3-SD group (1.9%) had laboratory-confirmed influenza caused by any viral type or subtype associated with a protocol-defined influenza-like illness (relative efficacy, 24.2%; 95% confidence interval [CI], 9.7 to 36.5). At least one serious adverse event during the safety surveillance period was reported by 1323 (8.3%) of the participants in the IIV3-HD group, as compared with 1442 (9.0%) of the participants in the IIV3-SD group (relative risk, 0.92; 95% CI, 0.85 to 0.99). After vaccination, HAI titers and seroprotection rates (the percentage of participants with HAI titers ≥ 1:40) were significantly higher in the IIV3-HD group. Conclusions: Among persons 65 years of age or older, IIV3-HD induced significantly higher antibody responses and provided better protection against laboratory-confirmed influenza illness than did IIV3-SD. (Funded by Sanofi Pasteur; ClinicalTrials.gov number, NCT01427309.).
